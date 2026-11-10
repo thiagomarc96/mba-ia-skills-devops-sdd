@@ -1,0 +1,8 @@
+{
+  "arquivo": "manifests/nyx-api.yaml",
+  "codigo": 0,
+  "resultado": {
+    "escopo": "verificação estática parcial; não equivale a conformidade integral",
+    "achados": []
+  }
+}

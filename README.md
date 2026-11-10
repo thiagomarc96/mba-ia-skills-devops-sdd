@@ -11,4 +11,4 @@ Skills e ferramentas para os quatro tickets da Metacortex.
 
 Cada pasta reúne instruções de uso, artefatos e curadoria. Os projetos incluem especificações e testes unitários.
 
-Validação local: 33 testes unitários. Execuções em SSH/cluster, Trivy e medições das skills não realizadas.
+Validação local: 35 testes unitários. Exemplos reproduzíveis nas pastas dos tickets.

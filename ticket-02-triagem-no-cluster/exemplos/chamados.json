@@ -1,0 +1,46 @@
+[
+  {
+    "namespace": "nyx-prod",
+    "sintoma": "API reinicia",
+    "dados": {
+      "pod": {"phase": "Running", "reinicios": 17, "ultima_terminacao": "OOMKilled", "exitCode": 137, "estado": "CrashLoopBackOff", "limite_memoria": "24Mi"},
+      "eventos": ["Back-off restarting failed container api"],
+      "postgres": {"pronto": true, "reinicios": 0}
+    },
+    "analise": {
+      "causa": "Container da API encerrado por falta de memória",
+      "evidencias": ["OOMKilled e código 137", "limite de memória de 24Mi", "PostgreSQL pronto sem reinícios"],
+      "proxima_acao": "Medir consumo e revisar limites da API; não alterar o cluster durante a triagem"
+    }
+  },
+  {
+    "namespace": "orion-stg",
+    "sintoma": "Loja indisponível após publicação",
+    "dados": {
+      "deployment": {"prontos": 0, "desejados": 3, "imagem": "fabricioveronez/fake-shop:v1.14.2"},
+      "pod": {"estado": "ImagePullBackOff"},
+      "eventos": ["Failed to pull image: manifest unknown"],
+      "postgres": {"pronto": true}
+    },
+    "analise": {
+      "causa": "Registry não encontra o manifesto da referência de imagem solicitada",
+      "evidencias": ["ImagePullBackOff", "evento manifest unknown para a imagem anunciada", "banco permanece pronto"],
+      "proxima_acao": "Conferir referência publicada pelo Loom e existência do artefato; não trocar a imagem por iniciativa própria"
+    }
+  },
+  {
+    "namespace": "nyx-stg",
+    "sintoma": "Service não entrega tráfego",
+    "dados": {
+      "service": {"selector": {"app": "nyx-api"}},
+      "pods": [{"labels": {"app": "nyxapi"}, "pronto": true, "reinicios": 0}],
+      "endpointslices": [],
+      "postgres": {"pronto": true}
+    },
+    "analise": {
+      "causa": "Selector do Service não corresponde aos labels dos pods",
+      "evidencias": ["Service usa nyx-api; pod usa nyxapi", "pods prontos", "nenhum destino em EndpointSlice"],
+      "proxima_acao": "Propor alinhamento do selector e dos labels em revisão, sem aplicar correção durante a triagem"
+    }
+  }
+]

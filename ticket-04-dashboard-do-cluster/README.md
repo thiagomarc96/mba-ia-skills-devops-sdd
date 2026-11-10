@@ -29,4 +29,12 @@ Comandos fixos: `kubectl config current-context` e `kubectl --context CONTEXTO g
 python -m unittest -v
 ```
 
-Testes unitários com dados sintéticos, sem conexão ao cluster. As validações de integração e o arquivamento estão nas tarefas abertas.
+## Exemplos
+
+```sh
+python simular.py
+# Abra http://127.0.0.1:8089
+python simular.py --gerar-exemplos
+```
+
+Os namespaces representam oito cenários: kube-news e fake-shop prontos; CrashLoopBackOff/OOMKilled; ImagePullBackOff; Service sem endpoint; acesso parcial; credencial expirada; cluster indisponível. Entradas e respostas do backend estão em [exemplos/fixtures](exemplos/fixtures/).

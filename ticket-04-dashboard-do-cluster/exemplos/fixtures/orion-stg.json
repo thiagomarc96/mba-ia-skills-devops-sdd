@@ -1,0 +1,299 @@
+{
+  "tipo": "exemplo",
+  "cenario": "fake-shop em ImagePullBackOff",
+  "http_status": 200,
+  "entrada_sintetica": {
+    "namespaces": [],
+    "pods": [
+      {
+        "metadata": {
+          "name": "orion-web-simulado",
+          "namespace": "orion-stg",
+          "labels": {
+            "app": "orion-web",
+            "produto": "fake-shop"
+          }
+        },
+        "spec": {
+          "containers": [
+            {
+              "name": "orion-web",
+              "image": "fabricioveronez/fake-shop:v1.14.2",
+              "ports": [
+                {
+                  "containerPort": 5000
+                }
+              ]
+            }
+          ]
+        },
+        "status": {
+          "phase": "Pending",
+          "conditions": [
+            {
+              "type": "Ready",
+              "status": "False"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "name": "orion-web",
+              "ready": false,
+              "restartCount": 0,
+              "state": {
+                "waiting": {
+                  "reason": "ImagePullBackOff"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "metadata": {
+          "name": "orion-postgres-simulado",
+          "namespace": "orion-stg",
+          "labels": {
+            "app": "orion-postgres",
+            "produto": "fake-shop"
+          }
+        },
+        "spec": {
+          "containers": [
+            {
+              "name": "orion-postgres",
+              "image": "postgres:16-alpine",
+              "ports": [
+                {
+                  "containerPort": 5432
+                }
+              ]
+            }
+          ]
+        },
+        "status": {
+          "phase": "Running",
+          "conditions": [
+            {
+              "type": "Ready",
+              "status": "True"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "name": "orion-postgres",
+              "ready": true,
+              "restartCount": 0,
+              "state": {
+                "running": {}
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "deployments": [
+      {
+        "metadata": {
+          "name": "orion-web",
+          "namespace": "orion-stg"
+        },
+        "spec": {
+          "replicas": 3
+        },
+        "status": {}
+      },
+      {
+        "metadata": {
+          "name": "orion-postgres",
+          "namespace": "orion-stg"
+        },
+        "spec": {
+          "replicas": 1
+        },
+        "status": {
+          "readyReplicas": 1
+        }
+      }
+    ],
+    "services": [
+      {
+        "metadata": {
+          "name": "orion-web",
+          "namespace": "orion-stg"
+        },
+        "spec": {
+          "type": "ClusterIP",
+          "selector": {
+            "app": "orion-web"
+          },
+          "ports": [
+            {
+              "port": 5000,
+              "targetPort": 5000
+            }
+          ]
+        }
+      },
+      {
+        "metadata": {
+          "name": "orion-postgres",
+          "namespace": "orion-stg"
+        },
+        "spec": {
+          "type": "ClusterIP",
+          "selector": {
+            "app": "orion-postgres"
+          },
+          "ports": [
+            {
+              "port": 5432,
+              "targetPort": 5432
+            }
+          ]
+        }
+      }
+    ],
+    "endpointslices.discovery.k8s.io": [
+      {
+        "metadata": {
+          "name": "orion-web-slice",
+          "namespace": "orion-stg",
+          "labels": {
+            "kubernetes.io/service-name": "orion-web"
+          }
+        },
+        "addressType": "IPv4",
+        "endpoints": []
+      },
+      {
+        "metadata": {
+          "name": "orion-postgres-slice",
+          "namespace": "orion-stg",
+          "labels": {
+            "kubernetes.io/service-name": "orion-postgres"
+          }
+        },
+        "addressType": "IPv4",
+        "endpoints": [
+          {
+            "addresses": [
+              "10.244.0.11"
+            ],
+            "conditions": {
+              "ready": true
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "metadata": {
+          "name": "orion-web.simulado",
+          "namespace": "orion-stg"
+        },
+        "involvedObject": {
+          "kind": "Pod",
+          "name": "orion-web-simulado"
+        },
+        "type": "Warning",
+        "reason": "Failed",
+        "message": "Evento sintético: fake-shop em ImagePullBackOff",
+        "lastTimestamp": "2026-11-10T12:00:00Z"
+      }
+    ]
+  },
+  "consultas": [
+    {
+      "recurso": "namespaces",
+      "namespace": null
+    },
+    {
+      "recurso": "pods",
+      "namespace": "orion-stg"
+    },
+    {
+      "recurso": "deployments",
+      "namespace": "orion-stg"
+    },
+    {
+      "recurso": "services",
+      "namespace": "orion-stg"
+    },
+    {
+      "recurso": "endpointslices.discovery.k8s.io",
+      "namespace": "orion-stg"
+    },
+    {
+      "recurso": "events",
+      "namespace": "orion-stg"
+    }
+  ],
+  "resposta": {
+    "contexto": "laboratorio-exemplo",
+    "namespace": "orion-stg",
+    "simulado": true,
+    "coletado_em": "2026-11-10T18:03:45.186872+00:00",
+    "erros": {},
+    "namespaces": [
+      "acesso-parcial",
+      "cluster-indisponivel",
+      "credencial-expirada",
+      "nyx-dev",
+      "nyx-prod",
+      "nyx-stg",
+      "orion-dev",
+      "orion-stg"
+    ],
+    "pods": [
+      {
+        "nome": "orion-web-simulado",
+        "fase": "Pending",
+        "pronto": false,
+        "reinicios": 0,
+        "motivo": "ImagePullBackOff"
+      },
+      {
+        "nome": "orion-postgres-simulado",
+        "fase": "Running",
+        "pronto": true,
+        "reinicios": 0,
+        "motivo": "—"
+      }
+    ],
+    "deployments": [
+      {
+        "nome": "orion-web",
+        "prontos": 0,
+        "desejados": 3
+      },
+      {
+        "nome": "orion-postgres",
+        "prontos": 1,
+        "desejados": 1
+      }
+    ],
+    "services": [
+      {
+        "nome": "orion-web",
+        "tipo": "ClusterIP",
+        "endpoints": "Sem endpoint pronto"
+      },
+      {
+        "nome": "orion-postgres",
+        "tipo": "ClusterIP",
+        "endpoints": "1 endereço(s) pronto(s)"
+      }
+    ],
+    "events": [
+      {
+        "nome": "orion-web-simulado",
+        "tipo": "Warning",
+        "motivo": "Failed",
+        "mensagem": "Evento sintético: fake-shop em ImagePullBackOff",
+        "quando": "2026-11-10T12:00:00Z"
+      }
+    ]
+  }
+}

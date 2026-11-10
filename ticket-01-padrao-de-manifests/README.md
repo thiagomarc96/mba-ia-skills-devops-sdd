@@ -42,4 +42,6 @@ Leitura do enunciado, não saída de execução da skill:
 - `DATABASE_URL` não corresponde às variáveis lidas pelo código consultado.
 - Namespace `nyx-prod` e registry interno atendem ao formato. Dono, runbook e service account dedicada não foram informados.
 
-Execuções em cluster e Trivy não realizadas.
+## Exemplos
+
+`python gerar_exemplos.py` produz [conferência](exemplos/conferencia.json) do [manifesto barrado](exemplos/manifesto-barrado.yaml) e [verificação da escrita](exemplos/escrita.json).

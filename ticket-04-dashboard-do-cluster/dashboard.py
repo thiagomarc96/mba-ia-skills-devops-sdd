@@ -148,6 +148,7 @@ def snapshot(client, namespace):
                                  or event.get('lastTimestamp') or event.get('eventTime')
                                  or meta.get('creationTimestamp') or ''})
     return {'contexto': client.context, 'namespace': namespace,
+            'simulado': bool(getattr(client, 'simulado', False)),
             'coletado_em': datetime.now(timezone.utc).isoformat(), 'erros': errors,
             'namespaces': sorted((n.get('metadata') or {}).get('name', '') for n in items('namespaces')),
             'pods': [pod_row(p) for p in items('pods')], 'deployments': deployments,
