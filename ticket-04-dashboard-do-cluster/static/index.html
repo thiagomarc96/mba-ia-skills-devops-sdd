@@ -1,0 +1,5 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard do cluster</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body><main><h1>Dashboard do cluster</h1><p>Somente leitura. Estado informado pelo Kubernetes não comprova saúde funcional.</p>
+<p id="contexto">Carregando contexto…</p><form id="filtros"><label>Namespace <input id="namespace" list="namespaces" value="default" required pattern="[a-z0-9][a-z0-9-]*" maxlength="63"></label><datalist id="namespaces"></datalist><label>Buscar por nome <input id="busca" type="search"></label><button id="atualizar" type="submit">Atualizar</button></form>
+<p id="status" role="status" aria-live="polite"></p><div id="conteudo"></div></main></body></html>
