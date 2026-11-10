@@ -22,4 +22,6 @@ A chave é recebida por caminho, nunca por conteúdo. JSON e Markdown são grava
 
 ## Validação
 
-Testes unitários usam dados sintéticos e subprocessos substituídos. Execução SSH, relatórios de host real e repetição remota não realizados.
+Gere os exemplos com `python gerar_exemplos.py`: [conforme](exemplos/conforme.md), [desvio](exemplos/desvio.md), [parcial](exemplos/parcial.md), [host inacessível](exemplos/host-inacessivel.md) e [repetição](exemplos/repeticao.md). Cada cenário inclui JSON, Markdown e código de saída.
+
+O gerador usa a [fixture de inventário](fixtures/inventario.json). A repetição altera apenas o instante da coleta. Testes: `python -m unittest -v`.

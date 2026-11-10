@@ -35,4 +35,8 @@ As permissões devem combinar modo não-destrutivo e credencial de leitura com g
 
 Casos selecionados: revisão do manifesto barrado e triagem do Service sem endpoint. Comparar a mesma entrada/modelo/configuração, em sessões limpas, com e sem skill. Registrar saída, acerto causal/cobertura de regras, ferramentas acionadas, duração e uso/custo retornado pelo provedor. Custo indisponível deve permanecer indisponível, não estimado como medido.
 
-Roteamento e comparação acima são critérios de avaliação, não resultados de execução. As saídas reais dos três chamados e as medições não foram produzidas.
+## Exemplos e avaliação
+
+[Chamados](exemplos/chamados.json): dados e análise dos três cenários.
+
+`python avaliar_codex.py` executa cada frase em uma sessão independente e compara dois chamados com/sem o texto da skill. Registra respostas, tempo e uso retornado pelo Codex em `exemplos/`; requer Codex autenticado e acesso ao serviço. Custo monetário permanece nulo quando não fornecido.

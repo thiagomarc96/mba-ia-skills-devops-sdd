@@ -1,0 +1,109 @@
+{
+  "arquivo": "exemplos/manifesto-barrado.yaml",
+  "codigo": 1,
+  "resultado": {
+    "escopo": "verificação estática parcial; não equivale a conformidade integral",
+    "achados": [
+      {
+        "objeto": "NyxAPI",
+        "regra": "1.1",
+        "mensagem": "Nome fora de kebab-case"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "1.3",
+        "mensagem": "Label obrigatória ausente: name"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "1.3",
+        "mensagem": "Label obrigatória ausente: instance"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "1.3",
+        "mensagem": "Label obrigatória ausente: part-of"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "1.3",
+        "mensagem": "Label obrigatória ausente: managed-by"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "1.3",
+        "mensagem": "managed-by fora dos valores permitidos"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "1.3",
+        "mensagem": "instance não corresponde à instalação"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "1.3",
+        "mensagem": "part-of não corresponde ao cliente"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "2.3",
+        "mensagem": "Produção exige ao menos duas réplicas"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "2.4",
+        "mensagem": "Produção exige RollingUpdate com maxUnavailable 0 e maxSurge 1"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "3.1",
+        "mensagem": "Imagem sem versão explícita ou com latest"
+      },
+      {
+        "objeto": "NyxAPI",
+        "regra": "3.3",
+        "mensagem": "Variável potencialmente sensível usa valor direto; usar secretKeyRef"
+      },
+      {
+        "objeto": "nyx-api",
+        "regra": "1.3",
+        "mensagem": "Label obrigatória ausente: name"
+      },
+      {
+        "objeto": "nyx-api",
+        "regra": "1.3",
+        "mensagem": "Label obrigatória ausente: instance"
+      },
+      {
+        "objeto": "nyx-api",
+        "regra": "1.3",
+        "mensagem": "Label obrigatória ausente: part-of"
+      },
+      {
+        "objeto": "nyx-api",
+        "regra": "1.3",
+        "mensagem": "Label obrigatória ausente: managed-by"
+      },
+      {
+        "objeto": "nyx-api",
+        "regra": "1.3",
+        "mensagem": "managed-by fora dos valores permitidos"
+      },
+      {
+        "objeto": "nyx-api",
+        "regra": "1.3",
+        "mensagem": "instance não corresponde à instalação"
+      },
+      {
+        "objeto": "nyx-api",
+        "regra": "1.3",
+        "mensagem": "part-of não corresponde ao cliente"
+      },
+      {
+        "objeto": "nyx-api",
+        "regra": "1.4",
+        "mensagem": "Nenhum template fornecido corresponde ao Service; destino externo não verificado"
+      }
+    ]
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "tipo": "exemplo",
+  "cenario": "kube-news pronto, Service sem endpoint",
+  "http_status": 200,
+  "entrada_sintetica": {
+    "namespaces": [],
+    "pods": [
+      {
+        "metadata": {
+          "name": "nyx-api-simulado",
+          "namespace": "nyx-stg",
+          "labels": {
+            "app": "nyxapi",
+            "produto": "kube-news"
+          }
+        },
+        "spec": {
+          "containers": [
+            {
+              "name": "nyx-api",
+              "image": "fabricioveronez/kube-news:v1",
+              "ports": [
+                {
+                  "containerPort": 8080
+                }
+              ]
+            }
+          ]
+        },
+        "status": {
+          "phase": "Running",
+          "conditions": [
+            {
+              "type": "Ready",
+              "status": "True"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "name": "nyx-api",
+              "ready": true,
+              "restartCount": 0,
+              "state": {
+                "running": {}
+              }
+            }
+          ]
+        }
+      },
+      {
+        "metadata": {
+          "name": "nyx-postgres-simulado",
+          "namespace": "nyx-stg",
+          "labels": {
+            "app": "nyx-postgres",
+            "produto": "kube-news"
+          }
+        },
+        "spec": {
+          "containers": [
+            {
+              "name": "nyx-postgres",
+              "image": "postgres:16-alpine",
+              "ports": [
+                {
+                  "containerPort": 5432
+                }
+              ]
+            }
+          ]
+        },
+        "status": {
+          "phase": "Running",
+          "conditions": [
+            {
+              "type": "Ready",
+              "status": "True"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "name": "nyx-postgres",
+              "ready": true,
+              "restartCount": 0,
+              "state": {
+                "running": {}
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "deployments": [
+      {
+        "metadata": {
+          "name": "nyx-api",
+          "namespace": "nyx-stg"
+        },
+        "spec": {
+          "replicas": 1
+        },
+        "status": {
+          "readyReplicas": 1
+        }
+      },
+      {
+        "metadata": {
+          "name": "nyx-postgres",
+          "namespace": "nyx-stg"
+        },
+        "spec": {
+          "replicas": 1
+        },
+        "status": {
+          "readyReplicas": 1
+        }
+      }
+    ],
+    "services": [
+      {
+        "metadata": {
+          "name": "nyx-api",
+          "namespace": "nyx-stg"
+        },
+        "spec": {
+          "type": "ClusterIP",
+          "selector": {
+            "app": "nyx-api"
+          },
+          "ports": [
+            {
+              "port": 8080,
+              "targetPort": 8080
+            }
+          ]
+        }
+      },
+      {
+        "metadata": {
+          "name": "nyx-postgres",
+          "namespace": "nyx-stg"
+        },
+        "spec": {
+          "type": "ClusterIP",
+          "selector": {
+            "app": "nyx-postgres"
+          },
+          "ports": [
+            {
+              "port": 5432,
+              "targetPort": 5432
+            }
+          ]
+        }
+      }
+    ],
+    "endpointslices.discovery.k8s.io": [
+      {
+        "metadata": {
+          "name": "nyx-api-slice",
+          "namespace": "nyx-stg",
+          "labels": {
+            "kubernetes.io/service-name": "nyx-api"
+          }
+        },
+        "addressType": "IPv4"
+      },
+      {
+        "metadata": {
+          "name": "nyx-postgres-slice",
+          "namespace": "nyx-stg",
+          "labels": {
+            "kubernetes.io/service-name": "nyx-postgres"
+          }
+        },
+        "addressType": "IPv4",
+        "endpoints": [
+          {
+            "addresses": [
+              "10.244.0.11"
+            ],
+            "conditions": {
+              "ready": true
+            }
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "metadata": {
+          "name": "nyx-api.simulado",
+          "namespace": "nyx-stg"
+        },
+        "involvedObject": {
+          "kind": "Pod",
+          "name": "nyx-api-simulado"
+        },
+        "type": "Warning",
+        "reason": "SemEndpoint",
+        "message": "Evento sintético: kube-news pronto, Service sem endpoint",
+        "lastTimestamp": "2026-11-10T12:00:00Z"
+      }
+    ]
+  },
+  "consultas": [
+    {
+      "recurso": "namespaces",
+      "namespace": null
+    },
+    {
+      "recurso": "pods",
+      "namespace": "nyx-stg"
+    },
+    {
+      "recurso": "deployments",
+      "namespace": "nyx-stg"
+    },
+    {
+      "recurso": "services",
+      "namespace": "nyx-stg"
+    },
+    {
+      "recurso": "endpointslices.discovery.k8s.io",
+      "namespace": "nyx-stg"
+    },
+    {
+      "recurso": "events",
+      "namespace": "nyx-stg"
+    }
+  ],
+  "resposta": {
+    "contexto": "laboratorio-exemplo",
+    "namespace": "nyx-stg",
+    "simulado": true,
+    "coletado_em": "2026-11-10T18:03:45.188640+00:00",
+    "erros": {},
+    "namespaces": [
+      "acesso-parcial",
+      "cluster-indisponivel",
+      "credencial-expirada",
+      "nyx-dev",
+      "nyx-prod",
+      "nyx-stg",
+      "orion-dev",
+      "orion-stg"
+    ],
+    "pods": [
+      {
+        "nome": "nyx-api-simulado",
+        "fase": "Running",
+        "pronto": true,
+        "reinicios": 0,
+        "motivo": "—"
+      },
+      {
+        "nome": "nyx-postgres-simulado",
+        "fase": "Running",
+        "pronto": true,
+        "reinicios": 0,
+        "motivo": "—"
+      }
+    ],
+    "deployments": [
+      {
+        "nome": "nyx-api",
+        "prontos": 1,
+        "desejados": 1
+      },
+      {
+        "nome": "nyx-postgres",
+        "prontos": 1,
+        "desejados": 1
+      }
+    ],
+    "services": [
+      {
+        "nome": "nyx-api",
+        "tipo": "ClusterIP",
+        "endpoints": "Sem endpoint pronto"
+      },
+      {
+        "nome": "nyx-postgres",
+        "tipo": "ClusterIP",
+        "endpoints": "1 endereço(s) pronto(s)"
+      }
+    ],
+    "events": [
+      {
+        "nome": "nyx-api-simulado",
+        "tipo": "Warning",
+        "motivo": "SemEndpoint",
+        "mensagem": "Evento sintético: kube-news pronto, Service sem endpoint",
+        "quando": "2026-11-10T12:00:00Z"
+      }
+    ]
+  }
+}

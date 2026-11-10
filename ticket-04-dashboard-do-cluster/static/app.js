@@ -35,7 +35,7 @@ async function atualizar(event) {
     const response = await fetch('/api/estado?namespace=' + encodeURIComponent(el('namespace').value));
     if(!response.ok) throw new Error('Não foi possível obter o estado. Confira o namespace e tente novamente.');
     dados = await response.json();
-    el('contexto').textContent = 'Contexto fixado ao iniciar: ' + (dados.contexto || 'indisponível');
+    el('contexto').textContent = (dados.simulado ? 'EXEMPLO — ' : '') + 'Contexto fixado ao iniciar: ' + (dados.contexto || 'indisponível');
     el('namespaces').replaceChildren(...dados.namespaces.map(n => {const option=document.createElement('option'); option.value=n; return option;}));
     const avisos = Object.entries(dados.erros).map(([k,v]) => k + ': ' + v);
     el('status').textContent = 'Consulta: ' + dados.coletado_em + (avisos.length ? '. ' + avisos.join(' ') : '. Atualize para consultar novamente.'); render();

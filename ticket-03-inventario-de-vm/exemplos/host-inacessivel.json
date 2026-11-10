@@ -1,0 +1,7 @@
+{
+  "origem": "fixture",
+  "cenario": "host_inacessivel",
+  "codigo_saida": 3,
+  "erro": "Erro: serviço SSH recusou a conexão",
+  "relatorio_conformidade": null
+}

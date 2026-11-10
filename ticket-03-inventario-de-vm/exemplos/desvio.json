@@ -1,0 +1,204 @@
+{
+  "origem": "fixture",
+  "host": {
+    "endereco": "192.0.2.10",
+    "hostname": "vm-exemplo",
+    "coletado_em": "2026-11-10T12:00:00Z"
+  },
+  "inventario": {
+    "so": {
+      "distribuicao": "ubuntu",
+      "versao": "24.04"
+    },
+    "kernel": {
+      "versao": "5.15.0-118-generic"
+    },
+    "servicos": [
+      {
+        "nome": "ssh.service",
+        "tipo": "service",
+        "estado": "active"
+      },
+      {
+        "nome": "containerd.service",
+        "tipo": "service",
+        "estado": "active"
+      },
+      {
+        "nome": "node_exporter.service",
+        "tipo": "service",
+        "estado": "active"
+      }
+    ],
+    "swap": {
+      "habilitado": true,
+      "tamanho": 4294967296,
+      "unidade": "bytes"
+    },
+    "portas_em_escuta": [
+      {
+        "porta": 22,
+        "bind": "0.0.0.0",
+        "processo": "sshd",
+        "protocolo": "tcp"
+      },
+      {
+        "porta": 9100,
+        "bind": "0.0.0.0",
+        "processo": "node_exporter",
+        "protocolo": "tcp"
+      }
+    ],
+    "chaves_ssh": [
+      {
+        "usuario": "operador",
+        "identificacao": "operador@metacortex-platform"
+      }
+    ],
+    "quantidade_chaves_ssh": 1,
+    "cobertura_chaves_ssh": "completa_para_contas_enumeradas_e_conexao_atual",
+    "ssh": {
+      "login_de_root": false,
+      "politica": "no",
+      "escopo": "conexao_atual"
+    },
+    "ntp": {
+      "sincronizado": false,
+      "mecanismo": "não identificado"
+    }
+  },
+  "erros": {},
+  "baseline": 1,
+  "conformidade": [
+    {
+      "regra": "so.distribuicao",
+      "esperado": "ubuntu",
+      "encontrado": "ubuntu",
+      "veredito": "conforme"
+    },
+    {
+      "regra": "so.versao_minima",
+      "esperado": "22.04",
+      "encontrado": "24.04",
+      "veredito": "conforme"
+    },
+    {
+      "regra": "kernel.versao_minima",
+      "esperado": "6.5",
+      "encontrado": "5.15.0-118-generic",
+      "veredito": "desvio",
+      "severidade": "medio"
+    },
+    {
+      "regra": "servicos.ativos",
+      "esperado": [
+        "ssh",
+        "containerd",
+        "node_exporter",
+        "chrony"
+      ],
+      "encontrado": [
+        "containerd.service",
+        "node_exporter.service",
+        "ssh.service"
+      ],
+      "veredito": "desvio",
+      "severidade": "alto"
+    },
+    {
+      "regra": "servicos.proibidos",
+      "esperado": [
+        "telnet.socket",
+        "rpcbind.socket"
+      ],
+      "encontrado": [
+        "containerd.service",
+        "node_exporter.service",
+        "ssh.service"
+      ],
+      "veredito": "conforme"
+    },
+    {
+      "regra": "swap.habilitado",
+      "esperado": false,
+      "encontrado": true,
+      "veredito": "desvio",
+      "severidade": "critico"
+    },
+    {
+      "regra": "portas_em_escuta.publicas_permitidas",
+      "esperado": [
+        22
+      ],
+      "encontrado": [
+        {
+          "porta": 22,
+          "bind": "0.0.0.0",
+          "processo": "sshd",
+          "protocolo": "tcp"
+        },
+        {
+          "porta": 9100,
+          "bind": "0.0.0.0",
+          "processo": "node_exporter",
+          "protocolo": "tcp"
+        }
+      ],
+      "veredito": "desvio",
+      "severidade": "critico"
+    },
+    {
+      "regra": "portas_em_escuta.somente_rede_interna",
+      "esperado": [
+        9100
+      ],
+      "encontrado": [
+        {
+          "porta": 22,
+          "bind": "0.0.0.0",
+          "processo": "sshd",
+          "protocolo": "tcp"
+        },
+        {
+          "porta": 9100,
+          "bind": "0.0.0.0",
+          "processo": "node_exporter",
+          "protocolo": "tcp"
+        }
+      ],
+      "veredito": "desvio",
+      "severidade": "critico"
+    },
+    {
+      "regra": "chaves_ssh.emitidas_por",
+      "esperado": "metacortex-platform",
+      "encontrado": [
+        "operador@metacortex-platform"
+      ],
+      "veredito": "conforme"
+    },
+    {
+      "regra": "ssh.login_de_root",
+      "esperado": false,
+      "encontrado": false,
+      "veredito": "conforme"
+    },
+    {
+      "regra": "ntp.sincronizado",
+      "esperado": true,
+      "encontrado": false,
+      "veredito": "desvio",
+      "severidade": "medio"
+    }
+  ],
+  "resumo": {
+    "conforme": 5,
+    "desvio": 6,
+    "nao_verificado": 0,
+    "por_severidade": {
+      "critico": 3,
+      "alto": 1,
+      "medio": 2
+    }
+  }
+}
