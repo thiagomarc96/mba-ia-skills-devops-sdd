@@ -9,4 +9,4 @@ Estudo pessoal de Thiago, com execução em 18/11/2026 no cluster local `kind-de
 - [Reprodução do laboratório e segurança](laboratorio/README.md).
 - [Índice das evidências e validações](evidencias/README.md).
 
-O laboratório utiliza imagens públicas por digest e credenciais efêmeras fora do Git. Exceções ao padrão Metacortex e limitações de produção constam na curadoria de cada ticket. O cluster é removido no fechamento; a confirmação fica em `evidencias/preparo/limpeza.txt`. A entrega permanece em branch local, sem publicação remota.
+O laboratório utiliza imagens públicas por digest e credenciais efêmeras fora do Git. Exceções ao padrão Metacortex e limitações de produção constam na curadoria de cada ticket. O cluster é removido no fechamento; a confirmação fica em `evidencias/preparo/limpeza.txt`.
