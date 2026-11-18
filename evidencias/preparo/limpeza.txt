@@ -1,0 +1,7 @@
+2026-11-18T16:24:41-03:00
+Deleting cluster "desafio03" ...
+Deleted nodes: ["desafio03-control-plane"]
+COMANDO: kind get clusters
+No kind clusters found.
+COMANDO: docker ps --filter name=desafio03 --format {{.Names}}
+COMANDO: docker ps -a --filter name=desafio03 --format {{.Names}}

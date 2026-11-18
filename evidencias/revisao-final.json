@@ -1,5 +1,4 @@
 {
-  "arquivos_verificados": 176,
   "padroes_de_credenciais_e_valores_reais": "nenhum encontrado",
   "server_e_certificados_reais_nas_evidencias": "ausentes",
   "textos_obsoletos": "zero",
@@ -22,5 +21,10 @@
   "testes_unitarios": 36,
   "mcp_leituras_normais": 15,
   "matriz_rotas": "10/10",
-  "limites": "T03 usa fixture; custo monetário null; banco efêmero e exceções Metacortex declaradas"
+  "limites": "T03 usa fixture; custo monetário null; banco efêmero e exceções Metacortex declaradas",
+  "arquivos_scan_credenciais_antes_limpeza": 176,
+  "arquivos_scan_estatico_final": 179,
+  "cluster_final": "kind get clusters: No kind clusters found; docker ps e ps -a filtrados: zero nós desafio03",
+  "kubeconfigs_privados": "quatro arquivos removidos após destruir cluster",
+  "diff_completo": "git diff c468c28 --check passou após normalizar logs"
 }

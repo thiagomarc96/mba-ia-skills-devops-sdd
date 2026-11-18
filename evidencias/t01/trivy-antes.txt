@@ -38,7 +38,7 @@ See https://avd.aquasec.com/misconfig/ksv-0021
   57 │           env:
   58 │             - name: DB_HOST
   59 └               valueFrom:
-  ..   
+  ..
 ────────────────────────────────────────
 
 
@@ -59,7 +59,7 @@ See https://avd.aquasec.com/misconfig/ksv-0030
   57 │           env:
   58 │             - name: DB_HOST
   59 └               valueFrom:
-  ..   
+  ..
 ────────────────────────────────────────
 
 
@@ -80,7 +80,7 @@ See https://avd.aquasec.com/misconfig/ksv-0104
   57 │           env:
   58 │             - name: DB_HOST
   59 └               valueFrom:
-  ..   
+  ..
 ────────────────────────────────────────
 
 
@@ -101,7 +101,7 @@ See https://avd.aquasec.com/misconfig/ksv-0125
   57 │           env:
   58 │             - name: DB_HOST
   59 └               valueFrom:
-  ..   
+  ..
 ────────────────────────────────────────
 
 
@@ -110,4 +110,3 @@ See https://avd.aquasec.com/misconfig/ksv-0125
   - Version 0.76.2 of Trivy is now available, current version is 0.69.3
 
 To suppress version checks, run Trivy scans with the --skip-version-check flag
-

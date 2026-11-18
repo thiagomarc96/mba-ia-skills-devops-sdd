@@ -1,5 +1,5 @@
              ^
-[SQL: SELECT products.id AS products_id, products.name AS products_name, products.price AS products_price, products.description AS products_description, products.short_description AS products_short_description, products.image AS products_image 
+[SQL: SELECT products.id AS products_id, products.name AS products_name, products.price AS products_price, products.description AS products_description, products.short_description AS products_short_description, products.image AS products_image
 FROM products]
 (Background on this error at: https://sqlalche.me/e/20/f405)
 [2026-11-18 19:15:45,989] ERROR in app: Exception on / [GET]
@@ -72,7 +72,7 @@ Traceback (most recent call last):
 sqlalchemy.exc.ProgrammingError: (psycopg.errors.UndefinedTable) relation "products" does not exist
 LINE 2: FROM products
              ^
-[SQL: SELECT products.id AS products_id, products.name AS products_name, products.price AS products_price, products.description AS products_description, products.short_description AS products_short_description, products.image AS products_image 
+[SQL: SELECT products.id AS products_id, products.name AS products_name, products.price AS products_price, products.description AS products_description, products.short_description AS products_short_description, products.image AS products_image
 FROM products]
 (Background on this error at: https://sqlalche.me/e/20/f405)
 [2026-11-18 19:15:50,988] ERROR in app: Exception on / [GET]
@@ -145,6 +145,6 @@ Traceback (most recent call last):
 sqlalchemy.exc.ProgrammingError: (psycopg.errors.UndefinedTable) relation "products" does not exist
 LINE 2: FROM products
              ^
-[SQL: SELECT products.id AS products_id, products.name AS products_name, products.price AS products_price, products.description AS products_description, products.short_description AS products_short_description, products.image AS products_image 
+[SQL: SELECT products.id AS products_id, products.name AS products_name, products.price AS products_price, products.description AS products_description, products.short_description AS products_short_description, products.image AS products_image
 FROM products]
 (Background on this error at: https://sqlalche.me/e/20/f405)

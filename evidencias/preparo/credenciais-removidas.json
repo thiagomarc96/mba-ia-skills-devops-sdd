@@ -1,0 +1,10 @@
+{
+  "arquivos_privados_removidos": [
+    "admin.config",
+    "ro.config",
+    "revoked.config",
+    "unavailable.config"
+  ],
+  "conteudo_exportado": false,
+  "cluster_removido": true
+}

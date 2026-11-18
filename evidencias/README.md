@@ -16,3 +16,5 @@ Tudo neste diretório provém de comandos executados no host ou de análise iden
 A API Kubernetes confirmou 401 para token revogado e 403 para permissão ausente. O erro de conexão veio de uma porta inválida em uma cópia privada do kubeconfig. Na triagem normal, pods antigos permaneceram saudáveis durante os rollouts bloqueados, o que está explicitado nos relatórios. Recomendações não são execução de correção.
 
 Limitações: uma amostra por comparação de modelo; cache varia; custo monetário não fornecido; sizing de pico, HA/durabilidade do banco e adaptação das probes do fake-shop continuam fora da conformidade de produção do laboratório. Esses limites não são convertidos em aprovação. O inventário T03 teve validação unitária com sua fixture local, preservando seu escopo.
+
+Apenas a formatação dos logs de texto foi normalizada (LF, espaços finais e linhas vazias finais); `normalizacao-logs.json` guarda os hashes originais e finais. Nenhum conteúdo de diagnóstico foi substituído.
