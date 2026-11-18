@@ -1,0 +1,63 @@
+$ openspec validate inventario-ssh --strict
+Change 'inventario-ssh' is valid
+
+npm notice run npx
+npm notice run 'openspec' validate inventario-ssh --strict
+
+Código: 0
+
+$ openspec validate dashboard-local --strict
+Change 'dashboard-local' is valid
+
+npm notice run npx
+npm notice run 'openspec' validate dashboard-local --strict
+
+Código: 0
+
+$ openspec archive inventario-ssh --yes
+
+Proposal warnings in proposal.md (non-blocking):
+  ⚠ Change must have a Why section. Missing required sections. Expected headers: "## Why" and "## What Changes". Ensure deltas are documented in specs/ using delta headers.
+Task status: ✓ Complete
+
+Specs to update:
+  inventario: create
+Applying changes to openspec/specs/inventario/spec.md:
+  + 2 added
+Totals: + 2, ~ 0, - 0, → 0
+Specs updated successfully.
+Change 'inventario-ssh' archived as '2026-11-18-inventario-ssh'.
+npm notice run npx
+npm notice run 'openspec' archive inventario-ssh --yes
+Código: 0
+
+$ openspec archive dashboard-local --yes
+
+Proposal warnings in proposal.md (non-blocking):
+  ⚠ Change must have a Why section. Missing required sections. Expected headers: "## Why" and "## What Changes". Ensure deltas are documented in specs/ using delta headers.
+Task status: ✓ Complete
+
+Specs to update:
+  dashboard: create
+Applying changes to openspec/specs/dashboard/spec.md:
+  + 3 added
+Totals: + 3, ~ 0, - 0, → 0
+Specs updated successfully.
+Change 'dashboard-local' archived as '2026-11-18-dashboard-local'.
+npm notice run npx
+npm notice run 'openspec' archive dashboard-local --yes
+Código: 0
+
+$ cd desafio-03/ticket-03-inventario-de-vm && openspec validate --all --strict
+✓ spec/inventario
+Totals: 1 passed, 0 failed (1 items)
+npm notice run npx
+npm notice run 'openspec' validate --all --strict
+Código: 0
+
+$ cd desafio-03/ticket-04-dashboard-do-cluster && openspec validate --all --strict
+✓ spec/dashboard
+Totals: 1 passed, 0 failed (1 items)
+npm notice run npx
+npm notice run 'openspec' validate --all --strict
+Código: 0

@@ -12,8 +12,8 @@ mkdir -p "$DIRETORIO_DOWNLOAD"
 bash evidencias/preparo/instalar.sh
 export KUBECONFIG="$LAB_RUNTIME/admin.config"
 kind create cluster --name desafio03 --image kindest/node:v1.35.0
-trivy config ticket-01-padrao-de-manifests/manifests/
-python3 ticket-01-padrao-de-manifests/gerar_laboratorio.py
+trivy config desafio-03/ticket-01-padrao-de-manifests/manifests/
+python3 desafio-03/ticket-01-padrao-de-manifests/gerar_laboratorio.py
 python3 laboratorio/preparar.py
 # Aguarde apps e bancos prontos em todos os namespaces antes de provocar falhas.
 for ns in nyx-dev orion-dev nyx-prod orion-stg nyx-stg; do
@@ -27,10 +27,10 @@ export KUBECONFIG_RO="$LAB_RUNTIME/ro.config"
 export KUBECONFIG_REVOGADO="$LAB_RUNTIME/revoked.config"
 export KUBECONFIG_INDISPONIVEL="$LAB_RUNTIME/unavailable.config"
 # Espere até o pod novo registrar OOMKilled e o pull da tag retornar erro.
-python3 ticket-02-triagem-no-cluster/mcp/coletar.py
+python3 desafio-03/ticket-02-triagem-no-cluster/mcp/coletar.py
 python3 laboratorio/falhas.py
-python3 ticket-04-dashboard-do-cluster/coletar.py
-python3 ticket-02-triagem-no-cluster/avaliar_codex.py
+python3 desafio-03/ticket-04-dashboard-do-cluster/coletar.py
+python3 desafio-03/ticket-02-triagem-no-cluster/avaliar_codex.py
 bash validar.sh
 kind delete cluster --name desafio03
 kind get clusters

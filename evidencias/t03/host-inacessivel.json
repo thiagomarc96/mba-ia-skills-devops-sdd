@@ -1,0 +1,10 @@
+{
+  "origem": "SSH real contra servidor parado",
+  "host": "127.0.0.1",
+  "porta": 32853,
+  "iniciado_em": "2026-11-18T20:19:11.309689+00:00",
+  "codigo_saida": 3,
+  "erro_tcp": 111,
+  "stderr": "Erro: serviço SSH recusou a conexão",
+  "relatorio_conformidade": null
+}

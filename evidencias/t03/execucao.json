@@ -1,0 +1,26 @@
+{
+  "origem": "OpenSSH real em container Docker local",
+  "container": "40e8644b6b20c84f997e9c74ec3e3ad7e59a1f03f80f6a3ba7ec35d10f636b22",
+  "imagem": "sha256:50589b7abe778c9461a1899454fd840da7f41eb7c888e01762842288456e8367",
+  "porta_local": 32853,
+  "autenticacao": "chave efêmera fora do Git",
+  "validacao_host": "chave pública lida via Docker e conhecida explicitamente",
+  "execucoes": [
+    {
+      "caso": "primeira",
+      "iniciado_em": "2026-11-18T20:19:09.633600+00:00",
+      "codigo_saida": 1
+    },
+    {
+      "caso": "segunda",
+      "iniciado_em": "2026-11-18T20:19:10.386579+00:00",
+      "codigo_saida": 1
+    },
+    {
+      "caso": "host-inacessivel",
+      "iniciado_em": "2026-11-18T20:19:11.309689+00:00",
+      "codigo_saida": 3
+    }
+  ],
+  "conformidade_igual_nas_duas_coletas": true
+}

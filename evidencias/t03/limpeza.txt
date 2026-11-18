@@ -1,0 +1,2 @@
+Container de SSH removido; docker ps -a com nome exato retornou vazio.
+Chave privada e known_hosts temporários descartados fora do Git.

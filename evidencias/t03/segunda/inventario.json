@@ -1,0 +1,178 @@
+{
+  "host": {
+    "hostname": "inventario-ssh-local",
+    "coletado_em": "2026-11-18T20:19:11.018839+00:00",
+    "endereco": "127.0.0.1"
+  },
+  "inventario": {
+    "so": {
+      "distribuicao": "ubuntu",
+      "versao": "24.04"
+    },
+    "kernel": {
+      "versao": "6.8.0-149-generic"
+    },
+    "servicos": null,
+    "swap": {
+      "habilitado": true,
+      "tamanho": 2147479552,
+      "unidade": "bytes"
+    },
+    "portas_em_escuta": [
+      {
+        "porta": 22,
+        "bind": "0.0.0.0",
+        "processo": "sshd",
+        "protocolo": "tcp"
+      },
+      {
+        "porta": 22,
+        "bind": "::",
+        "processo": "sshd",
+        "protocolo": "tcp"
+      }
+    ],
+    "chaves_ssh": [
+      {
+        "usuario": "root",
+        "identificacao": "estudo@metacortex-platform"
+      }
+    ],
+    "ssh": {
+      "login_de_root": true,
+      "politica": "without-password",
+      "escopo": "conexao_atual"
+    },
+    "ntp": null,
+    "quantidade_chaves_ssh": 1,
+    "cobertura_chaves_ssh": "completa_para_contas_enumeradas_e_conexao_atual"
+  },
+  "erros": {
+    "servicos": "consulta indisponível ou exige privilégio não concedido",
+    "ntp": "consulta indisponível ou exige privilégio não concedido"
+  },
+  "baseline": 1,
+  "conformidade": [
+    {
+      "regra": "so.distribuicao",
+      "esperado": "ubuntu",
+      "encontrado": "ubuntu",
+      "veredito": "conforme"
+    },
+    {
+      "regra": "so.versao_minima",
+      "esperado": "22.04",
+      "encontrado": "24.04",
+      "veredito": "conforme"
+    },
+    {
+      "regra": "kernel.versao_minima",
+      "esperado": "6.5",
+      "encontrado": "6.8.0-149-generic",
+      "veredito": "conforme"
+    },
+    {
+      "regra": "servicos.ativos",
+      "esperado": [
+        "ssh",
+        "containerd",
+        "node_exporter",
+        "chrony"
+      ],
+      "encontrado": null,
+      "veredito": "nao_verificado",
+      "motivo": "consulta indisponível ou exige privilégio não concedido"
+    },
+    {
+      "regra": "servicos.proibidos",
+      "esperado": [
+        "telnet.socket",
+        "rpcbind.socket"
+      ],
+      "encontrado": null,
+      "veredito": "nao_verificado",
+      "motivo": "consulta indisponível ou exige privilégio não concedido"
+    },
+    {
+      "regra": "swap.habilitado",
+      "esperado": false,
+      "encontrado": true,
+      "veredito": "desvio",
+      "severidade": "critico"
+    },
+    {
+      "regra": "portas_em_escuta.publicas_permitidas",
+      "esperado": [
+        22
+      ],
+      "encontrado": [
+        {
+          "porta": 22,
+          "bind": "0.0.0.0",
+          "processo": "sshd",
+          "protocolo": "tcp"
+        },
+        {
+          "porta": 22,
+          "bind": "::",
+          "processo": "sshd",
+          "protocolo": "tcp"
+        }
+      ],
+      "veredito": "conforme"
+    },
+    {
+      "regra": "portas_em_escuta.somente_rede_interna",
+      "esperado": [
+        9100
+      ],
+      "encontrado": [
+        {
+          "porta": 22,
+          "bind": "0.0.0.0",
+          "processo": "sshd",
+          "protocolo": "tcp"
+        },
+        {
+          "porta": 22,
+          "bind": "::",
+          "processo": "sshd",
+          "protocolo": "tcp"
+        }
+      ],
+      "veredito": "conforme"
+    },
+    {
+      "regra": "chaves_ssh.emitidas_por",
+      "esperado": "metacortex-platform",
+      "encontrado": [
+        "estudo@metacortex-platform"
+      ],
+      "veredito": "conforme"
+    },
+    {
+      "regra": "ssh.login_de_root",
+      "esperado": false,
+      "encontrado": true,
+      "veredito": "desvio",
+      "severidade": "alto"
+    },
+    {
+      "regra": "ntp.sincronizado",
+      "esperado": true,
+      "encontrado": null,
+      "veredito": "nao_verificado",
+      "motivo": "consulta indisponível ou exige privilégio não concedido"
+    }
+  ],
+  "resumo": {
+    "conforme": 6,
+    "desvio": 2,
+    "nao_verificado": 3,
+    "por_severidade": {
+      "critico": 1,
+      "alto": 1,
+      "medio": 0
+    }
+  }
+}

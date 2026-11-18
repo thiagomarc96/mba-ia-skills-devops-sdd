@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "kubernetes": {
+      "command": "bash",
+      "args": [
+        "desafio-03/ticket-02-triagem-no-cluster/mcp/iniciar.sh"
+      ],
+      "env": {
+        "ALLOW_ONLY_NON_DESTRUCTIVE_TOOLS": "true",
+        "ALLOW_ONLY_READONLY_TOOLS": "true"
+      }
+    }
+  }
+}

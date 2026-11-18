@@ -6,7 +6,7 @@ test_recorte_mecanico_da_proposta (test_conferir.ConferenciaTest.test_recorte_me
 test_selector_incorreto (test_conferir.ConferenciaTest.test_selector_incorreto) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.106s
+Ran 6 tests in 0.215s
 
 OK
 test_inacessivel_sem_conformidade (test_exemplos.TestExemplos.test_inacessivel_sem_conformidade) ... ok
@@ -24,29 +24,113 @@ test_desvios_classificados (test_inventario.TestInventario.test_desvios_classifi
 test_erro_ssh_nao_reproduz_segredo (test_inventario.TestInventario.test_erro_ssh_nao_reproduz_segredo) ... ok
 test_host_invalido_sem_subprocesso (test_inventario.TestInventario.test_host_invalido_sem_subprocesso) ... ok
 test_parcial_nao_e_conforme (test_inventario.TestInventario.test_parcial_nao_e_conforme) ... ok
+test_porta_invalida_sem_subprocesso (test_inventario.TestInventario.test_porta_invalida_sem_subprocesso) ... ok
 test_redes (test_inventario.TestInventario.test_redes) ... ok
 test_repeticao_e_formatos (test_inventario.TestInventario.test_repeticao_e_formatos) ... ok
 test_socket_proibido (test_inventario.TestInventario.test_socket_proibido) ... ok
 test_versoes (test_inventario.TestInventario.test_versoes) ... ok
 
 ----------------------------------------------------------------------
-Ran 19 tests in 0.029s
+Ran 20 tests in 0.038s
 
 OK
-Cinco exemplos gerados: conforme=0, desvio=1, parcial=2, repetição=1, host inacessível=3.
-test_context_pinned_and_only_get (test_dashboard.DashboardTests.test_context_pinned_and_only_get) ... ok
-test_endpoints_missing_unknown_and_external (test_dashboard.DashboardTests.test_endpoints_missing_unknown_and_external) ... ok
-test_explicit_context_avoids_default_and_pins_queries (test_dashboard.DashboardTests.test_explicit_context_avoids_default_and_pins_queries) ... ok
-test_invalid_json (test_dashboard.DashboardTests.test_invalid_json) ... ok
-test_missing_kubectl (test_dashboard.DashboardTests.test_missing_kubectl) ... ok
-test_namespace (test_dashboard.DashboardTests.test_namespace) ... ok
-test_partial_failure_and_zero_ready (test_dashboard.DashboardTests.test_partial_failure_and_zero_ready) ... ok
-test_pod_failure_and_init_restarts (test_dashboard.DashboardTests.test_pod_failure_and_init_restarts) ... ok
-test_pod_missing_optional_fields (test_dashboard.DashboardTests.test_pod_missing_optional_fields) ... ok
-test_slices_aggregate_deduplicate (test_dashboard.DashboardTests.test_slices_aggregate_deduplicate) ... ok
-test_timeout_and_redaction (test_dashboard.DashboardTests.test_timeout_and_redaction) ... ok
+test_contexto_explicito_fixa_consultas (test_dashboard.DashboardTests.test_contexto_explicito_fixa_consultas) ... ok
+test_contexto_fixo_e_somente_get (test_dashboard.DashboardTests.test_contexto_fixo_e_somente_get) ... ok
+test_endpoints_ausentes_desconhecidos_e_externos (test_dashboard.DashboardTests.test_endpoints_ausentes_desconhecidos_e_externos) ... ok
+test_falha_do_pod_e_reinicios_de_inicializacao (test_dashboard.DashboardTests.test_falha_do_pod_e_reinicios_de_inicializacao) ... ok
+test_falha_parcial_e_nenhuma_replica_pronta (test_dashboard.DashboardTests.test_falha_parcial_e_nenhuma_replica_pronta) ... ok
+test_json_invalido (test_dashboard.DashboardTests.test_json_invalido) ... ok
+test_kubectl_ausente (test_dashboard.DashboardTests.test_kubectl_ausente) ... ok
+test_namespace_valido (test_dashboard.DashboardTests.test_namespace_valido) ... ok
+test_pod_sem_campos_opcionais (test_dashboard.DashboardTests.test_pod_sem_campos_opcionais) ... ok
+test_slices_agregadas_sem_duplicatas (test_dashboard.DashboardTests.test_slices_agregadas_sem_duplicatas) ... ok
+test_tempo_limite_e_mascaramento (test_dashboard.DashboardTests.test_tempo_limite_e_mascaramento) ... ok
 
 ----------------------------------------------------------------------
 Ran 11 tests in 0.001s
 
 OK
+Links locais, caminhos MCP, margem das skills, 10 rotas, 4 comparativos e contratos SSH: OK.
+README.md: OK
+openspec.txt: OK
+preparo/credenciais-removidas.json: OK
+preparo/instalacao-repeticao.txt: OK
+preparo/instalacao.txt: OK
+preparo/instalar.sh: OK
+preparo/kind-create.txt: OK
+preparo/limpeza.txt: OK
+preparo/npm-install.txt: OK
+preparo/npm-pack.txt: OK
+preparo/pull-news-repeticao.txt: OK
+preparo/pull-news.txt: OK
+preparo/pull-shop-repeticao.txt: OK
+preparo/pull-shop.txt: OK
+t01/aplicacao-ajuste-startup.txt: OK
+t01/aplicacao-hardening-dev.txt: OK
+t01/aplicacao.txt: OK
+t01/cobertura.json: OK
+t01/cobertura.md: OK
+t01/consumo-instantaneo.json: OK
+t01/escrita-geracao.txt: OK
+t01/http-funcional-dev.json: OK
+t01/imagens-codigo-hashes.txt: OK
+t01/kubectl-get-all-nyx-dev.txt: OK
+t01/kubectl-get-all-orion-dev.txt: OK
+t01/reinicio-app-pos-banco.txt: OK
+t01/rollout-corrigido.txt: OK
+t01/rollout-final-dev.txt: OK
+t01/rollout-hardening-dev.txt: OK
+t01/rollout-inicial.txt: OK
+t01/shop-image-entrypoint.txt: OK
+t01/shop-primeira-saida-ruim.txt: OK
+t01/skill-conferencia-inicial.json: OK
+t01/skill-conferencia.json: OK
+t01/skill-escrita.json: OK
+t01/trivy-antes.txt: OK
+t01/trivy-barrado.json: OK
+t01/trivy-barrado.stderr: OK
+t01/trivy-depois.json: OK
+t01/trivy-depois.stderr: OK
+t01/trivy-escrita-primeira.json: OK
+t02/ausencia-escrita.txt: OK
+t02/avaliacao-codex.txt: OK
+t02/avaliacao.md: OK
+t02/coleta-mcp.txt: OK
+t02/injecao-chamados.txt: OK
+t02/mcp-escrita-negada.json: OK
+t02/mcp-tools.json: OK
+t02/nyx-prod-mcp.json: OK
+t02/nyx-stg-http503.txt: OK
+t02/nyx-stg-mcp.json: OK
+t02/orion-prompts.json: OK
+t02/orion-stg-mcp.json: OK
+t02/rbac-escrita-negada.txt: OK
+t02/rbac-preparo.txt: OK
+t02/rbac-secrets-negado.txt: OK
+t02/verificacao-final-mcp.json: OK
+t02/versoes-prompts.json: OK
+t03/execucao.json: OK
+t03/host-inacessivel.codigo.txt: OK
+t03/host-inacessivel.json: OK
+t03/host-inacessivel.md: OK
+t03/host-inacessivel.stderr.txt: OK
+t03/limpeza.txt: OK
+t03/primeira/inventario.json: OK
+t03/primeira/inventario.md: OK
+t03/primeira.codigo.txt: OK
+t03/primeira.stderr.txt: OK
+t03/primeira.stdout.txt: OK
+t03/segunda/inventario.json: OK
+t03/segunda/inventario.md: OK
+t03/segunda.codigo.txt: OK
+t03/segunda.stderr.txt: OK
+t03/segunda.stdout.txt: OK
+t04/cluster-indisponivel-mcp.json: OK
+t04/coleta-dashboard.txt: OK
+t04/comportamento-skills.md: OK
+t04/credencial-expirada-mcp.json: OK
+t04/falhas-coleta.txt: OK
+t04/falhas-http.json: OK
+t04/permissao-negada-mcp.json: OK
+t04/t01-falhas-acesso.json: OK
+validacao.txt: OK

@@ -71,7 +71,7 @@
       "criterio": "probes e semântica",
       "estado": "falha",
       "responsavel": "skill/revisão",
-      "evidencia": "nenhuma probe; Trivy desta rodada não apontou"
+      "evidencia": "nenhuma probe; Trivy desta execução não apontou"
     },
     {
       "regra": "2.3",

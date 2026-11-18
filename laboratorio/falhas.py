@@ -1,6 +1,6 @@
 import os,sys,json,pathlib,ssl,base64,urllib.request,urllib.error,re,subprocess,yaml
 from preparar import base, runtime
-sys.path.insert(0,str(base/'ticket-02-triagem-no-cluster/mcp'))
+sys.path.insert(0,str(base/'desafio-03/ticket-02-triagem-no-cluster/mcp'))
 from coletar import MCP
 out=base/'evidencias/t04'
 os.environ['PATH']=str(pathlib.Path.home()/'.local/bin')+':'+os.environ['PATH']

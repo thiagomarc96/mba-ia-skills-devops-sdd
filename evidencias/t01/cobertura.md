@@ -1,6 +1,6 @@
 # Cobertura medida e curadoria — 18/11/2026
 
-Trivy 0.69.3, corpus fixo [manifesto barrado](../../ticket-01-padrao-de-manifests/exemplos/manifesto-barrado.yaml). São 18 ocorrências, 17 IDs distintos. O verificador inicial tinha 20 ocorrências/7 regras; removido o controle duplicado de latest (KSV-0013), o final tem 19 ocorrências/6 regras.
+Trivy 0.69.3, corpus fixo [manifesto barrado](../../desafio-03/ticket-01-padrao-de-manifests/exemplos/manifesto-barrado.yaml). São 18 ocorrências, 17 IDs distintos. O verificador inicial tinha 20 ocorrências/7 regras; removido o controle duplicado de latest (KSV-0013), o final tem 19 ocorrências/6 regras.
 
 Das 19 famílias do padrão, 14 têm falha ou recomendação ausente neste corpus: Trivy cobre 3/14 (21,43%); somente skill cobre 11/14 (78,57%): 6 pelo script e 5 por revisão. Os demais 5 itens atendem ou dependem de informação/observação. Contagem por família evita comparar 18 checks do Trivy com 19 ocorrências do script como se fossem equivalentes. Não é estimativa da cobertura global do produto.
 
@@ -13,7 +13,7 @@ Das 19 famílias do padrão, 14 têm falha ou recomendação ausente neste corpu
 | 1.5 | recomendação ausente | skill/revisão | owner ausente; runbook condicionado à existência |
 | 1.6 | depende do projeto | skill/revisão | api é genérico; não afirmar violação sem convenção do componente |
 | 2.1 | falha | Trivy | KSV-0011,0015,0016,0018; proporção requer consumo |
-| 2.2 | falha | skill/revisão | nenhuma probe; Trivy desta rodada não apontou |
+| 2.2 | falha | skill/revisão | nenhuma probe; Trivy desta execução não apontou |
 | 2.3 | falha | skill/script | 1 < 2 |
 | 2.4 | falha | skill/script | estratégia explícita ausente |
 | 2.5 | recomendação ausente | skill/revisão | PDB não fornecido |

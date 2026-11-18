@@ -1,13 +1,13 @@
 {
-  "ticket-01-padrao-de-manifests/skill/SKILL.md": {
+  "desafio-03/ticket-01-padrao-de-manifests/skill/SKILL.md": {
     "sha256": "f58dacf199f1426f1facfe348f27fa1b01a08be4c114d27ecca44a8770b5119d",
     "bytes": 2761
   },
-  "ticket-01-padrao-de-manifests/skill/references/criterios.md": {
+  "desafio-03/ticket-01-padrao-de-manifests/skill/references/criterios.md": {
     "sha256": "634a03453309609501498fb234e379910643ef7607d79d859ea3ee8262d3d4c9",
     "bytes": 1955
   },
-  "ticket-02-triagem-no-cluster/skill/SKILL.md": {
+  "desafio-03/ticket-02-triagem-no-cluster/skill/SKILL.md": {
     "sha256": "b544cc03fb5d6f58d6bfd1e920965291e64c6bd8fadf798d6d5ff5216ae17606",
     "bytes": 3036
   }

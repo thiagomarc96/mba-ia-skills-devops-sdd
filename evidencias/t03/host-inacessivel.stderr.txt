@@ -1,0 +1,1 @@
+Erro: serviço SSH recusou a conexão

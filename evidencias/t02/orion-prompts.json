@@ -1,0 +1,5 @@
+{
+  "modelo": "gpt-6.1-sol",
+  "metodo": "codex exec com modelo explícito e mesmos dados MCP nas duas condições",
+  "sha256_skill": "b544cc03fb5d6f58d6bfd1e920965291e64c6bd8fadf798d6d5ff5216ae17606"
+}

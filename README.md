@@ -1,12 +1,14 @@
-# Desafio 03 — Skills de DevOps e SDD
+# Skills de DevOps e projetos com SDD
 
-Estudo pessoal de Thiago, com execução em 18/11/2026 no cluster local `kind-desafio03`. Os tickets T01, T02 e T04 têm evidências coletadas da API Kubernetes. Os dois projetos KubeDev usados são kube-news/nyx e fake-shop/orion, em namespaces separados.
+Estudo pessoal com quatro tickets no [Desafio 03](desafio-03/README.md).
 
-- [T01: escrita, conferência e cobertura Trivy medida](ticket-01-padrao-de-manifests/README.md).
-- [T02: MCP de leitura, três chamados e medições](ticket-02-triagem-no-cluster/README.md).
-- [T03: inventário de VM](ticket-03-inventario-de-vm/README.md).
-- [T04: dashboard e oito cenários coletados](ticket-04-dashboard-do-cluster/README.md).
-- [Reprodução do laboratório e segurança](laboratorio/README.md).
-- [Índice das evidências e validações](evidencias/README.md).
+- [Laboratório](laboratorio/README.md).
+- [Evidências](evidencias/README.md).
 
-O laboratório utiliza imagens públicas por digest e credenciais efêmeras fora do Git. Exceções ao padrão Metacortex e limitações de produção constam na curadoria de cada ticket. O cluster é removido no fechamento; a confirmação fica em `evidencias/preparo/limpeza.txt`.
+Execute `bash validar.sh` na raiz para validar os artefatos.
+
+## Ferramentas de IA utilizadas
+
+- Codex (`gpt-6.1-sol`): organização dos artefatos, implementação, documentação, execução dos comandos e validação. O mesmo modelo foi fixado nas duas análises medidas do Orion. As avaliações históricas dos demais casos registraram o padrão do Codex, sem identificador de modelo.
+
+Formato da declaração baseado na seção “Ferramentas de IA utilizadas” de [mba-ia-desafio-design-docs-com-ia](https://github.com/thiagomarc96/mba-ia-desafio-design-docs-com-ia/blob/8da1690b191fd3f139bc42f032d9aa0f814e8618/README.md). O registro explícito do modelo segue também [mba-ia-pull-evaluation-prompt](https://github.com/thiagomarc96/mba-ia-pull-evaluation-prompt), que informa o modelo no README.

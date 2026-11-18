@@ -1,0 +1,23 @@
+[
+  {
+    "namespace": "nyx-prod",
+    "origem": "evidencias/t02/nyx-prod-mcp.json",
+    "causa_observada": "OOMKilled/137 com limite 24Mi na revisão nova; revisão anterior e PostgreSQL prontos",
+    "relatorio": "**Causa provável, com alta confiança.** O limite de memória de `24Mi` na revisão 3 do Deployment `nyx-api`, em `nyx-prod`, é insuficiente para a inicialização do container e impede a conclusão do rollout.\n\n**Evidências.** No pod `nyx-api-596685445-dqwb5`, o container `nyx-api` terminou com `OOMKilled` (código `137`) e entrou em `CrashLoopBackOff` após dois reinícios. Os eventos registram a inicialização do container e o `BackOff`. A EndpointSlice `nyx-api-nm79k` mostra o pod novo sem prontidão e os dois pods anteriores prontos, com a mesma imagem e limite de `256Mi`. O PostgreSQL estava pronto, e o init container `aguardar-postgres` concluiu com código `0`.\n\n**Próxima ação sugerida.** Restaurar o limite de `256Mi` no Deployment e verificar se as duas réplicas atualizadas ficam prontas e aparecem como endpoints prontos, sem novos `OOMKilled`.",
+    "escritas_durante_triagem": 0
+  },
+  {
+    "namespace": "orion-stg",
+    "origem": "evidencias/t02/orion-stg-mcp.json",
+    "causa_observada": "tag v1.14.2 retorna NotFound no pull; pods antigos continuam prontos, rollout incompleto 2/3",
+    "relatorio": "**Causa confirmada no cenário reproduzido.** O rollout do Deployment `orion-stg/orion-web` ficou bloqueado porque a referência `docker.io/fabricioveronez/fake-shop:v1.14.2` retornou `NotFound` durante o pull. Na coleta, havia 2 das 3 réplicas desejadas prontas.\n\n**Evidências.** Os dois pods do ReplicaSet `orion-web-5c5cc75965` estavam `Pending`, com o init container concluído e o container principal em `ErrImagePull`. Os eventos do kubelet registraram `NotFound` para a mesma referência e tentativas subsequentes em `ImagePullBackOff`. A EndpointSlice `orion-web-w69ch` tinha dois endpoints prontos, ambos da revisão anterior, que usa uma imagem fixada por digest. O PostgreSQL tinha 1/1 réplica pronta e um endpoint pronto.\n\n**Próxima ação sugerida.** Restaurar no Deployment o digest usado pela revisão saudável e verificar se o rollout chega a 3/3 réplicas prontas e se o Service passa a ter três endpoints prontos.",
+    "escritas_durante_triagem": 0
+  },
+  {
+    "namespace": "nyx-stg",
+    "origem": "evidencias/t02/nyx-stg-mcp.json",
+    "causa_observada": "Service app=nyx-api seleciona zero pods; pod Ready usa app=nyxapi; proxy da API retorna 503",
+    "relatorio": "**Causa confirmada no cenário reproduzido.** O Service `nyx-api`, no namespace `nyx-stg`, seleciona `app=nyx-api`, mas o pod da API tem o label `app=nyxapi`. Por isso, o Service ficou sem backend para encaminhar tráfego. Confiança alta.\n\n**Evidências.** A EndpointSlice `nyx-api-fxcjl` registra `endpoints: null`. O Deployment da API tem 1/1 réplica pronta, e o pod atual está `Ready`, com zero reinícios. O PostgreSQL também tem 1/1 réplica pronta e um endpoint pronto. Os eventos de `BackOff` e de falha nas sondas pertencem a pods anteriores.\n\n**Próxima ação sugerida.** Ajustar o seletor do Service para `app=nyxapi`, confirmar que a EndpointSlice passou a listar o pod com `ready: true` e testar o tráfego pelo Service.",
+    "escritas_durante_triagem": 0
+  }
+]

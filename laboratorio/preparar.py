@@ -13,7 +13,7 @@ def run(args,**kw):
  return r.stdout
 def main():
     with (base/'evidencias/t01/aplicacao.txt').open('w') as log:
-     for path in sorted((base/'ticket-01-padrao-de-manifests/manifests').glob('*.yaml')):
+     for path in sorted((base/'desafio-03/ticket-01-padrao-de-manifests/manifests').glob('*.yaml')):
       docs=list(yaml.safe_load_all(path.read_text())); ns=docs[0]['metadata']['name']
       log.write(run(['apply','-f','-'],input=yaml.safe_dump(docs[0])))
       secret={'apiVersion':'v1','kind':'Secret','metadata':{'name':'database-auth','namespace':ns},'type':'Opaque','stringData':{'password':secrets.token_hex(24)}}

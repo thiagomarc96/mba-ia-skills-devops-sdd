@@ -1,0 +1,45 @@
+{
+  "entrada": {
+    "modo": "com-skill",
+    "arquivo": "manifesto-barrado.yaml"
+  },
+  "resposta": "O YAML tem violações do padrão Metacortex para o ambiente `nyx-prod`. O nome `NyxAPI` impede a criação do Deployment, e o seletor do Service não corresponde aos pods definidos no arquivo. A conferência foi estática, com base apenas no YAML e nos critérios fornecidos.\n\n### Violações obrigatórias\n\n| Regra | Achado e localização | Impacto e ajuste proposta |\n|---|---|---|\n| 1.1 | `Deployment.metadata.name` é `NyxAPI`. | As maiúsculas tornam o nome inválido para o Kubernetes. Use `nyx-api`. |\n| 1.3 | O Deployment tem apenas o label `app`. O Service não tem `metadata.labels`. | Ambos descumprem a exigência de quatro labels por objeto. Inclua as chaves e os valores oficiais, que não constam no material fornecido. |\n| 1.4 | `Service.spec.selector.app` é `nyx-api`, mas `Deployment.spec.template.metadata.labels.app` é `nyxapi`. | O Service não encaminharia tráfego aos pods deste Deployment. Alinhe o seletor do Service ao label do pod. O seletor do Deployment já corresponde ao seu template. |\n| 2.1 | O container `api` não declara `resources`. | O manifest não define reservas nem limites de CPU e memória. Defina `requests` e `limits` com base no consumo observado. |\n| 2.2 | O container `api` não declara probes. | O Kubernetes fica sem verificações específicas para retirar o pod do tráfego quando ele não está pronto ou reiniciar o container quando ele deixa de responder conforme o contrato da aplicação. Defina probes com funções distintas depois de confirmar o comportamento do workload. |\n| 2.3 | `Deployment.spec.replicas` é `1`. | A perda da única réplica pode interromper o serviço. Declare pelo menos duas réplicas em produção. |\n| 2.4 | O Deployment omite `spec.strategy`. | O padrão do Kubernetes usa `25%` para `maxUnavailable` e `maxSurge`. Com a réplica atual, o arredondamento resulta em `0/1`, mas os valores passam a depender da escala. Declare `RollingUpdate` com `maxUnavailable: 0` e `maxSurge: 1`. |\n| 3.1 | A imagem usa `:latest`. | A mesma referência pode resolver para builds diferentes, dificultando a reprodução e o rollback. Fixe a imagem por digest ou use uma tag com imutabilidade comprovada no registry. |\n| 3.2 | O pod e o container omitem `securityContext`. | O manifest deixa de impor UID `10001`, execução como non-root, bloqueio de elevação de privilégios, raiz somente leitura e remoção de todas as capabilities. Declare esses controles e confirme quais caminhos precisam de escrita. |\n| 3.3 | `DATABASE_URL` usa `env[].value` com o marcador `VALOR_DE_EXEMPLO`. | O marcador não comprova exposição de credencial. Preencher esse campo com uma URL que contenha credenciais deixaria o segredo no manifest. Use `secretKeyRef` para referenciar a chave provisionada externamente. |\n| 3.4 | O pod omite `automountServiceAccountToken`. | O token pode ser montado automaticamente, ampliando o acesso disponível ao workload. Defina `automountServiceAccountToken: false` e confirme se a aplicação precisa da API do Kubernetes. |\n\n### Recomendações e verificações pendentes\n\n- **1.5, 2.5 e 3.5.** O YAML não informa dono ou runbook, não inclui PDB e não referencia uma ServiceAccount dedicada. Identifique o dono, inclua o runbook se existir, considere um PDB com `minAvailable: 1` e use uma ServiceAccount dedicada.\n- **1.2, 3.6 e 3.7.** `nyx-prod` segue o formato esperado. O YAML não habilita `hostNetwork`, `hostPID` ou `privileged`. A imagem aponta para `registry.metacortex.io`.\n- **1.6 e 2.6.** O nome de container `api`, o período de encerramento adequado e a resposta a `SIGTERM` dependem de confirmação com o projeto e o workload. O manifest usa o período de encerramento padrão.\n- **Não verificado.** `trivy config` e `scripts/conferir.py` não foram executados. O material fornecido não permite confirmar a porta efetiva da aplicação, o contrato das probes, as variáveis esperadas, a disponibilidade do Secret, os caminhos graváveis ou o consumo de recursos.\n\n**Resultado:** o YAML permanece inalterado e não está aprovado para produção.",
+  "segundos": 26.759,
+  "usage": {
+    "input_tokens": 25177,
+    "cached_input_tokens": 13696,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1016,
+    "reasoning_output_tokens": 0
+  },
+  "custo_monetario": null,
+  "codigo": 0,
+  "eventos_codex": [
+    {
+      "type": "thread.started",
+      "thread_id": "01a1f018-63a7-75c3-9823-ad047b0605cf"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "agent_message",
+        "text": "O YAML tem violações do padrão Metacortex para o ambiente `nyx-prod`. O nome `NyxAPI` impede a criação do Deployment, e o seletor do Service não corresponde aos pods definidos no arquivo. A conferência foi estática, com base apenas no YAML e nos critérios fornecidos.\n\n### Violações obrigatórias\n\n| Regra | Achado e localização | Impacto e ajuste proposta |\n|---|---|---|\n| 1.1 | `Deployment.metadata.name` é `NyxAPI`. | As maiúsculas tornam o nome inválido para o Kubernetes. Use `nyx-api`. |\n| 1.3 | O Deployment tem apenas o label `app`. O Service não tem `metadata.labels`. | Ambos descumprem a exigência de quatro labels por objeto. Inclua as chaves e os valores oficiais, que não constam no material fornecido. |\n| 1.4 | `Service.spec.selector.app` é `nyx-api`, mas `Deployment.spec.template.metadata.labels.app` é `nyxapi`. | O Service não encaminharia tráfego aos pods deste Deployment. Alinhe o seletor do Service ao label do pod. O seletor do Deployment já corresponde ao seu template. |\n| 2.1 | O container `api` não declara `resources`. | O manifest não define reservas nem limites de CPU e memória. Defina `requests` e `limits` com base no consumo observado. |\n| 2.2 | O container `api` não declara probes. | O Kubernetes fica sem verificações específicas para retirar o pod do tráfego quando ele não está pronto ou reiniciar o container quando ele deixa de responder conforme o contrato da aplicação. Defina probes com funções distintas depois de confirmar o comportamento do workload. |\n| 2.3 | `Deployment.spec.replicas` é `1`. | A perda da única réplica pode interromper o serviço. Declare pelo menos duas réplicas em produção. |\n| 2.4 | O Deployment omite `spec.strategy`. | O padrão do Kubernetes usa `25%` para `maxUnavailable` e `maxSurge`. Com a réplica atual, o arredondamento resulta em `0/1`, mas os valores passam a depender da escala. Declare `RollingUpdate` com `maxUnavailable: 0` e `maxSurge: 1`. |\n| 3.1 | A imagem usa `:latest`. | A mesma referência pode resolver para builds diferentes, dificultando a reprodução e o rollback. Fixe a imagem por digest ou use uma tag com imutabilidade comprovada no registry. |\n| 3.2 | O pod e o container omitem `securityContext`. | O manifest deixa de impor UID `10001`, execução como non-root, bloqueio de elevação de privilégios, raiz somente leitura e remoção de todas as capabilities. Declare esses controles e confirme quais caminhos precisam de escrita. |\n| 3.3 | `DATABASE_URL` usa `env[].value` com o marcador `VALOR_DE_EXEMPLO`. | O marcador não comprova exposição de credencial. Preencher esse campo com uma URL que contenha credenciais deixaria o segredo no manifest. Use `secretKeyRef` para referenciar a chave provisionada externamente. |\n| 3.4 | O pod omite `automountServiceAccountToken`. | O token pode ser montado automaticamente, ampliando o acesso disponível ao workload. Defina `automountServiceAccountToken: false` e confirme se a aplicação precisa da API do Kubernetes. |\n\n### Recomendações e verificações pendentes\n\n- **1.5, 2.5 e 3.5.** O YAML não informa dono ou runbook, não inclui PDB e não referencia uma ServiceAccount dedicada. Identifique o dono, inclua o runbook se existir, considere um PDB com `minAvailable: 1` e use uma ServiceAccount dedicada.\n- **1.2, 3.6 e 3.7.** `nyx-prod` segue o formato esperado. O YAML não habilita `hostNetwork`, `hostPID` ou `privileged`. A imagem aponta para `registry.metacortex.io`.\n- **1.6 e 2.6.** O nome de container `api`, o período de encerramento adequado e a resposta a `SIGTERM` dependem de confirmação com o projeto e o workload. O manifest usa o período de encerramento padrão.\n- **Não verificado.** `trivy config` e `scripts/conferir.py` não foram executados. O material fornecido não permite confirmar a porta efetiva da aplicação, o contrato das probes, as variáveis esperadas, a disponibilidade do Secret, os caminhos graváveis ou o consumo de recursos.\n\n**Resultado:** o YAML permanece inalterado e não está aprovado para produção."
+      }
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 25177,
+        "cached_input_tokens": 13696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1016,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "stderr": ""
+}
