@@ -1,0 +1,21 @@
+NAME                             READY   STATUS        RESTARTS   AGE
+pod/orion-web-5767777f8d-qdsx2   1/1     Terminating   0          4m27s
+pod/orion-web-6f4d65b96-qhplh    1/1     Terminating   0          111s
+pod/orion-web-7658c55677-6q8z4   1/1     Running       0          16s
+pod/postgres-6f87559b56-tj5fb    1/1     Running       0          111s
+
+NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+service/orion-web   ClusterIP   10.96.124.97   <none>        80/TCP     5m59s
+service/postgres    ClusterIP   10.96.246.94   <none>        5432/TCP   5m59s
+
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/orion-web   1/1     1            1           5m59s
+deployment.apps/postgres    1/1     1            1           5m59s
+
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/orion-web-5767777f8d   0         0         0       4m27s
+replicaset.apps/orion-web-6f4d65b96    0         0         0       111s
+replicaset.apps/orion-web-7658c55677   1         1         1       16s
+replicaset.apps/orion-web-789bc846bb   0         0         0       5m59s
+replicaset.apps/postgres-6f87559b56    1         1         1       111s
+replicaset.apps/postgres-7967b95747    0         0         0       5m59s

@@ -1,42 +1,26 @@
-# Triagem no cluster
+# Triagem real no cluster — T02
 
-Skill: [triagem-cluster](skill/SKILL.md). Alcance: [mcp-server-kubernetes](https://github.com/flux159/mcp-server-kubernetes), em modo não-destrutivo.
+A [skill triagem-cluster](skill/SKILL.md) foi executada sobre três chamados do `kind-desafio03`, em 18/11/2026, usando [mcp-server-kubernetes 2.5.0](https://github.com/Flux159/mcp-server-kubernetes). A preparação dos incidentes foi externa à triagem. Nenhuma correção foi aplicada pela skill.
 
-## Curadoria e origem
+A configuração versionada está em [mcp/config.json](mcp/config.json), com [launcher](mcp/iniciar.sh), [wrapper kubectl](mcp/bin/kubectl) e [RBAC](mcp/rbac.yaml). O kubeconfig de `platform-ro` vem da variável `KUBECONFIG_RO`, herdada pelo processo, e fica fora do repo. O JSON usa caminhos relativos à raiz; clientes podem adaptar o caminho do launcher. Nenhuma interpolação `${...}` pelo cliente é necessária.
 
-Método preparado com Codex a partir dos três chamados do enunciado. Fixa o ponto de entrada por sintoma, o cruzamento de fontes, a parada ao identificar causa e a proibição de escrita. O agente decide qual objeto/container examinar e quanto aprofundar, dentro do namespace e do objetivo. Não fixa nomes de ferramentas MCP, que devem ser descobertos no servidor instalado.
+```sh
+export KUBECONFIG_RO=/caminho/privado/ro.config
+bash ticket-02-triagem-no-cluster/mcp/iniciar.sh
+# Em outro processo, a partir da raiz:
+python3 ticket-02-triagem-no-cluster/mcp/coletar.py
+```
 
-As permissões devem combinar modo não-destrutivo e credencial de leitura com get/list/watch dos recursos necessários. Logs precisam de pods/log. Não conceder acesso a Secrets ou exec. O texto da skill é uma defesa adicional, não substitui RBAC.
+O cliente inicializa JSON-RPC por stdio, descobre as ferramentas e chama `kubectl_get` para deployments, pods, services, EndpointSlices e eventos, no namespace relevante. Usa YAML porque o servidor resume listagens JSON e omite detalhes importantes de spec/status. Requests, respostas e duração de cada chamada estão em [evidencias/t02](../evidencias/t02/).
 
-## Chamados: hipóteses da leitura dos manifests
-
-| Chamado | Hipótese | Evidência necessária para confirmar |
-|---|---|---|
-| nyx-prod reinicia | Limite de memória de 24Mi no kube-news | OOMKilled/código 137, eventos e limite; estado do banco separadamente |
-| orion-stg não troca pod | Falha ao obter imagem/tag anunciada | ErrImagePull/ImagePullBackOff e mensagem exata do registry no evento |
-| nyx-stg responde 503 | Selector `app: nyx-api` diferente do label `app: nyxapi` | Service, labels dos pods prontos e EndpointSlice sem destinos |
-
-## Matriz de roteamento esperada
-
-| Pedido | Rota esperada |
+| Chamado | Diagnóstico sustentado nas leituras |
 |---|---|
-| o pod do nyx-prod não sobe | triagem-cluster |
-| por que esse deployment está 0/3 | triagem-cluster |
-| o service do nyx-stg não tem endpoint | triagem-cluster |
-| revisa esse deployment antes de eu subir | manifests-metacortex |
-| esse manifesto está no padrão da casa? | manifests-metacortex |
-| cria um Deployment novo do zero pra mim | manifests-metacortex; pedir projeto/cliente/ambiente se faltarem |
-| esse manifesto não sobe no cluster | Esclarecer: erro no arquivo, erro de apply ou workload já aplicado? |
-| o Service do nyx não está entregando tráfego | triagem-cluster |
-| o que é um DaemonSet? | Nenhuma; explicação geral |
-| provisiona uma VM nova no Construct pro cliente orion | Nenhuma; fora do escopo |
+| nyx-prod | Nova revisão com limite 24Mi termina OOMKilled/137 e entra em CrashLoopBackOff. Dois pods antigos de 256Mi e PostgreSQL continuam prontos. |
+| orion-stg | Pull da tag v1.14.2 retorna NotFound, ErrImagePull/ImagePullBackOff. Rollout fica incompleto, com 2/3 réplicas prontas antigas; não há prova de indisponibilidade total. |
+| nyx-stg | Service seleciona app=nyx-api, pod Ready usa app=nyxapi, EndpointSlice sem destinos. Proxy da API retorna ServiceUnavailable/503. |
 
-## Medição
+Os [relatórios dos chamados](exemplos/chamados.json) cruzam pelo menos duas fontes por causa e distinguem banco saudável, revisão antiga e recurso defeituoso. A tag do chamado foi introduzida diretamente no lab; não há atribuição de conteúdo ao vídeo Loom privado.
 
-Casos selecionados: revisão do manifesto barrado e triagem do Service sem endpoint. Comparar a mesma entrada/modelo/configuração, em sessões limpas, com e sem skill. Registrar saída, acerto causal/cobertura de regras, ferramentas acionadas, duração e uso/custo retornado pelo provedor. Custo indisponível deve permanecer indisponível, não estimado como medido.
+A proteção combina `ALLOW_ONLY_NON_DESTRUCTIVE_TOOLS=true`, `ALLOW_ONLY_READONLY_TOOLS=true`, allowlist de cinco ferramentas, wrapper com contexto e verbos fixos e RBAC `view` por namespace. Uma ClusterRole adicional permite listar namespaces; em acesso-parcial, uma Role omite EndpointSlices. Secrets e exec não foram concedidos. O modo não destrutivo isolado ainda permitiria mutações; por isso as demais camadas são necessárias. Nesta versão do servidor, filtrar tools/list não impede chamar uma ferramenta oculta diretamente: a tentativa real de `kubectl_create` foi barrada pelo wrapper. O teste direto contra a API com a SA também recebeu Forbidden/403 e confirmou a ausência do ConfigMap. Evidências: `mcp-escrita-negada.json`, `rbac-escrita-negada.txt`, `rbac-secrets-negado.txt` e `ausencia-escrita.txt`.
 
-## Exemplos e avaliação
-
-[Chamados](exemplos/chamados.json): dados e análise dos três cenários.
-
-`python avaliar_codex.py` executa cada frase em uma sessão independente e compara dois chamados com/sem o texto da skill. Registra respostas, tempo e uso retornado pelo Codex em `exemplos/`; requer Codex autenticado e acesso ao serviço. Custo monetário permanece nulo quando não fornecido.
+Parte B: 10/10 rotas corretas. Parte C: saídas com/sem skill, tokens de entrada/saída/cache e tempo medidos em sessões independentes de Codex; [tabela, método e curadoria](../evidencias/t02/avaliacao.md). O experimento não demonstrou economia de tokens. Custo monetário fica null porque não foi fornecido. `python3 avaliar_codex.py` reproduz a avaliação a partir das coletas MCP congeladas e requer Codex autenticado. Os registros incluem saída integral, eventos do provedor e uso; os hashes das skills usados constam em `versoes-prompts.json`.

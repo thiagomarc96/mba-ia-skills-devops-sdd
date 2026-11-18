@@ -24,12 +24,12 @@ def error_message(stderr):
 
 
 class Kubernetes:
-    def __init__(self, run=subprocess.run):
+    def __init__(self, run=subprocess.run, context=None):
         self.run = run
         self.context = None
         self.start_error = None
         try:
-            self.context = self._call(['config', 'current-context']).strip()
+            self.context = context or self._call(['config', 'current-context']).strip()
             if not self.context:
                 self.start_error = 'Nenhum contexto corrente configurado. Corrija e reinicie.'
         except RuntimeError as exc:
@@ -148,7 +148,6 @@ def snapshot(client, namespace):
                                  or event.get('lastTimestamp') or event.get('eventTime')
                                  or meta.get('creationTimestamp') or ''})
     return {'contexto': client.context, 'namespace': namespace,
-            'simulado': bool(getattr(client, 'simulado', False)),
             'coletado_em': datetime.now(timezone.utc).isoformat(), 'erros': errors,
             'namespaces': sorted((n.get('metadata') or {}).get('name', '') for n in items('namespaces')),
             'pods': [pod_row(p) for p in items('pods')], 'deployments': deployments,
@@ -201,10 +200,11 @@ def handler_for(client):
 def main():
     parser = argparse.ArgumentParser(description='Dashboard Kubernetes local, somente leitura.')
     parser.add_argument('--porta', type=int, default=8088)
+    parser.add_argument('--context', help='Fixar explicitamente o contexto do kubeconfig.')
     args = parser.parse_args()
     if not 1024 <= args.porta <= 65535:
         parser.error('porta deve estar entre 1024 e 65535')
-    client = Kubernetes()
+    client = Kubernetes(context=args.context)
     try:
         server = HTTPServer(('127.0.0.1', args.porta), handler_for(client))
     except OSError:

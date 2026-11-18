@@ -1,0 +1,7 @@
+kind: OK
+kubectl: OK
+trivy_0.69.3_Linux-64bit.tar.gz: OK
+kind v0.31.0 go1.25.5 linux/amd64
+Client Version: v1.35.0
+Kustomize Version: v5.7.1
+Version: 0.69.3

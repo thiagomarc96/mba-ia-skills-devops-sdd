@@ -1,0 +1,10 @@
+67652c3cb98c274184ed067d4f83ed5989b9e002ebb9562b649ad0878f8e7081  /app/server.js
+6dc54e975a44cc83b0ba77e88c2dfe03d12e816e6015cee9c80c6cdfe350819f  /app/system-life.js
+0bd3d6c9066e39a0d1aaff1b22efb63d2e92736e2d0c75c93196aee089af8c96  /app/models/post.js
+b9cd2c11ec045b58de88fd97717e7da15d0f61cf989410cddabab7b35ba6bc8e  /app/index.py
+1529c3e7a3955761a1acaf0a6609ba3d55beec3b9076641930c8054a15fbbd8e  /app/entrypoint.sh
+9f241bf0ffb70c2d84a239e1e15bb1d64832cf01a4222ad63247895d2b9cdfc1  .runtime/kube-news/src/server.js
+6dc54e975a44cc83b0ba77e88c2dfe03d12e816e6015cee9c80c6cdfe350819f  .runtime/kube-news/src/system-life.js
+0bd3d6c9066e39a0d1aaff1b22efb63d2e92736e2d0c75c93196aee089af8c96  .runtime/kube-news/src/models/post.js
+b9cd2c11ec045b58de88fd97717e7da15d0f61cf989410cddabab7b35ba6bc8e  .runtime/fake-shop/src/index.py
+1529c3e7a3955761a1acaf0a6609ba3d55beec3b9076641930c8054a15fbbd8e  .runtime/fake-shop/src/entrypoint.sh

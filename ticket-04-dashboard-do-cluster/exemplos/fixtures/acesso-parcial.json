@@ -1,215 +1,2013 @@
 {
-  "tipo": "exemplo",
-  "cenario": "leitura de EndpointSlice proibida; demais recursos disponíveis",
+  "origem": "API do kind-desafio03 via kubectl e backend HTTP",
+  "cenario": "acesso-parcial",
   "http_status": 200,
-  "entrada_sintetica": {
-    "namespaces": [],
-    "pods": [
+  "entrada_cluster": {
+    "namespaces": [
       {
+        "apiVersion": "v1",
+        "kind": "Namespace",
         "metadata": {
-          "name": "nyx-api-simulado",
-          "namespace": "acesso-parcial",
+          "creationTimestamp": "2026-11-18T19:16:30Z",
           "labels": {
-            "app": "nyx-api",
-            "produto": "kube-news"
-          }
+            "kubernetes.io/metadata.name": "acesso-parcial"
+          },
+          "name": "acesso-parcial",
+          "resourceVersion": "1521",
+          "uid": "640ab519-4579-4b60-a16e-c9a590352fc7"
         },
         "spec": {
-          "containers": [
-            {
-              "name": "nyx-api",
-              "image": "fabricioveronez/kube-news:v1",
-              "ports": [
-                {
-                  "containerPort": 8080
-                }
-              ]
-            }
+          "finalizers": [
+            "kubernetes"
           ]
         },
         "status": {
-          "phase": "Running",
-          "conditions": [
-            {
-              "type": "Ready",
-              "status": "True"
-            }
-          ],
-          "containerStatuses": [
-            {
-              "name": "nyx-api",
-              "ready": true,
-              "restartCount": 0,
-              "state": {
-                "running": {}
-              }
-            }
-          ]
+          "phase": "Active"
         }
       },
       {
+        "apiVersion": "v1",
+        "kind": "Namespace",
         "metadata": {
-          "name": "nyx-postgres-simulado",
-          "namespace": "acesso-parcial",
+          "creationTimestamp": "2026-11-18T19:13:37Z",
           "labels": {
-            "app": "nyx-postgres",
-            "produto": "kube-news"
-          }
+            "kubernetes.io/metadata.name": "default"
+          },
+          "name": "default",
+          "resourceVersion": "12",
+          "uid": "df09b8ee-43c0-4886-97c5-837564c1fc4b"
         },
         "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:13:37Z",
+          "labels": {
+            "kubernetes.io/metadata.name": "kube-node-lease"
+          },
+          "name": "kube-node-lease",
+          "resourceVersion": "19",
+          "uid": "cd28cde7-bd43-4a17-be44-f00c304dcacf"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:13:37Z",
+          "labels": {
+            "kubernetes.io/metadata.name": "kube-public"
+          },
+          "name": "kube-public",
+          "resourceVersion": "8",
+          "uid": "9259a5c6-a49c-4ac7-be34-5b358135012c"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:13:37Z",
+          "labels": {
+            "kubernetes.io/metadata.name": "kube-system"
+          },
+          "name": "kube-system",
+          "resourceVersion": "5",
+          "uid": "9f5fa1af-9482-4d8e-bc81-9ae7b9be344b"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"name\":\"local-path-storage\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:13:44Z",
+          "labels": {
+            "kubernetes.io/metadata.name": "local-path-storage"
+          },
+          "name": "local-path-storage",
+          "resourceVersion": "332",
+          "uid": "87429f42-4477-4f52-8b00-413946574124"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"nyx-dev\",\"app.kubernetes.io/instance\":\"nyx-dev\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"nyx-dev\",\"app.kubernetes.io/part-of\":\"nyx\"},\"name\":\"nyx-dev\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:23Z",
+          "labels": {
+            "app": "nyx-dev",
+            "app.kubernetes.io/instance": "nyx-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "nyx-dev",
+            "app.kubernetes.io/part-of": "nyx",
+            "kubernetes.io/metadata.name": "nyx-dev"
+          },
+          "name": "nyx-dev",
+          "resourceVersion": "575",
+          "uid": "2991b328-0a5d-4916-aaff-ad020c43e668"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"nyx-prod\",\"app.kubernetes.io/instance\":\"nyx-prod\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"nyx-prod\",\"app.kubernetes.io/part-of\":\"nyx\"},\"name\":\"nyx-prod\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:22Z",
+          "labels": {
+            "app": "nyx-prod",
+            "app.kubernetes.io/instance": "nyx-prod",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "nyx-prod",
+            "app.kubernetes.io/part-of": "nyx",
+            "kubernetes.io/metadata.name": "nyx-prod"
+          },
+          "name": "nyx-prod",
+          "resourceVersion": "528",
+          "uid": "451d4e2a-357b-4b8d-845d-a66e850ec502"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"nyx-stg\",\"app.kubernetes.io/instance\":\"nyx-stg\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"nyx-stg\",\"app.kubernetes.io/part-of\":\"nyx\"},\"name\":\"nyx-stg\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:24Z",
+          "labels": {
+            "app": "nyx-stg",
+            "app.kubernetes.io/instance": "nyx-stg",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "nyx-stg",
+            "app.kubernetes.io/part-of": "nyx",
+            "kubernetes.io/metadata.name": "nyx-stg"
+          },
+          "name": "nyx-stg",
+          "resourceVersion": "619",
+          "uid": "b2ec0d26-eeef-4d5f-9608-e2c6a7bc215b"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"orion-dev\",\"app.kubernetes.io/instance\":\"orion-dev\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"orion-dev\",\"app.kubernetes.io/part-of\":\"orion\"},\"name\":\"orion-dev\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:24Z",
+          "labels": {
+            "app": "orion-dev",
+            "app.kubernetes.io/instance": "orion-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "orion-dev",
+            "app.kubernetes.io/part-of": "orion",
+            "kubernetes.io/metadata.name": "orion-dev"
+          },
+          "name": "orion-dev",
+          "resourceVersion": "663",
+          "uid": "8dc3678e-6dee-4ba0-b086-bb6ed7e1e4b6"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"orion-stg\",\"app.kubernetes.io/instance\":\"orion-stg\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"orion-stg\",\"app.kubernetes.io/part-of\":\"orion\"},\"name\":\"orion-stg\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "labels": {
+            "app": "orion-stg",
+            "app.kubernetes.io/instance": "orion-stg",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "orion-stg",
+            "app.kubernetes.io/part-of": "orion",
+            "kubernetes.io/metadata.name": "orion-stg"
+          },
+          "name": "orion-stg",
+          "resourceVersion": "705",
+          "uid": "7947240f-fc2b-4bbd-bc01-2e9bf48a414f"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      }
+    ],
+    "pods": [
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:32Z",
+          "generateName": "nyx-api-757575965b-",
+          "generation": 1,
+          "labels": {
+            "app": "nyx-api",
+            "app.kubernetes.io/instance": "nyx-stg",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "nyx-api",
+            "app.kubernetes.io/part-of": "nyx",
+            "pod-template-hash": "757575965b"
+          },
+          "name": "nyx-api-757575965b-qcdkg",
+          "namespace": "acesso-parcial",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "nyx-api-757575965b",
+              "uid": "13b72e59-f9ae-4967-884b-a737060fa188"
+            }
+          ],
+          "resourceVersion": "1686",
+          "uid": "ec02caee-9c1c-4ad6-89f0-6d8e90a61d3b"
+        },
+        "spec": {
+          "automountServiceAccountToken": false,
           "containers": [
             {
-              "name": "nyx-postgres",
-              "image": "postgres:16-alpine",
+              "env": [
+                {
+                  "name": "DB_HOST",
+                  "value": "postgres"
+                },
+                {
+                  "name": "DB_PORT",
+                  "value": "5432"
+                },
+                {
+                  "name": "DB_DATABASE",
+                  "value": "app"
+                },
+                {
+                  "name": "DB_USERNAME",
+                  "value": "app"
+                },
+                {
+                  "name": "DB_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "password",
+                      "name": "database-auth"
+                    }
+                  }
+                }
+              ],
+              "image": "fabricioveronez/kube-news@sha256:61a97024792d8aa96d97d2618b98924012daeaa6386e2557660cc6ff169d840e",
+              "imagePullPolicy": "IfNotPresent",
+              "livenessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/health",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "name": "nyx-api",
               "ports": [
                 {
-                  "containerPort": 5432
+                  "containerPort": 8080,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/ready",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 5,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "500m",
+                  "memory": "256Mi"
+                },
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "128Mi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "readOnlyRootFilesystem": true,
+                "runAsNonRoot": true,
+                "runAsUser": 10001
+              },
+              "startupProbe": {
+                "failureThreshold": 60,
+                "httpGet": {
+                  "path": "/health",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 2,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/tmp",
+                  "name": "tmp"
                 }
               ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "initContainers": [
+            {
+              "command": [
+                "sh",
+                "-c",
+                "until pg_isready -h postgres -U app -d app; do sleep 2; done"
+              ],
+              "image": "postgres:16.6-alpine",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "aguardar-postgres",
+              "resources": {
+                "limits": {
+                  "cpu": "100m",
+                  "memory": "64Mi"
+                },
+                "requests": {
+                  "cpu": "10m",
+                  "memory": "16Mi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "readOnlyRootFilesystem": true,
+                "runAsNonRoot": true,
+                "runAsUser": 10001
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File"
+            }
+          ],
+          "nodeName": "desafio03-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 10001
+          },
+          "serviceAccount": "nyx-api",
+          "serviceAccountName": "nyx-api",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "emptyDir": {},
+              "name": "tmp"
             }
           ]
         },
         "status": {
-          "phase": "Running",
           "conditions": [
             {
-              "type": "Ready",
-              "status": "True"
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:16:35Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:16:42Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:16:45Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:16:45Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:16:32Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
             }
           ],
           "containerStatuses": [
             {
-              "name": "nyx-postgres",
+              "allocatedResources": {
+                "cpu": "50m",
+                "memory": "128Mi"
+              },
+              "containerID": "containerd://d990a6e9c7ae331123545762d9696e32cf0901e6286320145d99e7af49bbd3a9",
+              "image": "sha256:fc9b87bb02747ea462894347a41c46dc8f49845e20aa03cfad6df1644066304c",
+              "imageID": "docker.io/fabricioveronez/kube-news@sha256:61a97024792d8aa96d97d2618b98924012daeaa6386e2557660cc6ff169d840e",
+              "lastState": {},
+              "name": "nyx-api",
               "ready": true,
+              "resources": {
+                "limits": {
+                  "cpu": "500m",
+                  "memory": "256Mi"
+                },
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "128Mi"
+                }
+              },
               "restartCount": 0,
+              "started": true,
               "state": {
-                "running": {}
+                "running": {
+                  "startedAt": "2026-11-18T19:16:42Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 0,
+                  "supplementalGroups": [
+                    0,
+                    10001
+                  ],
+                  "uid": 10001
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/tmp",
+                  "name": "tmp"
+                }
+              ]
+            }
+          ],
+          "hostIP": "172.22.0.2",
+          "hostIPs": [
+            {
+              "ip": "172.22.0.2"
+            }
+          ],
+          "initContainerStatuses": [
+            {
+              "allocatedResources": {
+                "cpu": "10m",
+                "memory": "16Mi"
+              },
+              "containerID": "containerd://fe9d898bdd5ea2bd9af866c87a82184ec28f5bd81597116d9caf88a2e85472a3",
+              "image": "docker.io/library/postgres:16.6-alpine",
+              "imageID": "docker.io/library/postgres@sha256:1d04b9ba1d4996401f2552b51beda8187f175c0645c091e4781134fc9c9a3eef",
+              "lastState": {},
+              "name": "aguardar-postgres",
+              "ready": true,
+              "resources": {
+                "limits": {
+                  "cpu": "100m",
+                  "memory": "64Mi"
+                },
+                "requests": {
+                  "cpu": "10m",
+                  "memory": "16Mi"
+                }
+              },
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://fe9d898bdd5ea2bd9af866c87a82184ec28f5bd81597116d9caf88a2e85472a3",
+                  "exitCode": 0,
+                  "finishedAt": "2026-11-18T19:16:41Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-11-18T19:16:34Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 0,
+                  "supplementalGroups": [
+                    0,
+                    10001
+                  ],
+                  "uid": 10001
+                }
               }
             }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "10.244.0.27",
+          "podIPs": [
+            {
+              "ip": "10.244.0.27"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-11-18T19:16:32Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:33Z",
+          "generateName": "postgres-55bd49c7b8-",
+          "generation": 1,
+          "labels": {
+            "app": "postgres",
+            "app.kubernetes.io/instance": "nyx-stg",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "postgres",
+            "app.kubernetes.io/part-of": "nyx",
+            "pod-template-hash": "55bd49c7b8"
+          },
+          "name": "postgres-55bd49c7b8-zzd2s",
+          "namespace": "acesso-parcial",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "postgres-55bd49c7b8",
+              "uid": "287d0c7a-80f1-49ba-a04d-dd20fdaae969"
+            }
+          ],
+          "resourceVersion": "1661",
+          "uid": "1c2044a6-6c4c-4009-ad02-2f9481ca5675"
+        },
+        "spec": {
+          "automountServiceAccountToken": false,
+          "containers": [
+            {
+              "env": [
+                {
+                  "name": "POSTGRES_DB",
+                  "value": "app"
+                },
+                {
+                  "name": "POSTGRES_USER",
+                  "value": "app"
+                },
+                {
+                  "name": "PGDATA",
+                  "value": "/var/lib/postgresql/data/pgdata"
+                },
+                {
+                  "name": "POSTGRES_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "password",
+                      "name": "database-auth"
+                    }
+                  }
+                }
+              ],
+              "image": "postgres:16.6-alpine",
+              "imagePullPolicy": "IfNotPresent",
+              "livenessProbe": {
+                "exec": {
+                  "command": [
+                    "pg_isready",
+                    "-U",
+                    "app",
+                    "-d",
+                    "app"
+                  ]
+                },
+                "failureThreshold": 3,
+                "periodSeconds": 3,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "name": "postgres",
+              "ports": [
+                {
+                  "containerPort": 5432,
+                  "name": "db",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "exec": {
+                  "command": [
+                    "pg_isready",
+                    "-U",
+                    "app",
+                    "-d",
+                    "app"
+                  ]
+                },
+                "failureThreshold": 3,
+                "periodSeconds": 3,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "500m",
+                  "memory": "256Mi"
+                },
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "64Mi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "readOnlyRootFilesystem": true,
+                "runAsNonRoot": true,
+                "runAsUser": 10001
+              },
+              "startupProbe": {
+                "exec": {
+                  "command": [
+                    "pg_isready",
+                    "-U",
+                    "app",
+                    "-d",
+                    "app"
+                  ]
+                },
+                "failureThreshold": 60,
+                "periodSeconds": 2,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/tmp",
+                  "name": "tmp"
+                },
+                {
+                  "mountPath": "/var/lib/postgresql/data",
+                  "name": "data"
+                },
+                {
+                  "mountPath": "/var/run/postgresql",
+                  "name": "run"
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "nodeName": "desafio03-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 10001
+          },
+          "serviceAccount": "postgres",
+          "serviceAccountName": "postgres",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "emptyDir": {},
+              "name": "tmp"
+            },
+            {
+              "emptyDir": {},
+              "name": "data"
+            },
+            {
+              "emptyDir": {},
+              "name": "run"
+            }
           ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:16:35Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:16:33Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:16:40Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:16:40Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:16:33Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "allocatedResources": {
+                "cpu": "50m",
+                "memory": "64Mi"
+              },
+              "containerID": "containerd://8429b2c823702a1c43017d0138a8153336d009de888f0771c4c0c3d90d3f9c8f",
+              "image": "docker.io/library/postgres:16.6-alpine",
+              "imageID": "docker.io/library/postgres@sha256:1d04b9ba1d4996401f2552b51beda8187f175c0645c091e4781134fc9c9a3eef",
+              "lastState": {},
+              "name": "postgres",
+              "ready": true,
+              "resources": {
+                "limits": {
+                  "cpu": "500m",
+                  "memory": "256Mi"
+                },
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "64Mi"
+                }
+              },
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-11-18T19:16:34Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 0,
+                  "supplementalGroups": [
+                    0,
+                    10001
+                  ],
+                  "uid": 10001
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/tmp",
+                  "name": "tmp"
+                },
+                {
+                  "mountPath": "/var/lib/postgresql/data",
+                  "name": "data"
+                },
+                {
+                  "mountPath": "/var/run/postgresql",
+                  "name": "run"
+                }
+              ]
+            }
+          ],
+          "hostIP": "172.22.0.2",
+          "hostIPs": [
+            {
+              "ip": "172.22.0.2"
+            }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "10.244.0.28",
+          "podIPs": [
+            {
+              "ip": "10.244.0.28"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-11-18T19:16:33Z"
         }
       }
     ],
     "deployments": [
       {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
         "metadata": {
+          "annotations": {
+            "deployment.kubernetes.io/revision": "1",
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"nyx-api\",\"app.kubernetes.io/instance\":\"nyx-stg\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"nyx-api\",\"app.kubernetes.io/part-of\":\"nyx\"},\"name\":\"nyx-api\",\"namespace\":\"acesso-parcial\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"nyx-api\"}},\"strategy\":{\"rollingUpdate\":{\"maxSurge\":1,\"maxUnavailable\":0},\"type\":\"RollingUpdate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"nyx-api\",\"app.kubernetes.io/instance\":\"nyx-stg\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"nyx-api\",\"app.kubernetes.io/part-of\":\"nyx\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"env\":[{\"name\":\"DB_HOST\",\"value\":\"postgres\"},{\"name\":\"DB_PORT\",\"value\":\"5432\"},{\"name\":\"DB_DATABASE\",\"value\":\"app\"},{\"name\":\"DB_USERNAME\",\"value\":\"app\"},{\"name\":\"DB_PASSWORD\",\"valueFrom\":{\"secretKeyRef\":{\"key\":\"password\",\"name\":\"database-auth\"}}}],\"image\":\"fabricioveronez/kube-news@sha256:61a97024792d8aa96d97d2618b98924012daeaa6386e2557660cc6ff169d840e\",\"imagePullPolicy\":\"IfNotPresent\",\"livenessProbe\":{\"httpGet\":{\"path\":\"/health\",\"port\":\"http\"},\"periodSeconds\":10},\"name\":\"nyx-api\",\"ports\":[{\"containerPort\":8080,\"name\":\"http\"}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/ready\",\"port\":\"http\"},\"periodSeconds\":5},\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"256Mi\"},\"requests\":{\"cpu\":\"50m\",\"memory\":\"128Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001},\"startupProbe\":{\"failureThreshold\":60,\"httpGet\":{\"path\":\"/health\",\"port\":\"http\"},\"periodSeconds\":2},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp\"}]}],\"initContainers\":[{\"command\":[\"sh\",\"-c\",\"until pg_isready -h postgres -U app -d app; do sleep 2; done\"],\"image\":\"postgres:16.6-alpine\",\"name\":\"aguardar-postgres\",\"resources\":{\"limits\":{\"cpu\":\"100m\",\"memory\":\"64Mi\"},\"requests\":{\"cpu\":\"10m\",\"memory\":\"16Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001}}],\"securityContext\":{\"fsGroup\":10001},\"serviceAccountName\":\"nyx-api\",\"terminationGracePeriodSeconds\":30,\"volumes\":[{\"emptyDir\":{},\"name\":\"tmp\"}]}}}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:16:32Z",
+          "generation": 1,
+          "labels": {
+            "app": "nyx-api",
+            "app.kubernetes.io/instance": "nyx-stg",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "nyx-api",
+            "app.kubernetes.io/part-of": "nyx"
+          },
           "name": "nyx-api",
-          "namespace": "acesso-parcial"
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1690",
+          "uid": "3d9d14c2-30c5-41d3-8249-61a990d0cdfd"
         },
         "spec": {
-          "replicas": 1
+          "progressDeadlineSeconds": 600,
+          "replicas": 1,
+          "revisionHistoryLimit": 10,
+          "selector": {
+            "matchLabels": {
+              "app": "nyx-api"
+            }
+          },
+          "strategy": {
+            "rollingUpdate": {
+              "maxSurge": 1,
+              "maxUnavailable": 0
+            },
+            "type": "RollingUpdate"
+          },
+          "template": {
+            "metadata": {
+              "labels": {
+                "app": "nyx-api",
+                "app.kubernetes.io/instance": "nyx-stg",
+                "app.kubernetes.io/managed-by": "platform",
+                "app.kubernetes.io/name": "nyx-api",
+                "app.kubernetes.io/part-of": "nyx"
+              }
+            },
+            "spec": {
+              "automountServiceAccountToken": false,
+              "containers": [
+                {
+                  "env": [
+                    {
+                      "name": "DB_HOST",
+                      "value": "postgres"
+                    },
+                    {
+                      "name": "DB_PORT",
+                      "value": "5432"
+                    },
+                    {
+                      "name": "DB_DATABASE",
+                      "value": "app"
+                    },
+                    {
+                      "name": "DB_USERNAME",
+                      "value": "app"
+                    },
+                    {
+                      "name": "DB_PASSWORD",
+                      "valueFrom": {
+                        "secretKeyRef": {
+                          "key": "password",
+                          "name": "database-auth"
+                        }
+                      }
+                    }
+                  ],
+                  "image": "fabricioveronez/kube-news@sha256:61a97024792d8aa96d97d2618b98924012daeaa6386e2557660cc6ff169d840e",
+                  "imagePullPolicy": "IfNotPresent",
+                  "livenessProbe": {
+                    "failureThreshold": 3,
+                    "httpGet": {
+                      "path": "/health",
+                      "port": "http",
+                      "scheme": "HTTP"
+                    },
+                    "periodSeconds": 10,
+                    "successThreshold": 1,
+                    "timeoutSeconds": 1
+                  },
+                  "name": "nyx-api",
+                  "ports": [
+                    {
+                      "containerPort": 8080,
+                      "name": "http",
+                      "protocol": "TCP"
+                    }
+                  ],
+                  "readinessProbe": {
+                    "failureThreshold": 3,
+                    "httpGet": {
+                      "path": "/ready",
+                      "port": "http",
+                      "scheme": "HTTP"
+                    },
+                    "periodSeconds": 5,
+                    "successThreshold": 1,
+                    "timeoutSeconds": 1
+                  },
+                  "resources": {
+                    "limits": {
+                      "cpu": "500m",
+                      "memory": "256Mi"
+                    },
+                    "requests": {
+                      "cpu": "50m",
+                      "memory": "128Mi"
+                    }
+                  },
+                  "securityContext": {
+                    "allowPrivilegeEscalation": false,
+                    "capabilities": {
+                      "drop": [
+                        "ALL"
+                      ]
+                    },
+                    "readOnlyRootFilesystem": true,
+                    "runAsNonRoot": true,
+                    "runAsUser": 10001
+                  },
+                  "startupProbe": {
+                    "failureThreshold": 60,
+                    "httpGet": {
+                      "path": "/health",
+                      "port": "http",
+                      "scheme": "HTTP"
+                    },
+                    "periodSeconds": 2,
+                    "successThreshold": 1,
+                    "timeoutSeconds": 1
+                  },
+                  "terminationMessagePath": "/dev/termination-log",
+                  "terminationMessagePolicy": "File",
+                  "volumeMounts": [
+                    {
+                      "mountPath": "/tmp",
+                      "name": "tmp"
+                    }
+                  ]
+                }
+              ],
+              "dnsPolicy": "ClusterFirst",
+              "initContainers": [
+                {
+                  "command": [
+                    "sh",
+                    "-c",
+                    "until pg_isready -h postgres -U app -d app; do sleep 2; done"
+                  ],
+                  "image": "postgres:16.6-alpine",
+                  "imagePullPolicy": "IfNotPresent",
+                  "name": "aguardar-postgres",
+                  "resources": {
+                    "limits": {
+                      "cpu": "100m",
+                      "memory": "64Mi"
+                    },
+                    "requests": {
+                      "cpu": "10m",
+                      "memory": "16Mi"
+                    }
+                  },
+                  "securityContext": {
+                    "allowPrivilegeEscalation": false,
+                    "capabilities": {
+                      "drop": [
+                        "ALL"
+                      ]
+                    },
+                    "readOnlyRootFilesystem": true,
+                    "runAsNonRoot": true,
+                    "runAsUser": 10001
+                  },
+                  "terminationMessagePath": "/dev/termination-log",
+                  "terminationMessagePolicy": "File"
+                }
+              ],
+              "restartPolicy": "Always",
+              "schedulerName": "default-scheduler",
+              "securityContext": {
+                "fsGroup": 10001
+              },
+              "serviceAccount": "nyx-api",
+              "serviceAccountName": "nyx-api",
+              "terminationGracePeriodSeconds": 30,
+              "volumes": [
+                {
+                  "emptyDir": {},
+                  "name": "tmp"
+                }
+              ]
+            }
+          }
         },
         "status": {
-          "readyReplicas": 1
+          "availableReplicas": 1,
+          "conditions": [
+            {
+              "lastTransitionTime": "2026-11-18T19:16:45Z",
+              "lastUpdateTime": "2026-11-18T19:16:45Z",
+              "message": "Deployment has minimum availability.",
+              "reason": "MinimumReplicasAvailable",
+              "status": "True",
+              "type": "Available"
+            },
+            {
+              "lastTransitionTime": "2026-11-18T19:16:32Z",
+              "lastUpdateTime": "2026-11-18T19:16:45Z",
+              "message": "ReplicaSet \"nyx-api-757575965b\" has successfully progressed.",
+              "reason": "NewReplicaSetAvailable",
+              "status": "True",
+              "type": "Progressing"
+            }
+          ],
+          "observedGeneration": 1,
+          "readyReplicas": 1,
+          "replicas": 1,
+          "terminatingReplicas": 0,
+          "updatedReplicas": 1
         }
       },
       {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
         "metadata": {
-          "name": "nyx-postgres",
-          "namespace": "acesso-parcial"
+          "annotations": {
+            "deployment.kubernetes.io/revision": "1",
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"postgres\",\"app.kubernetes.io/instance\":\"nyx-stg\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"postgres\",\"app.kubernetes.io/part-of\":\"nyx\"},\"name\":\"postgres\",\"namespace\":\"acesso-parcial\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"postgres\"}},\"strategy\":{\"rollingUpdate\":{\"maxSurge\":1,\"maxUnavailable\":0},\"type\":\"RollingUpdate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"postgres\",\"app.kubernetes.io/instance\":\"nyx-stg\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"postgres\",\"app.kubernetes.io/part-of\":\"nyx\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"env\":[{\"name\":\"POSTGRES_DB\",\"value\":\"app\"},{\"name\":\"POSTGRES_USER\",\"value\":\"app\"},{\"name\":\"PGDATA\",\"value\":\"/var/lib/postgresql/data/pgdata\"},{\"name\":\"POSTGRES_PASSWORD\",\"valueFrom\":{\"secretKeyRef\":{\"key\":\"password\",\"name\":\"database-auth\"}}}],\"image\":\"postgres:16.6-alpine\",\"imagePullPolicy\":\"IfNotPresent\",\"livenessProbe\":{\"exec\":{\"command\":[\"pg_isready\",\"-U\",\"app\",\"-d\",\"app\"]},\"periodSeconds\":3},\"name\":\"postgres\",\"ports\":[{\"containerPort\":5432,\"name\":\"db\"}],\"readinessProbe\":{\"exec\":{\"command\":[\"pg_isready\",\"-U\",\"app\",\"-d\",\"app\"]},\"periodSeconds\":3},\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"256Mi\"},\"requests\":{\"cpu\":\"50m\",\"memory\":\"64Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001},\"startupProbe\":{\"exec\":{\"command\":[\"pg_isready\",\"-U\",\"app\",\"-d\",\"app\"]},\"failureThreshold\":60,\"periodSeconds\":2},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp\"},{\"mountPath\":\"/var/lib/postgresql/data\",\"name\":\"data\"},{\"mountPath\":\"/var/run/postgresql\",\"name\":\"run\"}]}],\"securityContext\":{\"fsGroup\":10001},\"serviceAccountName\":\"postgres\",\"terminationGracePeriodSeconds\":30,\"volumes\":[{\"emptyDir\":{},\"name\":\"tmp\"},{\"emptyDir\":{},\"name\":\"data\"},{\"emptyDir\":{},\"name\":\"run\"}]}}}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:16:33Z",
+          "generation": 1,
+          "labels": {
+            "app": "postgres",
+            "app.kubernetes.io/instance": "nyx-stg",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "postgres",
+            "app.kubernetes.io/part-of": "nyx"
+          },
+          "name": "postgres",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1665",
+          "uid": "66e3717c-d8c1-4136-9bde-c9b8a8b2747a"
         },
         "spec": {
-          "replicas": 1
+          "progressDeadlineSeconds": 600,
+          "replicas": 1,
+          "revisionHistoryLimit": 10,
+          "selector": {
+            "matchLabels": {
+              "app": "postgres"
+            }
+          },
+          "strategy": {
+            "rollingUpdate": {
+              "maxSurge": 1,
+              "maxUnavailable": 0
+            },
+            "type": "RollingUpdate"
+          },
+          "template": {
+            "metadata": {
+              "labels": {
+                "app": "postgres",
+                "app.kubernetes.io/instance": "nyx-stg",
+                "app.kubernetes.io/managed-by": "platform",
+                "app.kubernetes.io/name": "postgres",
+                "app.kubernetes.io/part-of": "nyx"
+              }
+            },
+            "spec": {
+              "automountServiceAccountToken": false,
+              "containers": [
+                {
+                  "env": [
+                    {
+                      "name": "POSTGRES_DB",
+                      "value": "app"
+                    },
+                    {
+                      "name": "POSTGRES_USER",
+                      "value": "app"
+                    },
+                    {
+                      "name": "PGDATA",
+                      "value": "/var/lib/postgresql/data/pgdata"
+                    },
+                    {
+                      "name": "POSTGRES_PASSWORD",
+                      "valueFrom": {
+                        "secretKeyRef": {
+                          "key": "password",
+                          "name": "database-auth"
+                        }
+                      }
+                    }
+                  ],
+                  "image": "postgres:16.6-alpine",
+                  "imagePullPolicy": "IfNotPresent",
+                  "livenessProbe": {
+                    "exec": {
+                      "command": [
+                        "pg_isready",
+                        "-U",
+                        "app",
+                        "-d",
+                        "app"
+                      ]
+                    },
+                    "failureThreshold": 3,
+                    "periodSeconds": 3,
+                    "successThreshold": 1,
+                    "timeoutSeconds": 1
+                  },
+                  "name": "postgres",
+                  "ports": [
+                    {
+                      "containerPort": 5432,
+                      "name": "db",
+                      "protocol": "TCP"
+                    }
+                  ],
+                  "readinessProbe": {
+                    "exec": {
+                      "command": [
+                        "pg_isready",
+                        "-U",
+                        "app",
+                        "-d",
+                        "app"
+                      ]
+                    },
+                    "failureThreshold": 3,
+                    "periodSeconds": 3,
+                    "successThreshold": 1,
+                    "timeoutSeconds": 1
+                  },
+                  "resources": {
+                    "limits": {
+                      "cpu": "500m",
+                      "memory": "256Mi"
+                    },
+                    "requests": {
+                      "cpu": "50m",
+                      "memory": "64Mi"
+                    }
+                  },
+                  "securityContext": {
+                    "allowPrivilegeEscalation": false,
+                    "capabilities": {
+                      "drop": [
+                        "ALL"
+                      ]
+                    },
+                    "readOnlyRootFilesystem": true,
+                    "runAsNonRoot": true,
+                    "runAsUser": 10001
+                  },
+                  "startupProbe": {
+                    "exec": {
+                      "command": [
+                        "pg_isready",
+                        "-U",
+                        "app",
+                        "-d",
+                        "app"
+                      ]
+                    },
+                    "failureThreshold": 60,
+                    "periodSeconds": 2,
+                    "successThreshold": 1,
+                    "timeoutSeconds": 1
+                  },
+                  "terminationMessagePath": "/dev/termination-log",
+                  "terminationMessagePolicy": "File",
+                  "volumeMounts": [
+                    {
+                      "mountPath": "/tmp",
+                      "name": "tmp"
+                    },
+                    {
+                      "mountPath": "/var/lib/postgresql/data",
+                      "name": "data"
+                    },
+                    {
+                      "mountPath": "/var/run/postgresql",
+                      "name": "run"
+                    }
+                  ]
+                }
+              ],
+              "dnsPolicy": "ClusterFirst",
+              "restartPolicy": "Always",
+              "schedulerName": "default-scheduler",
+              "securityContext": {
+                "fsGroup": 10001
+              },
+              "serviceAccount": "postgres",
+              "serviceAccountName": "postgres",
+              "terminationGracePeriodSeconds": 30,
+              "volumes": [
+                {
+                  "emptyDir": {},
+                  "name": "tmp"
+                },
+                {
+                  "emptyDir": {},
+                  "name": "data"
+                },
+                {
+                  "emptyDir": {},
+                  "name": "run"
+                }
+              ]
+            }
+          }
         },
         "status": {
-          "readyReplicas": 1
+          "availableReplicas": 1,
+          "conditions": [
+            {
+              "lastTransitionTime": "2026-11-18T19:16:40Z",
+              "lastUpdateTime": "2026-11-18T19:16:40Z",
+              "message": "Deployment has minimum availability.",
+              "reason": "MinimumReplicasAvailable",
+              "status": "True",
+              "type": "Available"
+            },
+            {
+              "lastTransitionTime": "2026-11-18T19:16:33Z",
+              "lastUpdateTime": "2026-11-18T19:16:40Z",
+              "message": "ReplicaSet \"postgres-55bd49c7b8\" has successfully progressed.",
+              "reason": "NewReplicaSetAvailable",
+              "status": "True",
+              "type": "Progressing"
+            }
+          ],
+          "observedGeneration": 1,
+          "readyReplicas": 1,
+          "replicas": 1,
+          "terminatingReplicas": 0,
+          "updatedReplicas": 1
         }
       }
     ],
     "services": [
       {
+        "apiVersion": "v1",
+        "kind": "Service",
         "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"nyx-api\",\"app.kubernetes.io/instance\":\"nyx-stg\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"nyx-api\",\"app.kubernetes.io/part-of\":\"nyx\"},\"name\":\"nyx-api\",\"namespace\":\"acesso-parcial\"},\"spec\":{\"ports\":[{\"name\":\"http\",\"port\":80,\"targetPort\":\"http\"}],\"selector\":{\"app\":\"nyx-api\"}}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:16:32Z",
+          "labels": {
+            "app": "nyx-api",
+            "app.kubernetes.io/instance": "nyx-stg",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "nyx-api",
+            "app.kubernetes.io/part-of": "nyx"
+          },
           "name": "nyx-api",
-          "namespace": "acesso-parcial"
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1551",
+          "uid": "c9ce781a-943a-4fd7-9712-7ba5cc11d9fb"
         },
         "spec": {
-          "type": "ClusterIP",
+          "clusterIP": "10.96.114.242",
+          "clusterIPs": [
+            "10.96.114.242"
+          ],
+          "internalTrafficPolicy": "Cluster",
+          "ipFamilies": [
+            "IPv4"
+          ],
+          "ipFamilyPolicy": "SingleStack",
+          "ports": [
+            {
+              "name": "http",
+              "port": 80,
+              "protocol": "TCP",
+              "targetPort": "http"
+            }
+          ],
           "selector": {
             "app": "nyx-api"
           },
-          "ports": [
-            {
-              "port": 8080,
-              "targetPort": 8080
-            }
-          ]
+          "sessionAffinity": "None",
+          "type": "ClusterIP"
+        },
+        "status": {
+          "loadBalancer": {}
         }
       },
       {
+        "apiVersion": "v1",
+        "kind": "Service",
         "metadata": {
-          "name": "nyx-postgres",
-          "namespace": "acesso-parcial"
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"postgres\",\"app.kubernetes.io/instance\":\"nyx-stg\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"postgres\",\"app.kubernetes.io/part-of\":\"nyx\"},\"name\":\"postgres\",\"namespace\":\"acesso-parcial\"},\"spec\":{\"ports\":[{\"name\":\"db\",\"port\":5432,\"targetPort\":\"db\"}],\"selector\":{\"app\":\"postgres\"}}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:16:33Z",
+          "labels": {
+            "app": "postgres",
+            "app.kubernetes.io/instance": "nyx-stg",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "postgres",
+            "app.kubernetes.io/part-of": "nyx"
+          },
+          "name": "postgres",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1596",
+          "uid": "dfbb837d-f826-4873-b626-cf344e94bdde"
         },
         "spec": {
-          "type": "ClusterIP",
-          "selector": {
-            "app": "nyx-postgres"
-          },
+          "clusterIP": "10.96.169.131",
+          "clusterIPs": [
+            "10.96.169.131"
+          ],
+          "internalTrafficPolicy": "Cluster",
+          "ipFamilies": [
+            "IPv4"
+          ],
+          "ipFamilyPolicy": "SingleStack",
           "ports": [
             {
+              "name": "db",
               "port": 5432,
-              "targetPort": 5432
+              "protocol": "TCP",
+              "targetPort": "db"
             }
-          ]
+          ],
+          "selector": {
+            "app": "postgres"
+          },
+          "sessionAffinity": "None",
+          "type": "ClusterIP"
+        },
+        "status": {
+          "loadBalancer": {}
         }
-      }
-    ],
-    "endpointslices.discovery.k8s.io": [
-      {
-        "metadata": {
-          "name": "nyx-api-slice",
-          "namespace": "acesso-parcial",
-          "labels": {
-            "kubernetes.io/service-name": "nyx-api"
-          }
-        },
-        "addressType": "IPv4",
-        "endpoints": [
-          {
-            "addresses": [
-              "10.244.0.10"
-            ],
-            "conditions": {
-              "ready": true
-            }
-          }
-        ]
-      },
-      {
-        "metadata": {
-          "name": "nyx-postgres-slice",
-          "namespace": "acesso-parcial",
-          "labels": {
-            "kubernetes.io/service-name": "nyx-postgres"
-          }
-        },
-        "addressType": "IPv4",
-        "endpoints": [
-          {
-            "addresses": [
-              "10.244.0.11"
-            ],
-            "conditions": {
-              "ready": true
-            }
-          }
-        ]
       }
     ],
     "events": [
       {
-        "metadata": {
-          "name": "nyx-api.simulado",
-          "namespace": "acesso-parcial"
-        },
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:32Z",
         "involvedObject": {
+          "apiVersion": "v1",
           "kind": "Pod",
-          "name": "nyx-api-simulado"
+          "name": "nyx-api-757575965b-qcdkg",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1537",
+          "uid": "ec02caee-9c1c-4ad6-89f0-6d8e90a61d3b"
         },
-        "type": "Normal",
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:32Z",
+        "message": "Successfully assigned acesso-parcial/nyx-api-757575965b-qcdkg to desafio03-control-plane",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:32Z",
+          "name": "nyx-api-757575965b-qcdkg.18e939b8d3eb7832",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1543",
+          "uid": "9a903960-99bd-4c35-ac1d-7006ccfae6ef"
+        },
+        "reason": "Scheduled",
+        "reportingComponent": "default-scheduler",
+        "reportingInstance": "",
+        "source": {
+          "component": "default-scheduler"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:33Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "nyx-api-757575965b-qcdkg",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1540",
+          "uid": "ec02caee-9c1c-4ad6-89f0-6d8e90a61d3b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:33Z",
+        "message": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:33Z",
+          "name": "nyx-api-757575965b-qcdkg.18e939b915bc9ffe",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1581",
+          "uid": "47765174-1be2-4b60-a03e-fbc643791d6b"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:33Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "nyx-api-757575965b-qcdkg",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1540",
+          "uid": "ec02caee-9c1c-4ad6-89f0-6d8e90a61d3b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:33Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:33Z",
+          "name": "nyx-api-757575965b-qcdkg.18e939b9197df792",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1590",
+          "uid": "045ecf45-8cdc-4acf-9c20-37d13ceb789d"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:34Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "nyx-api-757575965b-qcdkg",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1540",
+          "uid": "ec02caee-9c1c-4ad6-89f0-6d8e90a61d3b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:34Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:34Z",
+          "name": "nyx-api-757575965b-qcdkg.18e939b9428d0fd3",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1612",
+          "uid": "c9e2cf72-0896-4210-87f7-f9a63268addc"
+        },
         "reason": "Started",
-        "message": "Evento sintético: leitura de EndpointSlice proibida; demais recursos disponíveis",
-        "lastTimestamp": "2026-11-10T12:00:00Z"
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:42Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{nyx-api}",
+          "kind": "Pod",
+          "name": "nyx-api-757575965b-qcdkg",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1540",
+          "uid": "ec02caee-9c1c-4ad6-89f0-6d8e90a61d3b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:42Z",
+        "message": "Container image \"fabricioveronez/kube-news@sha256:61a97024792d8aa96d97d2618b98924012daeaa6386e2557660cc6ff169d840e\" already present on machine and can be accessed by the pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:42Z",
+          "name": "nyx-api-757575965b-qcdkg.18e939bb1cd79a57",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1674",
+          "uid": "f244d672-9a0f-44ee-8a43-dc80eb70a055"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:42Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{nyx-api}",
+          "kind": "Pod",
+          "name": "nyx-api-757575965b-qcdkg",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1540",
+          "uid": "ec02caee-9c1c-4ad6-89f0-6d8e90a61d3b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:42Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:42Z",
+          "name": "nyx-api-757575965b-qcdkg.18e939bb22acefbe",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1679",
+          "uid": "dd48cff3-cb45-46b4-ab79-4c879d7ab802"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:42Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{nyx-api}",
+          "kind": "Pod",
+          "name": "nyx-api-757575965b-qcdkg",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1540",
+          "uid": "ec02caee-9c1c-4ad6-89f0-6d8e90a61d3b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:42Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:42Z",
+          "name": "nyx-api-757575965b-qcdkg.18e939bb2d213738",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1680",
+          "uid": "f85cb196-d5cb-4d01-a24a-5ea39f0ca86b"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:32Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "nyx-api-757575965b",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1532",
+          "uid": "13b72e59-f9ae-4967-884b-a737060fa188"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:32Z",
+        "message": "Created pod: nyx-api-757575965b-qcdkg",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:32Z",
+          "name": "nyx-api-757575965b.18e939b8d1c9cd92",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1541",
+          "uid": "73ce9f12-ae16-4486-b0c0-23b207fc3b07"
+        },
+        "reason": "SuccessfulCreate",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:32Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "nyx-api",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1531",
+          "uid": "3d9d14c2-30c5-41d3-8249-61a990d0cdfd"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:32Z",
+        "message": "Scaled up replica set nyx-api-757575965b from 0 to 1",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:32Z",
+          "name": "nyx-api.18e939b8ca49dd3d",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1533",
+          "uid": "453aff50-2464-407b-9847-4b19ddca7cd0"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:33Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "name": "postgres-55bd49c7b8-zzd2s",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1578",
+          "uid": "1c2044a6-6c4c-4009-ad02-2f9481ca5675"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:33Z",
+        "message": "Successfully assigned acesso-parcial/postgres-55bd49c7b8-zzd2s to desafio03-control-plane",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:33Z",
+          "name": "postgres-55bd49c7b8-zzd2s.18e939b9174cf256",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1583",
+          "uid": "202701a9-e2af-40c4-907f-8ea59628c70c"
+        },
+        "reason": "Scheduled",
+        "reportingComponent": "default-scheduler",
+        "reportingInstance": "",
+        "source": {
+          "component": "default-scheduler"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:34Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-55bd49c7b8-zzd2s",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1580",
+          "uid": "1c2044a6-6c4c-4009-ad02-2f9481ca5675"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:34Z",
+        "message": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:34Z",
+          "name": "postgres-55bd49c7b8-zzd2s.18e939b94c94fc83",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1614",
+          "uid": "d696bce2-259f-4a2f-8ca7-1420f9c309d8"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:34Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-55bd49c7b8-zzd2s",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1580",
+          "uid": "1c2044a6-6c4c-4009-ad02-2f9481ca5675"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:34Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:34Z",
+          "name": "postgres-55bd49c7b8-zzd2s.18e939b95201c50c",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1616",
+          "uid": "b7f27d30-410b-4c79-9031-5d8be35944d1"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:34Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-55bd49c7b8-zzd2s",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1580",
+          "uid": "1c2044a6-6c4c-4009-ad02-2f9481ca5675"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:34Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:34Z",
+          "name": "postgres-55bd49c7b8-zzd2s.18e939b963f152b5",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1620",
+          "uid": "95a0a24d-0b41-43c8-aaf6-aaf61efee815"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 2,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:36Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-55bd49c7b8-zzd2s",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1580",
+          "uid": "1c2044a6-6c4c-4009-ad02-2f9481ca5675"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:38Z",
+        "message": "Startup probe failed: /var/run/postgresql:5432 - no response\n",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:36Z",
+          "name": "postgres-55bd49c7b8-zzd2s.18e939b9a9765b0b",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1652",
+          "uid": "1cd0d617-c03f-439a-9fdc-7451dda4aeba"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:33Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "postgres-55bd49c7b8",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1576",
+          "uid": "287d0c7a-80f1-49ba-a04d-dd20fdaae969"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:33Z",
+        "message": "Created pod: postgres-55bd49c7b8-zzd2s",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:33Z",
+          "name": "postgres-55bd49c7b8.18e939b91641afa8",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1582",
+          "uid": "c1fffde1-920f-4e39-b5bc-2586cddfce0f"
+        },
+        "reason": "SuccessfulCreate",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:33Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "postgres",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1575",
+          "uid": "66e3717c-d8c1-4136-9bde-c9b8a8b2747a"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:33Z",
+        "message": "Scaled up replica set postgres-55bd49c7b8 from 0 to 1",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:33Z",
+          "name": "postgres.18e939b914691b48",
+          "namespace": "acesso-parcial",
+          "resourceVersion": "1577",
+          "uid": "11ceb920-78d8-499f-9e41-e85b6e7700df"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
       }
     ]
   },
@@ -240,17 +2038,19 @@
     }
   ],
   "resposta": {
-    "contexto": "laboratorio-exemplo",
+    "contexto": "kind-desafio03",
     "namespace": "acesso-parcial",
-    "simulado": true,
-    "coletado_em": "2026-11-10T18:03:45.190000+00:00",
+    "coletado_em": "2026-11-18T19:22:28.440604+00:00",
     "erros": {
       "endpointslices.discovery.k8s.io": "Permissão negada para este recurso."
     },
     "namespaces": [
       "acesso-parcial",
-      "cluster-indisponivel",
-      "credencial-expirada",
+      "default",
+      "kube-node-lease",
+      "kube-public",
+      "kube-system",
+      "local-path-storage",
       "nyx-dev",
       "nyx-prod",
       "nyx-stg",
@@ -259,14 +2059,14 @@
     ],
     "pods": [
       {
-        "nome": "nyx-api-simulado",
+        "nome": "nyx-api-757575965b-qcdkg",
         "fase": "Running",
         "pronto": true,
         "reinicios": 0,
-        "motivo": "—"
+        "motivo": "Completed"
       },
       {
-        "nome": "nyx-postgres-simulado",
+        "nome": "postgres-55bd49c7b8-zzd2s",
         "fase": "Running",
         "pronto": true,
         "reinicios": 0,
@@ -280,7 +2080,7 @@
         "desejados": 1
       },
       {
-        "nome": "nyx-postgres",
+        "nome": "postgres",
         "prontos": 1,
         "desejados": 1
       }
@@ -292,18 +2092,123 @@
         "endpoints": "Desconhecido: leitura de EndpointSlice indisponível"
       },
       {
-        "nome": "nyx-postgres",
+        "nome": "postgres",
         "tipo": "ClusterIP",
         "endpoints": "Desconhecido: leitura de EndpointSlice indisponível"
       }
     ],
     "events": [
       {
-        "nome": "nyx-api-simulado",
+        "nome": "nyx-api-757575965b-qcdkg",
+        "tipo": "Normal",
+        "motivo": "Pulled",
+        "mensagem": "Container image \"fabricioveronez/kube-news@sha256:61a97024792d8aa96d97d2618b98924012daeaa6386e2557660cc6ff169d840e\" already present on machine and can be accessed by the pod",
+        "quando": "2026-11-18T19:16:42Z"
+      },
+      {
+        "nome": "nyx-api-757575965b-qcdkg",
+        "tipo": "Normal",
+        "motivo": "Created",
+        "mensagem": "Container created",
+        "quando": "2026-11-18T19:16:42Z"
+      },
+      {
+        "nome": "nyx-api-757575965b-qcdkg",
         "tipo": "Normal",
         "motivo": "Started",
-        "mensagem": "Evento sintético: leitura de EndpointSlice proibida; demais recursos disponíveis",
-        "quando": "2026-11-10T12:00:00Z"
+        "mensagem": "Container started",
+        "quando": "2026-11-18T19:16:42Z"
+      },
+      {
+        "nome": "postgres-55bd49c7b8-zzd2s",
+        "tipo": "Warning",
+        "motivo": "Unhealthy",
+        "mensagem": "Startup probe failed: /var/run/postgresql:5432 - no response\n",
+        "quando": "2026-11-18T19:16:38Z"
+      },
+      {
+        "nome": "nyx-api-757575965b-qcdkg",
+        "tipo": "Normal",
+        "motivo": "Started",
+        "mensagem": "Container started",
+        "quando": "2026-11-18T19:16:34Z"
+      },
+      {
+        "nome": "postgres-55bd49c7b8-zzd2s",
+        "tipo": "Normal",
+        "motivo": "Pulled",
+        "mensagem": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "quando": "2026-11-18T19:16:34Z"
+      },
+      {
+        "nome": "postgres-55bd49c7b8-zzd2s",
+        "tipo": "Normal",
+        "motivo": "Created",
+        "mensagem": "Container created",
+        "quando": "2026-11-18T19:16:34Z"
+      },
+      {
+        "nome": "postgres-55bd49c7b8-zzd2s",
+        "tipo": "Normal",
+        "motivo": "Started",
+        "mensagem": "Container started",
+        "quando": "2026-11-18T19:16:34Z"
+      },
+      {
+        "nome": "nyx-api-757575965b-qcdkg",
+        "tipo": "Normal",
+        "motivo": "Pulled",
+        "mensagem": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "quando": "2026-11-18T19:16:33Z"
+      },
+      {
+        "nome": "nyx-api-757575965b-qcdkg",
+        "tipo": "Normal",
+        "motivo": "Created",
+        "mensagem": "Container created",
+        "quando": "2026-11-18T19:16:33Z"
+      },
+      {
+        "nome": "postgres-55bd49c7b8-zzd2s",
+        "tipo": "Normal",
+        "motivo": "Scheduled",
+        "mensagem": "Successfully assigned acesso-parcial/postgres-55bd49c7b8-zzd2s to desafio03-control-plane",
+        "quando": "2026-11-18T19:16:33Z"
+      },
+      {
+        "nome": "postgres-55bd49c7b8",
+        "tipo": "Normal",
+        "motivo": "SuccessfulCreate",
+        "mensagem": "Created pod: postgres-55bd49c7b8-zzd2s",
+        "quando": "2026-11-18T19:16:33Z"
+      },
+      {
+        "nome": "postgres",
+        "tipo": "Normal",
+        "motivo": "ScalingReplicaSet",
+        "mensagem": "Scaled up replica set postgres-55bd49c7b8 from 0 to 1",
+        "quando": "2026-11-18T19:16:33Z"
+      },
+      {
+        "nome": "nyx-api-757575965b-qcdkg",
+        "tipo": "Normal",
+        "motivo": "Scheduled",
+        "mensagem": "Successfully assigned acesso-parcial/nyx-api-757575965b-qcdkg to desafio03-control-plane",
+        "quando": "2026-11-18T19:16:32Z"
+      },
+      {
+        "nome": "nyx-api-757575965b",
+        "tipo": "Normal",
+        "motivo": "SuccessfulCreate",
+        "mensagem": "Created pod: nyx-api-757575965b-qcdkg",
+        "quando": "2026-11-18T19:16:32Z"
+      },
+      {
+        "nome": "nyx-api",
+        "tipo": "Normal",
+        "motivo": "ScalingReplicaSet",
+        "mensagem": "Scaled up replica set nyx-api-757575965b from 0 to 1",
+        "quando": "2026-11-18T19:16:32Z"
       }
     ]
   }

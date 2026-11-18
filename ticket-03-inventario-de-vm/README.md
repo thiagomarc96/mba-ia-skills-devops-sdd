@@ -25,3 +25,5 @@ A chave é recebida por caminho, nunca por conteúdo. JSON e Markdown são grava
 Gere os exemplos com `python gerar_exemplos.py`: [conforme](exemplos/conforme.md), [desvio](exemplos/desvio.md), [parcial](exemplos/parcial.md), [host inacessível](exemplos/host-inacessivel.md) e [repetição](exemplos/repeticao.md). Cada cenário inclui JSON, Markdown e código de saída.
 
 O gerador usa a [fixture de inventário](fixtures/inventario.json). A repetição altera apenas o instante da coleta. Testes: `python -m unittest -v`.
+
+Na correção de 18/11/2026, as suítes unitárias e os geradores existentes deste ticket foram validados junto aos demais tickets. O escopo desta rodada é o laboratório Kubernetes; os testes do inventário usam a fixture local. Resultado e contagem ficam em [evidencias/validacao.txt](../evidencias/validacao.txt).

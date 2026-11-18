@@ -1,0 +1,25 @@
+{
+  "request": {
+    "jsonrpc": "2.0",
+    "id": 2,
+    "method": "tools/call",
+    "params": {
+      "name": "kubectl_get",
+      "arguments": {
+        "resourceType": "pods",
+        "name": "",
+        "namespace": "nyx-dev",
+        "output": "yaml"
+      }
+    }
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 2,
+    "error": {
+      "code": -32603,
+      "message": "MCP error -32603: Failed to execute kubectl get command: MCP error -32603: Failed to get resource: Command failed: kubectl get pods -n nyx-dev -o yaml\nE1118 16:17:54.596495 3442712 memcache.go:265] \"Unhandled Error\" err=\"couldn't get current server API group list: Get \\\"https://[SERVER_MASCARADO]/api?timeout=5s\\\": dial tcp [SERVER_MASCARADO]: connect: connection refused\"\nE1118 16:17:54.596875 3442712 memcache.go:265] \"Unhandled Error\" err=\"couldn't get current server API group list: Get \\\"https://[SERVER_MASCARADO]/api?timeout=5s\\\": dial tcp [SERVER_MASCARADO]: connect: connection refused\"\nE1118 16:17:54.598209 3442712 memcache.go:265] \"Unhandled Error\" err=\"couldn't get current server API group list: Get \\\"https://[SERVER_MASCARADO]/api?timeout=5s\\\": dial tcp [SERVER_MASCARADO]: connect: connection refused\"\nE1118 16:17:54.598503 3442712 memcache.go:265] \"Unhandled Error\" err=\"couldn't get current server API group list: Get \\\"https://[SERVER_MASCARADO]/api?timeout=5s\\\": dial tcp [SERVER_MASCARADO]: connect: connection refused\"\nE1118 16:17:54.600109 3442712 memcache.go:265] \"Unhandled Error\" err=\"couldn't get current server API group list: Get \\\"https://[SERVER_MASCARADO]/api?timeout=5s\\\": dial tcp [SERVER_MASCARADO]: connect: connection refused\"\nThe connection to the server [SERVER_MASCARADO] was refused - did you specify the right host or port?\n"
+    }
+  },
+  "segundos": 0.1519
+}

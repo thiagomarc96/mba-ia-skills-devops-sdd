@@ -56,11 +56,6 @@
       },
       {
         "objeto": "NyxAPI",
-        "regra": "3.1",
-        "mensagem": "Imagem sem versão explícita ou com latest"
-      },
-      {
-        "objeto": "NyxAPI",
         "regra": "3.3",
         "mensagem": "Variável potencialmente sensível usa valor direto; usar secretKeyRef"
       },

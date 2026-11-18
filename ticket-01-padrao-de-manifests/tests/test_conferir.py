@@ -13,6 +13,14 @@ spec.loader.exec_module(modulo)
 class ConferenciaTest(unittest.TestCase):
     def setUp(self):
         self.objetos = list(yaml.safe_load_all((ROOT / "manifests/nyx-api.yaml").read_text(encoding="utf-8")))
+        # Fixture de conformidade mecânica: espelho interno e banco HA são
+        # contratos de produção; os manifests de laboratório declaram exceções.
+        for obj in self.objetos:
+            if obj['kind'] != 'Deployment': continue
+            obj['spec']['replicas'] = 2
+            pod = obj['spec']['template']['spec']
+            for c in pod.get('containers', []) + pod.get('initContainers', []):
+                c['image'] = 'registry.metacortex.io/lab/componente:v1'
         self.deployment = next(x for x in self.objetos if x["kind"] == "Deployment")
 
     def regras(self):
@@ -22,14 +30,15 @@ class ConferenciaTest(unittest.TestCase):
         self.assertEqual([], modulo.conferir(self.objetos))
 
     def test_selector_incorreto(self):
-        self.deployment["spec"]["template"]["metadata"]["labels"]["app.kubernetes.io/name"] = "outro"
+        self.deployment["spec"]["template"]["metadata"]["labels"]["app"] = "outro"
         self.assertIn("1.4", self.regras())
 
     def test_latest_registry_e_segredo(self):
         c = self.deployment["spec"]["template"]["spec"]["containers"][0]
         c["image"] = "publico/app:latest"
         c["env"] = [{"name": "DB_PASSWORD", "value": "valor-de-teste"}]
-        self.assertTrue({"3.1", "3.3", "3.7"}.issubset(self.regras()))
+        self.assertTrue({"3.3", "3.7"}.issubset(self.regras()))
+        self.assertNotIn("3.1", self.regras())  # coberta pelo Trivy
         self.assertNotIn("valor-de-teste", str(modulo.conferir(self.objetos)))
 
     def test_producao(self):

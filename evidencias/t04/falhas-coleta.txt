@@ -1,0 +1,1 @@
+Falhas reais confirmadas: 401, 403 e conexão recusada; consultas MCP registradas.

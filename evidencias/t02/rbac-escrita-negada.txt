@@ -1,0 +1,1 @@
+error: failed to create configmap: configmaps is forbidden: User "system:serviceaccount:default:platform-ro" cannot create resource "configmaps" in API group "" in the namespace "nyx-dev"

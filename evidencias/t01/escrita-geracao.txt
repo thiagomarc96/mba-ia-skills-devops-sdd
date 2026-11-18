@@ -1,0 +1,1 @@
+5 namespaces, 2 projetos; credencial externa por secretKeyRef; nenhuma senha gerada neste passo.

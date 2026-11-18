@@ -1,0 +1,25 @@
+{
+  "request": {
+    "jsonrpc": "2.0",
+    "id": 2,
+    "method": "tools/call",
+    "params": {
+      "name": "kubectl_get",
+      "arguments": {
+        "resourceType": "endpointslices.discovery.k8s.io",
+        "name": "",
+        "namespace": "acesso-parcial",
+        "output": "yaml"
+      }
+    }
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 2,
+    "error": {
+      "code": -32603,
+      "message": "MCP error -32603: Failed to execute kubectl get command: MCP error -32603: Failed to get resource: Command failed: kubectl get endpointslices.discovery.k8s.io -n acesso-parcial -o yaml\nError from server (Forbidden): endpointslices.discovery.k8s.io is forbidden: User \"system:serviceaccount:default:platform-ro\" cannot list resource \"endpointslices\" in API group \"discovery.k8s.io\" in the namespace \"acesso-parcial\"\n"
+    }
+  },
+  "segundos": 0.4025
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "namespace": "nyx-dev",
+    "consulta": "kubectl --context kind-desafio03 get --raw /api/v1/namespaces/nyx-dev/services/nyx-api:http/proxy/",
+    "resultado": "HTML retornado com sucesso pela API",
+    "bytes": 2082,
+    "stderr": ""
+  },
+  {
+    "namespace": "orion-dev",
+    "consulta": "kubectl --context kind-desafio03 get --raw /api/v1/namespaces/orion-dev/services/orion-web:http/proxy/",
+    "resultado": "HTML retornado com sucesso pela API",
+    "bytes": 19604,
+    "stderr": ""
+  }
+]

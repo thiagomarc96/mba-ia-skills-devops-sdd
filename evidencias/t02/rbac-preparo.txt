@@ -1,0 +1,11 @@
+serviceaccount/platform-ro created
+clusterrole.rbac.authorization.k8s.io/desafio03-platform-ro created
+clusterrolebinding.rbac.authorization.k8s.io/desafio03-platform-ro created
+rolebinding.rbac.authorization.k8s.io/platform-ro created
+rolebinding.rbac.authorization.k8s.io/platform-ro created
+rolebinding.rbac.authorization.k8s.io/platform-ro created
+rolebinding.rbac.authorization.k8s.io/platform-ro created
+rolebinding.rbac.authorization.k8s.io/platform-ro created
+serviceaccount/platform-expired created
+secret/token-anchor created
+secret "token-anchor" deleted from default namespace

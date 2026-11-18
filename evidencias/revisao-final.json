@@ -1,0 +1,26 @@
+{
+  "arquivos_verificados": 176,
+  "padroes_de_credenciais_e_valores_reais": "nenhum encontrado",
+  "server_e_certificados_reais_nas_evidencias": "ausentes",
+  "textos_obsoletos": "zero",
+  "links_locais_quebrados": [],
+  "cenarios_reais_dashboard": 8,
+  "skills_bytes": {
+    "ticket-01-padrao-de-manifests/skill/SKILL.md": {
+      "antes": 2761,
+      "depois": 2761,
+      "teto": 5120,
+      "limite_80pct": 4096
+    },
+    "ticket-02-triagem-no-cluster/skill/SKILL.md": {
+      "antes": 3036,
+      "depois": 3036,
+      "teto": 5120,
+      "limite_80pct": 4096
+    }
+  },
+  "testes_unitarios": 36,
+  "mcp_leituras_normais": 15,
+  "matriz_rotas": "10/10",
+  "limites": "T03 usa fixture; custo monetário null; banco efêmero e exceções Metacortex declaradas"
+}

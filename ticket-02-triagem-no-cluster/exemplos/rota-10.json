@@ -1,0 +1,46 @@
+{
+  "entrada": {
+    "frase": "provisiona uma VM nova no Construct pro cliente orion",
+    "esperado": "nenhuma",
+    "catalogo": "descrições das duas skills"
+  },
+  "resposta": "nenhuma",
+  "segundos": 4.433,
+  "usage": {
+    "input_tokens": 20910,
+    "cached_input_tokens": 13696,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 6,
+    "reasoning_output_tokens": 0
+  },
+  "custo_monetario": null,
+  "codigo": 0,
+  "eventos_codex": [
+    {
+      "type": "thread.started",
+      "thread_id": "01a1f018-2a28-74e0-86b0-9a533d02a50a"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "agent_message",
+        "text": "nenhuma"
+      }
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 20910,
+        "cached_input_tokens": 13696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "stderr": ""
+}

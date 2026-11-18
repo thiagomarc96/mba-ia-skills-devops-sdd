@@ -1,0 +1,24 @@
+{
+  "request": {
+    "jsonrpc": "2.0",
+    "id": 18,
+    "method": "tools/call",
+    "params": {
+      "name": "kubectl_create",
+      "arguments": {
+        "resourceType": "configmap",
+        "name": "escrita-negada",
+        "namespace": "nyx-dev"
+      }
+    }
+  },
+  "response": {
+    "jsonrpc": "2.0",
+    "id": 18,
+    "error": {
+      "code": -32603,
+      "message": "MCP error -32603: Failed to create resource: Command failed: kubectl create configmap escrita-negada -n nyx-dev -o yaml\nOperação fora da lista de leitura recusada.\n"
+    }
+  },
+  "segundos": 0.019
+}

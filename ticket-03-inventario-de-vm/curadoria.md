@@ -9,3 +9,5 @@ O coletor executa consultas fixas, sem sudo, writes ou comando recebido do usuá
 O enunciado deixa implícita a definição de rede interna; a especificação adotou RFC1918, IPv6 ULA e loopback. Wildcard e endereços não reconhecidos não são internos. O processo de uma porta pode não estar visível ao usuário comum e permanece nulo, sem inventar proprietário.
 
 Não houve divergência observada em execução remota nem correção de especificação decorrente desse teste. O arquivamento da mudança permanece pendente.
+
+Em 18/11/2026, os 19 testes unitários e o gerador dos cinco exemplos passaram na correção do desafio. A execução de Kubernetes dos outros tickets não foi usada como evidência de inventário SSH; a origem dos dados deste ticket permanece sua fixture local. A rodada preserva esse limite de cobertura.

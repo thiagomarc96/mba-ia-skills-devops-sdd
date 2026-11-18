@@ -1,0 +1,271 @@
+{
+  "tools": {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "tools/list",
+      "params": {}
+    },
+    "response": {
+      "result": {
+        "tools": [
+          {
+            "name": "kubectl_get",
+            "description": "Get or list Kubernetes resources by resource type, name, and optionally namespace",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "resourceType": {
+                  "type": "string",
+                  "description": "Type of resource to get (e.g., pods, deployments, services, configmaps, events, etc.)"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the resource (optional - if not provided, lists all resources of the specified type)"
+                },
+                "namespace": {
+                  "type": "string",
+                  "description": "Namespace of the resource (optional - defaults to 'default' for namespaced resources)",
+                  "default": "default"
+                },
+                "output": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "yaml",
+                    "wide",
+                    "name",
+                    "custom"
+                  ],
+                  "description": "Output format",
+                  "default": "json"
+                },
+                "allNamespaces": {
+                  "type": "boolean",
+                  "description": "If true, list resources across all namespaces",
+                  "default": false
+                },
+                "labelSelector": {
+                  "type": "string",
+                  "description": "Filter resources by label selector (e.g. 'app=nginx')"
+                },
+                "fieldSelector": {
+                  "type": "string",
+                  "description": "Filter resources by field selector (e.g. 'metadata.name=my-pod')"
+                },
+                "sortBy": {
+                  "type": "string",
+                  "description": "Sort events by a field (default: lastTimestamp). Only applicable for events."
+                }
+              },
+              "required": [
+                "resourceType",
+                "name",
+                "namespace"
+              ]
+            }
+          },
+          {
+            "name": "kubectl_describe",
+            "description": "Describe Kubernetes resources by resource type, name, and optionally namespace",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "resourceType": {
+                  "type": "string",
+                  "description": "Type of resource to describe (e.g., pods, deployments, services, etc.)"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the resource to describe"
+                },
+                "namespace": {
+                  "type": "string",
+                  "description": "Namespace of the resource (optional - defaults to 'default' for namespaced resources)",
+                  "default": "default"
+                },
+                "allNamespaces": {
+                  "type": "boolean",
+                  "description": "If true, describe resources across all namespaces",
+                  "default": false
+                }
+              },
+              "required": [
+                "resourceType",
+                "name"
+              ]
+            }
+          },
+          {
+            "name": "kubectl_logs",
+            "description": "Get logs from Kubernetes resources like pods, deployments, or jobs",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "resourceType": {
+                  "type": "string",
+                  "enum": [
+                    "pod",
+                    "deployment",
+                    "job",
+                    "cronjob"
+                  ],
+                  "description": "Type of resource to get logs from"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the resource"
+                },
+                "namespace": {
+                  "type": "string",
+                  "description": "Namespace of the resource",
+                  "default": "default"
+                },
+                "container": {
+                  "type": "string",
+                  "description": "Container name (required when pod has multiple containers)"
+                },
+                "tail": {
+                  "type": "number",
+                  "description": "Number of lines to show from end of logs"
+                },
+                "since": {
+                  "type": "string",
+                  "description": "Show logs since relative time (e.g. '5s', '2m', '3h')"
+                },
+                "sinceTime": {
+                  "type": "string",
+                  "description": "Show logs since absolute time (RFC3339)"
+                },
+                "timestamps": {
+                  "type": "boolean",
+                  "description": "Include timestamps in logs",
+                  "default": false
+                },
+                "previous": {
+                  "type": "boolean",
+                  "description": "Include logs from previously terminated containers",
+                  "default": false
+                },
+                "follow": {
+                  "type": "boolean",
+                  "description": "Follow logs output (not recommended, may cause timeouts)",
+                  "default": false
+                },
+                "labelSelector": {
+                  "type": "string",
+                  "description": "Filter resources by label selector"
+                }
+              },
+              "required": [
+                "resourceType",
+                "name",
+                "namespace"
+              ]
+            }
+          },
+          {
+            "name": "explain_resource",
+            "description": "Get documentation for a Kubernetes resource or field",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "resource": {
+                  "type": "string",
+                  "description": "Resource name or field path (e.g. 'pods' or 'pods.spec.containers')"
+                },
+                "apiVersion": {
+                  "type": "string",
+                  "description": "API version to use (e.g. 'apps/v1')"
+                },
+                "recursive": {
+                  "type": "boolean",
+                  "description": "Print the fields of fields recursively",
+                  "default": false
+                },
+                "output": {
+                  "type": "string",
+                  "description": "Output format (plaintext or plaintext-openapiv2)",
+                  "enum": [
+                    "plaintext",
+                    "plaintext-openapiv2"
+                  ],
+                  "default": "plaintext"
+                }
+              },
+              "required": [
+                "resource"
+              ]
+            }
+          },
+          {
+            "name": "list_api_resources",
+            "description": "List the API resources available in the cluster",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "apiGroup": {
+                  "type": "string",
+                  "description": "API group to filter by"
+                },
+                "namespaced": {
+                  "type": "boolean",
+                  "description": "If true, only show namespaced resources"
+                },
+                "verbs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "List of verbs to filter by"
+                },
+                "output": {
+                  "type": "string",
+                  "description": "Output format (wide, name, or no-headers)",
+                  "enum": [
+                    "wide",
+                    "name",
+                    "no-headers"
+                  ],
+                  "default": "wide"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "jsonrpc": "2.0",
+      "id": 2
+    },
+    "segundos": 0.0029
+  },
+  "leitura": {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "tools/call",
+      "params": {
+        "name": "kubectl_get",
+        "arguments": {
+          "resourceType": "pods",
+          "name": "",
+          "namespace": "nyx-dev",
+          "output": "yaml"
+        }
+      }
+    },
+    "response": {
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "apiVersion: v1\nitems:\n- apiVersion: v1\n  kind: Pod\n  metadata:\n    annotations:\n      kubectl.kubernetes.io/restartedAt: \"2026-11-18T16:20:08-03:00\"\n    creationTimestamp: \"2026-11-18T19:20:08Z\"\n    generateName: nyx-api-6b6859998d-\n    generation: 1\n    labels:\n      app: nyx-api\n      app.kubernetes.io/instance: nyx-dev\n      app.kubernetes.io/managed-by: platform\n      app.kubernetes.io/name: nyx-api\n      app.kubernetes.io/part-of: nyx\n      pod-template-hash: 6b6859998d\n    name: nyx-api-6b6859998d-65f88\n    namespace: nyx-dev\n    ownerReferences:\n    - apiVersion: apps/v1\n      blockOwnerDeletion: true\n      controller: true\n      kind: ReplicaSet\n      name: nyx-api-6b6859998d\n      uid: 0f0d7d0a-d005-4011-a163-d6f154276eb6\n    resourceVersion: \"2388\"\n    uid: 3773fc0f-808a-422d-b81c-9c84fe033950\n  spec:\n    automountServiceAccountToken: false\n    containers:\n    - env:\n      - name: DB_HOST\n        value: postgres\n      - name: DB_PORT\n        value: \"5432\"\n      - name: DB_DATABASE\n        value: app\n      - name: DB_USERNAME\n        value: app\n      - name: DB_PASSWORD\n        valueFrom:\n          secretKeyRef:\n            key: password\n            name: database-auth\n      image: fabricioveronez/kube-news@sha256:61a97024792d8aa96d97d2618b98924012daeaa6386e2557660cc6ff169d840e\n      imagePullPolicy: IfNotPresent\n      livenessProbe:\n        failureThreshold: 3\n        httpGet:\n          path: /health\n          port: http\n          scheme: HTTP\n        periodSeconds: 10\n        successThreshold: 1\n        timeoutSeconds: 1\n      name: nyx-api\n      ports:\n      - containerPort: 8080\n        name: http\n        protocol: TCP\n      readinessProbe:\n        failureThreshold: 3\n        httpGet:\n          path: /ready\n          port: http\n          scheme: HTTP\n        periodSeconds: 5\n        successThreshold: 1\n        timeoutSeconds: 1\n      resources:\n        limits:\n          cpu: 500m\n          memory: 256Mi\n        requests:\n          cpu: 50m\n          memory: 128Mi\n      securityContext:\n        allowPrivilegeEscalation: false\n        capabilities:\n          drop:\n          - ALL\n        readOnlyRootFilesystem: true\n        runAsGroup: 10001\n        runAsNonRoot: true\n        runAsUser: 10001\n      startupProbe:\n        failureThreshold: 60\n        httpGet:\n          path: /health\n          port: http\n          scheme: HTTP\n        periodSeconds: 2\n        successThreshold: 1\n        timeoutSeconds: 1\n      terminationMessagePath: /dev/termination-log\n      terminationMessagePolicy: File\n      volumeMounts:\n      - mountPath: /tmp\n        name: tmp\n    dnsPolicy: ClusterFirst\n    enableServiceLinks: true\n    initContainers:\n    - command:\n      - sh\n      - -c\n      - until pg_isready -h postgres -U app -d app; do sleep 2; done\n      image: postgres:16.6-alpine\n      imagePullPolicy: IfNotPresent\n      name: aguardar-postgres\n      resources:\n        limits:\n          cpu: 100m\n          memory: 64Mi\n        requests:\n          cpu: 10m\n          memory: 16Mi\n      securityContext:\n        allowPrivilegeEscalation: false\n        capabilities:\n          drop:\n          - ALL\n        readOnlyRootFilesystem: true\n        runAsGroup: 10001\n        runAsNonRoot: true\n        runAsUser: 10001\n      terminationMessagePath: /dev/termination-log\n      terminationMessagePolicy: File\n    nodeName: desafio03-control-plane\n    preemptionPolicy: PreemptLowerPriority\n    priority: 0\n    restartPolicy: Always\n    schedulerName: default-scheduler\n    securityContext:\n      fsGroup: 10001\n      seccompProfile:\n        type: RuntimeDefault\n    serviceAccount: nyx-api\n    serviceAccountName: nyx-api\n    terminationGracePeriodSeconds: 30\n    tolerations:\n    - effect: NoExecute\n      key: node.kubernetes.io/not-ready\n      operator: Exists\n      tolerationSeconds: 300\n    - effect: NoExecute\n      key: node.kubernetes.io/unreachable\n      operator: Exists\n      tolerationSeconds: 300\n    volumes:\n    - emptyDir: {}\n      name: tmp\n  status:\n    conditions:\n    - lastProbeTime: null\n      lastTransitionTime: \"2026-11-18T19:20:12Z\"\n      observedGeneration: 1\n      status: \"True\"\n      type: PodReadyToStartContainers\n    - lastProbeTime: null\n      lastTransitionTime: \"2026-11-18T19:20:13Z\"\n      observedGeneration: 1\n      status: \"True\"\n      type: Initialized\n    - lastProbeTime: null\n      lastTransitionTime: \"2026-11-18T19:20:19Z\"\n      observedGeneration: 1\n      status: \"True\"\n      type: Ready\n    - lastProbeTime: null\n      lastTransitionTime: \"2026-11-18T19:20:19Z\"\n      observedGeneration: 1\n      status: \"True\"\n      type: ContainersReady\n    - lastProbeTime: null\n      lastTransitionTime: \"2026-11-18T19:20:08Z\"\n      observedGeneration: 1\n      status: \"True\"\n      type: PodScheduled\n    containerStatuses:\n    - allocatedResources:\n        cpu: 50m\n        memory: 128Mi\n      containerID: containerd://4953220a8e2f76983633ff06555cc3219a14e647147a88f77b9df656e8edc210\n      image: sha256:fc9b87bb02747ea462894347a41c46dc8f49845e20aa03cfad6df1644066304c\n      imageID: docker.io/fabricioveronez/kube-news@sha256:61a97024792d8aa96d97d2618b98924012daeaa6386e2557660cc6ff169d840e\n      lastState: {}\n      name: nyx-api\n      ready: true\n      resources:\n        limits:\n          cpu: 500m\n          memory: 256Mi\n        requests:\n          cpu: 50m\n          memory: 128Mi\n      restartCount: 0\n      started: true\n      state:\n        running:\n          startedAt: \"2026-11-18T19:20:14Z\"\n      user:\n        linux:\n          gid: 10001\n          supplementalGroups:\n          - 10001\n          uid: 10001\n      volumeMounts:\n      - mountPath: /tmp\n        name: tmp\n    hostIP: 172.22.0.2\n    hostIPs:\n    - ip: 172.22.0.2\n    initContainerStatuses:\n    - allocatedResources:\n        cpu: 10m\n        memory: 16Mi\n      containerID: containerd://251821d4eeeb709d7674bd3c9be7e60375de7ad0284bdd8ff1a9c82cbd9fd2bb\n      image: docker.io/library/postgres:16.6-alpine\n      imageID: docker.io/library/postgres@sha256:1d04b9ba1d4996401f2552b51beda8187f175c0645c091e4781134fc9c9a3eef\n      lastState: {}\n      name: aguardar-postgres\n      ready: true\n      resources:\n        limits:\n          cpu: 100m\n          memory: 64Mi\n        requests:\n          cpu: 10m\n          memory: 16Mi\n      restartCount: 0\n      started: false\n      state:\n        terminated:\n          containerID: containerd://251821d4eeeb709d7674bd3c9be7e60375de7ad0284bdd8ff1a9c82cbd9fd2bb\n          exitCode: 0\n          finishedAt: \"2026-11-18T19:20:12Z\"\n          reason: Completed\n          startedAt: \"2026-11-18T19:20:11Z\"\n      user:\n        linux:\n          gid: 10001\n          supplementalGroups:\n          - 10001\n          uid: 10001\n    observedGeneration: 1\n    phase: Running\n    podIP: 10.244.0.34\n    podIPs:\n    - ip: 10.244.0.34\n    qosClass: Burstable\n    startTime: \"2026-11-18T19:20:08Z\"\n- apiVersion: v1\n  kind: Pod\n  metadata:\n    creationTimestamp: \"2026-11-18T19:18:33Z\"\n    generateName: postgres-7594d886fb-\n    generation: 1\n    labels:\n      app: postgres\n      app.kubernetes.io/instance: nyx-dev\n      app.kubernetes.io/managed-by: platform\n      app.kubernetes.io/name: postgres\n      app.kubernetes.io/part-of: nyx\n      pod-template-hash: 7594d886fb\n    name: postgres-7594d886fb-zj4hh\n    namespace: nyx-dev\n    ownerReferences:\n    - apiVersion: apps/v1\n      blockOwnerDeletion: true\n      controller: true\n      kind: ReplicaSet\n      name: postgres-7594d886fb\n      uid: 9ca7bd7a-5958-4bd0-ace2-a6f907e8d2a5\n    resourceVersion: \"2055\"\n    uid: eab5dc7f-e67a-46e8-87d4-4ce755215491\n  spec:\n    automountServiceAccountToken: false\n    containers:\n    - env:\n      - name: POSTGRES_DB\n        value: app\n      - name: POSTGRES_USER\n        value: app\n      - name: PGDATA\n        value: /var/lib/postgresql/data/pgdata\n      - name: POSTGRES_PASSWORD\n        valueFrom:\n          secretKeyRef:\n            key: password\n            name: database-auth\n      image: postgres:16.6-alpine\n      imagePullPolicy: IfNotPresent\n      livenessProbe:\n        exec:\n          command:\n          - pg_isready\n          - -U\n          - app\n          - -d\n          - app\n        failureThreshold: 3\n        periodSeconds: 3\n        successThreshold: 1\n        timeoutSeconds: 1\n      name: postgres\n      ports:\n      - containerPort: 5432\n        name: db\n        protocol: TCP\n      readinessProbe:\n        exec:\n          command:\n          - pg_isready\n          - -U\n          - app\n          - -d\n          - app\n        failureThreshold: 3\n        periodSeconds: 3\n        successThreshold: 1\n        timeoutSeconds: 1\n      resources:\n        limits:\n          cpu: 500m\n          memory: 256Mi\n        requests:\n          cpu: 50m\n          memory: 64Mi\n      securityContext:\n        allowPrivilegeEscalation: false\n        capabilities:\n          drop:\n          - ALL\n        readOnlyRootFilesystem: true\n        runAsGroup: 10001\n        runAsNonRoot: true\n        runAsUser: 10001\n      startupProbe:\n        exec:\n          command:\n          - pg_isready\n          - -U\n          - app\n          - -d\n          - app\n        failureThreshold: 60\n        periodSeconds: 2\n        successThreshold: 1\n        timeoutSeconds: 1\n      terminationMessagePath: /dev/termination-log\n      terminationMessagePolicy: File\n      volumeMounts:\n      - mountPath: /tmp\n        name: tmp\n      - mountPath: /var/lib/postgresql/data\n        name: data\n      - mountPath: /var/run/postgresql\n        name: run\n    dnsPolicy: ClusterFirst\n    enableServiceLinks: true\n    nodeName: desafio03-control-plane\n    preemptionPolicy: PreemptLowerPriority\n    priority: 0\n    restartPolicy: Always\n    schedulerName: default-scheduler\n    securityContext:\n      fsGroup: 10001\n      seccompProfile:\n        type: RuntimeDefault\n    serviceAccount: postgres\n    serviceAccountName: postgres\n    terminationGracePeriodSeconds: 30\n    tolerations:\n    - effect: NoExecute\n      key: node.kubernetes.io/not-ready\n      operator: Exists\n      tolerationSeconds: 300\n    - effect: NoExecute\n      key: node.kubernetes.io/unreachable\n      operator: Exists\n      tolerationSeconds: 300\n    volumes:\n    - emptyDir: {}\n      name: tmp\n    - emptyDir: {}\n      name: data\n    - emptyDir: {}\n      name: run\n  status:\n    conditions:\n    - lastProbeTime: null\n      lastTransitionTime: \"2026-11-18T19:18:34Z\"\n      observedGeneration: 1\n      status: \"True\"\n      type: PodReadyToStartContainers\n    - lastProbeTime: null\n      lastTransitionTime: \"2026-11-18T19:18:33Z\"\n      observedGeneration: 1\n      status: \"True\"\n      type: Initialized\n    - lastProbeTime: null\n      lastTransitionTime: \"2026-11-18T19:18:39Z\"\n      observedGeneration: 1\n      status: \"True\"\n      type: Ready\n    - lastProbeTime: null\n      lastTransitionTime: \"2026-11-18T19:18:39Z\"\n      observedGeneration: 1\n      status: \"True\"\n      type: ContainersReady\n    - lastProbeTime: null\n      lastTransitionTime: \"2026-11-18T19:18:33Z\"\n      observedGeneration: 1\n      status: \"True\"\n      type: PodScheduled\n    containerStatuses:\n    - allocatedResources:\n        cpu: 50m\n        memory: 64Mi\n      containerID: containerd://0e13c67037b6fc85a5e4b83258745ea07fcf17b9b1dbcacfad9f941925571bf9\n      image: docker.io/library/postgres:16.6-alpine\n      imageID: docker.io/library/postgres@sha256:1d04b9ba1d4996401f2552b51beda8187f175c0645c091e4781134fc9c9a3eef\n      lastState: {}\n      name: postgres\n      ready: true\n      resources:\n        limits:\n          cpu: 500m\n          memory: 256Mi\n        requests:\n          cpu: 50m\n          memory: 64Mi\n      restartCount: 0\n      started: true\n      state:\n        running:\n          startedAt: \"2026-11-18T19:18:34Z\"\n      user:\n        linux:\n          gid: 10001\n          supplementalGroups:\n          - 10001\n          uid: 10001\n      volumeMounts:\n      - mountPath: /tmp\n        name: tmp\n      - mountPath: /var/lib/postgresql/data\n        name: data\n      - mountPath: /var/run/postgresql\n        name: run\n    hostIP: 172.22.0.2\n    hostIPs:\n    - ip: 172.22.0.2\n    observedGeneration: 1\n    phase: Running\n    podIP: 10.244.0.30\n    podIPs:\n    - ip: 10.244.0.30\n    qosClass: Burstable\n    startTime: \"2026-11-18T19:18:33Z\"\nkind: List\nmetadata:\n  resourceVersion: \"\"\n"
+          }
+        ]
+      },
+      "jsonrpc": "2.0",
+      "id": 3
+    },
+    "segundos": 0.1011
+  }
+}

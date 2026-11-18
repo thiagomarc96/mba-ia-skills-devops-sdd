@@ -1,0 +1,32 @@
+v1: Pulling from fabricioveronez/fake-shop
+ce61bf966097: Pulling fs layer
+26c307b5e35a: Pulling fs layer
+5a31db4cd478: Pulling fs layer
+ec15ec7069bc: Pulling fs layer
+b3c7a9bdb4f2: Pulling fs layer
+c85ad0bcaca8: Pulling fs layer
+2f59ddf537b0: Pulling fs layer
+dfeaa31aef19: Pulling fs layer
+e3829bcfba3f: Pulling fs layer
+b3c7a9bdb4f2: Download complete
+5a31db4cd478: Download complete
+c85ad0bcaca8: Download complete
+ce61bf966097: Download complete
+dfeaa31aef19: Download complete
+2f59ddf537b0: Download complete
+26c307b5e35a: Download complete
+ec15ec7069bc: Download complete
+a491c44441fd: Download complete
+e3829bcfba3f: Download complete
+26c307b5e35a: Pull complete
+5a31db4cd478: Pull complete
+b3c7a9bdb4f2: Pull complete
+c85ad0bcaca8: Pull complete
+e3829bcfba3f: Pull complete
+ec15ec7069bc: Pull complete
+2f59ddf537b0: Pull complete
+dfeaa31aef19: Pull complete
+ce61bf966097: Pull complete
+Digest: sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f
+Status: Downloaded newer image for fabricioveronez/fake-shop:v1
+docker.io/fabricioveronez/fake-shop:v1

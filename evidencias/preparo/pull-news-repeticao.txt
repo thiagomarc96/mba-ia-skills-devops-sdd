@@ -1,0 +1,4 @@
+v1: Pulling from fabricioveronez/kube-news
+Digest: sha256:61a97024792d8aa96d97d2618b98924012daeaa6386e2557660cc6ff169d840e
+Status: Image is up to date for fabricioveronez/kube-news:v1
+docker.io/fabricioveronez/kube-news:v1

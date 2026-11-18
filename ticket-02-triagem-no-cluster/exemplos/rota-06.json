@@ -1,0 +1,46 @@
+{
+  "entrada": {
+    "frase": "cria um Deployment novo do zero pra mim",
+    "esperado": "manifests-metacortex",
+    "catalogo": "descrições das duas skills"
+  },
+  "resposta": "manifests-metacortex",
+  "segundos": 6.967,
+  "usage": {
+    "input_tokens": 24087,
+    "cached_input_tokens": 13696,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 10,
+    "reasoning_output_tokens": 0
+  },
+  "custo_monetario": null,
+  "codigo": 0,
+  "eventos_codex": [
+    {
+      "type": "thread.started",
+      "thread_id": "01a1f018-0759-7293-910b-2ec2b5c6c824"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "agent_message",
+        "text": "manifests-metacortex"
+      }
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 24087,
+        "cached_input_tokens": 13696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "stderr": ""
+}

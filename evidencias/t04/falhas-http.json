@@ -1,0 +1,46 @@
+[
+  {
+    "cenario": "credencial-expirada",
+    "server": "[MASCARADO]",
+    "certificados": "[MASCARADOS]",
+    "path": "/api/v1/namespaces/nyx-dev/pods",
+    "http_status": 401,
+    "resposta": {
+      "kind": "Status",
+      "apiVersion": "v1",
+      "metadata": {},
+      "status": "Failure",
+      "message": "Unauthorized",
+      "reason": "Unauthorized",
+      "code": 401
+    }
+  },
+  {
+    "cenario": "permissao-negada",
+    "server": "[MASCARADO]",
+    "certificados": "[MASCARADOS]",
+    "path": "/apis/discovery.k8s.io/v1/namespaces/acesso-parcial/endpointslices",
+    "http_status": 403,
+    "resposta": {
+      "kind": "Status",
+      "apiVersion": "v1",
+      "metadata": {},
+      "status": "Failure",
+      "message": "endpointslices.discovery.k8s.io is forbidden: User \"system:serviceaccount:default:platform-ro\" cannot list resource \"endpointslices\" in API group \"discovery.k8s.io\" in the namespace \"acesso-parcial\"",
+      "reason": "Forbidden",
+      "details": {
+        "group": "discovery.k8s.io",
+        "kind": "endpointslices"
+      },
+      "code": 403
+    }
+  },
+  {
+    "cenario": "cluster-indisponivel",
+    "server": "[MASCARADO]",
+    "certificados": "[MASCARADOS]",
+    "path": "/api/v1/namespaces/nyx-dev/pods",
+    "http_status": null,
+    "resposta": "Conexão recusada na porta inválida do kubeconfig isolado."
+  }
+]

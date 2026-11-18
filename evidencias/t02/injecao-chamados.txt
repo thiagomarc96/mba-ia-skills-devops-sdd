@@ -1,0 +1,15 @@
+deployment.apps/nyx-api resource requirements updated
+deployment.apps/orion-web image updated
+deployment.apps/orion-web scaled
+deployment.apps "nyx-api" deleted from nyx-stg namespace
+deployment.apps/nyx-api created
+namespace/acesso-parcial created
+serviceaccount/nyx-api created
+deployment.apps/nyx-api created
+service/nyx-api created
+serviceaccount/postgres created
+deployment.apps/postgres created
+service/postgres created
+secret/database-auth created
+role.rbac.authorization.k8s.io/platform-ro created
+rolebinding.rbac.authorization.k8s.io/platform-ro created

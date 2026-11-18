@@ -22,18 +22,28 @@ FRASES = [
     ('o que é um DaemonSet?', 'nenhuma'),
     ('provisiona uma VM nova no Construct pro cliente orion', 'nenhuma'),
 ]
-CASOS = {
- 'nyx-prod': {'sintoma': 'API reinicia', 'pod': {'phase': 'Running', 'restartCount': 17, 'lastState': {'terminated': {'reason': 'OOMKilled', 'exitCode': 137}}, 'state': {'waiting': {'reason': 'CrashLoopBackOff'}}, 'memory_limit': '24Mi'}, 'eventos': ['Back-off restarting failed container api'], 'postgres': {'ready': True, 'restartCount': 0}},
- 'orion-stg': {'sintoma': 'Loja parou após publicação', 'deployment': {'readyReplicas': 0, 'replicas': 3, 'image': 'fabricioveronez/fake-shop:v1.14.2'}, 'pod': {'state': 'ImagePullBackOff'}, 'eventos': ['Failed to pull image: manifest unknown'], 'postgres': {'ready': True}},
- 'nyx-stg': {'sintoma': 'Service não entrega tráfego', 'service': {'selector': {'app': 'nyx-api'}}, 'pods': [{'labels': {'app': 'nyxapi'}, 'ready': True, 'restartCount': 0}], 'endpointslices': [], 'postgres': {'ready': True}},
-}
+def casos_reais():
+    dados = {}
+    for ns in ('nyx-prod', 'orion-stg', 'nyx-stg'):
+        arquivo = REPO / 'evidencias/t02' / (ns + '-mcp.json')
+        records = json.loads(arquivo.read_text())
+        partes = []
+        for record in records:
+            resposta = record['response']
+            if 'error' in resposta or resposta.get('result', {}).get('isError'):
+                raise RuntimeError('Coleta MCP falhou: ' + ns)
+            partes.append({'recurso': record['request']['params']['arguments']['resourceType'],
+                           'saida_mcp': resposta['result']})
+        dados[ns] = {'origem': str(arquivo.relative_to(REPO)), 'namespace': ns, 'leituras': partes}
+    return dados
+
 
 
 def executar(item):
     nome, prompt, entrada = item
     env = {**os.environ, 'RUST_LOG': 'error'}
     inicio = time.perf_counter()
-    result = subprocess.run([shutil.which('codex'), 'exec', '--ephemeral', '--sandbox', 'read-only', '--json', '-'], input=prompt, text=True, encoding='utf-8', capture_output=True, cwd=REPO, env=env, timeout=180)
+    result = subprocess.run([shutil.which('codex'), 'exec', '--ignore-user-config', '--skip-git-repo-check', '--ephemeral', '--sandbox', 'read-only', '--json', '-'], input=prompt, text=True, encoding='utf-8', capture_output=True, cwd=REPO, env=env, timeout=300)
     eventos = []
     for linha in result.stdout.splitlines():
         try:
@@ -43,10 +53,12 @@ def executar(item):
     respostas = [e['item']['text'] for e in eventos if e.get('type') == 'item.completed' and e.get('item', {}).get('type') == 'agent_message']
     usos = [e.get('usage') for e in eventos if e.get('type') == 'turn.completed']
     registro = {'entrada': entrada, 'resposta': '\n'.join(respostas), 'segundos': round(time.perf_counter()-inicio, 3), 'usage': usos[-1] if usos else None, 'custo_monetario': None, 'codigo': result.returncode}
-    if result.returncode or not respostas:
-        raise RuntimeError('Execução incompleta: ' + nome)
+    registro['eventos_codex'] = eventos
+    registro['stderr'] = result.stderr
     (SAIDA / (nome + '.json')).write_text(json.dumps(registro, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     print(nome, 'concluído', flush=True)
+    if result.returncode or not respostas:
+        raise RuntimeError('Execução incompleta: ' + nome)
     return nome, registro
 
 
@@ -60,11 +72,15 @@ def main():
     for i, (frase, esperado) in enumerate(FRASES, 1):
         prompt = base + 'Escolha a rota entre manifests-metacortex, triagem-cluster, esclarecer, nenhuma. Responda apenas com o nome da rota. Catálogo:\n'+catalogo+'\nPedido: '+frase
         tarefas.append((f'rota-{i:02d}', prompt, {'frase':frase,'esperado':esperado,'catalogo':'descrições das duas skills'}))
-    for nome, caso in CASOS.items():
+    for nome, caso in casos_reais().items():
         for modo in (['com-skill','sem-skill'] if nome != 'orion-stg' else ['com-skill']):
             contexto = textos[1] if modo == 'com-skill' else ''
-            prompt = base + contexto + '\nAnalise o chamado usando este conjunto de dados de exemplo. Entregue causa, evidências e próxima ação sugerida, sem executá-la. Seja conciso.\n'+json.dumps(caso,ensure_ascii=False)
+            prompt = base + contexto + '\nAnalise o chamado usando estas saídas reais do MCP, coletadas no kind-desafio03. Entregue causa, evidências e próxima ação sugerida, sem executá-la. Seja conciso.\n'+json.dumps(caso,ensure_ascii=False)
             tarefas.append((nome+'-'+modo, prompt, {'caso':caso,'modo':modo}))
+    barrado = (REPO/'ticket-01-padrao-de-manifests/exemplos/manifesto-barrado.yaml').read_text()
+    for modo in ('com-skill','sem-skill'):
+        contexto = textos[0] + '\n' + (paths[0].parent/'references/criterios.md').read_text() if modo == 'com-skill' else ''
+        tarefas.append(('manifesto-'+modo, base+contexto+'\nConfira este YAML sem alterá-lo. Indique violações e impacto.\n'+barrado, {'modo':modo,'arquivo':'manifesto-barrado.yaml'}))
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
         resultados = dict(pool.map(executar,tarefas))
     rotas=[]
@@ -73,7 +89,7 @@ def main():
         rotas.append({'frase':frase,'esperado':esperado,'obtido':obtido,'acerto':obtido==esperado})
     (SAIDA/'roteamento.json').write_text(json.dumps(rotas,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     comparacao=[]
-    for nome in ('nyx-prod','nyx-stg'):
+    for nome in ('nyx-prod','nyx-stg','manifesto'):
         comparacao.append({'caso':nome,**{modo:resultados[nome+'-'+modo] for modo in ('com-skill','sem-skill')}})
     (SAIDA/'comparacao.json').write_text(json.dumps(comparacao,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 

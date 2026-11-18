@@ -1,0 +1,46 @@
+{
+  "entrada": {
+    "frase": "por que esse deployment está 0/3",
+    "esperado": "triagem-cluster",
+    "catalogo": "descrições das duas skills"
+  },
+  "resposta": "triagem-cluster",
+  "segundos": 7.512,
+  "usage": {
+    "input_tokens": 24080,
+    "cached_input_tokens": 13696,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 8,
+    "reasoning_output_tokens": 0
+  },
+  "custo_monetario": null,
+  "codigo": 0,
+  "eventos_codex": [
+    {
+      "type": "thread.started",
+      "thread_id": "01a1f017-e977-76d1-b187-29b74ef87318"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "agent_message",
+        "text": "triagem-cluster"
+      }
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 24080,
+        "cached_input_tokens": 13696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "stderr": ""
+}

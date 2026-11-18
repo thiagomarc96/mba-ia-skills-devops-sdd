@@ -1,215 +1,3869 @@
 {
-  "tipo": "exemplo",
-  "cenario": "fake-shop com aplicação e PostgreSQL prontos",
+  "origem": "API do kind-desafio03 via kubectl e backend HTTP",
+  "cenario": "orion-dev",
   "http_status": 200,
-  "entrada_sintetica": {
-    "namespaces": [],
-    "pods": [
+  "entrada_cluster": {
+    "namespaces": [
       {
+        "apiVersion": "v1",
+        "kind": "Namespace",
         "metadata": {
-          "name": "orion-web-simulado",
-          "namespace": "orion-dev",
+          "creationTimestamp": "2026-11-18T19:16:30Z",
           "labels": {
-            "app": "orion-web",
-            "produto": "fake-shop"
-          }
+            "kubernetes.io/metadata.name": "acesso-parcial"
+          },
+          "name": "acesso-parcial",
+          "resourceVersion": "1521",
+          "uid": "640ab519-4579-4b60-a16e-c9a590352fc7"
         },
         "spec": {
-          "containers": [
-            {
-              "name": "orion-web",
-              "image": "fabricioveronez/fake-shop:v1",
-              "ports": [
-                {
-                  "containerPort": 5000
-                }
-              ]
-            }
+          "finalizers": [
+            "kubernetes"
           ]
         },
         "status": {
-          "phase": "Running",
-          "conditions": [
-            {
-              "type": "Ready",
-              "status": "True"
-            }
-          ],
-          "containerStatuses": [
-            {
-              "name": "orion-web",
-              "ready": true,
-              "restartCount": 0,
-              "state": {
-                "running": {}
-              }
-            }
-          ]
+          "phase": "Active"
         }
       },
       {
+        "apiVersion": "v1",
+        "kind": "Namespace",
         "metadata": {
-          "name": "orion-postgres-simulado",
-          "namespace": "orion-dev",
+          "creationTimestamp": "2026-11-18T19:13:37Z",
           "labels": {
-            "app": "orion-postgres",
-            "produto": "fake-shop"
-          }
+            "kubernetes.io/metadata.name": "default"
+          },
+          "name": "default",
+          "resourceVersion": "12",
+          "uid": "df09b8ee-43c0-4886-97c5-837564c1fc4b"
         },
         "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:13:37Z",
+          "labels": {
+            "kubernetes.io/metadata.name": "kube-node-lease"
+          },
+          "name": "kube-node-lease",
+          "resourceVersion": "19",
+          "uid": "cd28cde7-bd43-4a17-be44-f00c304dcacf"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:13:37Z",
+          "labels": {
+            "kubernetes.io/metadata.name": "kube-public"
+          },
+          "name": "kube-public",
+          "resourceVersion": "8",
+          "uid": "9259a5c6-a49c-4ac7-be34-5b358135012c"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:13:37Z",
+          "labels": {
+            "kubernetes.io/metadata.name": "kube-system"
+          },
+          "name": "kube-system",
+          "resourceVersion": "5",
+          "uid": "9f5fa1af-9482-4d8e-bc81-9ae7b9be344b"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"name\":\"local-path-storage\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:13:44Z",
+          "labels": {
+            "kubernetes.io/metadata.name": "local-path-storage"
+          },
+          "name": "local-path-storage",
+          "resourceVersion": "332",
+          "uid": "87429f42-4477-4f52-8b00-413946574124"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"nyx-dev\",\"app.kubernetes.io/instance\":\"nyx-dev\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"nyx-dev\",\"app.kubernetes.io/part-of\":\"nyx\"},\"name\":\"nyx-dev\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:23Z",
+          "labels": {
+            "app": "nyx-dev",
+            "app.kubernetes.io/instance": "nyx-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "nyx-dev",
+            "app.kubernetes.io/part-of": "nyx",
+            "kubernetes.io/metadata.name": "nyx-dev"
+          },
+          "name": "nyx-dev",
+          "resourceVersion": "575",
+          "uid": "2991b328-0a5d-4916-aaff-ad020c43e668"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"nyx-prod\",\"app.kubernetes.io/instance\":\"nyx-prod\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"nyx-prod\",\"app.kubernetes.io/part-of\":\"nyx\"},\"name\":\"nyx-prod\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:22Z",
+          "labels": {
+            "app": "nyx-prod",
+            "app.kubernetes.io/instance": "nyx-prod",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "nyx-prod",
+            "app.kubernetes.io/part-of": "nyx",
+            "kubernetes.io/metadata.name": "nyx-prod"
+          },
+          "name": "nyx-prod",
+          "resourceVersion": "528",
+          "uid": "451d4e2a-357b-4b8d-845d-a66e850ec502"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"nyx-stg\",\"app.kubernetes.io/instance\":\"nyx-stg\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"nyx-stg\",\"app.kubernetes.io/part-of\":\"nyx\"},\"name\":\"nyx-stg\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:24Z",
+          "labels": {
+            "app": "nyx-stg",
+            "app.kubernetes.io/instance": "nyx-stg",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "nyx-stg",
+            "app.kubernetes.io/part-of": "nyx",
+            "kubernetes.io/metadata.name": "nyx-stg"
+          },
+          "name": "nyx-stg",
+          "resourceVersion": "619",
+          "uid": "b2ec0d26-eeef-4d5f-9608-e2c6a7bc215b"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"orion-dev\",\"app.kubernetes.io/instance\":\"orion-dev\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"orion-dev\",\"app.kubernetes.io/part-of\":\"orion\"},\"name\":\"orion-dev\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:24Z",
+          "labels": {
+            "app": "orion-dev",
+            "app.kubernetes.io/instance": "orion-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "orion-dev",
+            "app.kubernetes.io/part-of": "orion",
+            "kubernetes.io/metadata.name": "orion-dev"
+          },
+          "name": "orion-dev",
+          "resourceVersion": "663",
+          "uid": "8dc3678e-6dee-4ba0-b086-bb6ed7e1e4b6"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"orion-stg\",\"app.kubernetes.io/instance\":\"orion-stg\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"orion-stg\",\"app.kubernetes.io/part-of\":\"orion\"},\"name\":\"orion-stg\"}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "labels": {
+            "app": "orion-stg",
+            "app.kubernetes.io/instance": "orion-stg",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "orion-stg",
+            "app.kubernetes.io/part-of": "orion",
+            "kubernetes.io/metadata.name": "orion-stg"
+          },
+          "name": "orion-stg",
+          "resourceVersion": "705",
+          "uid": "7947240f-fc2b-4bbd-bc01-2e9bf48a414f"
+        },
+        "spec": {
+          "finalizers": [
+            "kubernetes"
+          ]
+        },
+        "status": {
+          "phase": "Active"
+        }
+      }
+    ],
+    "pods": [
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/restartedAt": "2026-11-18T16:20:08-03:00"
+          },
+          "creationTimestamp": "2026-11-18T19:20:08Z",
+          "generateName": "orion-web-7658c55677-",
+          "generation": 1,
+          "labels": {
+            "app": "orion-web",
+            "app.kubernetes.io/instance": "orion-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "orion-web",
+            "app.kubernetes.io/part-of": "orion",
+            "pod-template-hash": "7658c55677"
+          },
+          "name": "orion-web-7658c55677-6q8z4",
+          "namespace": "orion-dev",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "orion-web-7658c55677",
+              "uid": "5287961c-e901-4877-957d-11962df70eb3"
+            }
+          ],
+          "resourceVersion": "2423",
+          "uid": "6a00022a-ea5d-472c-9eba-656ec721e880"
+        },
+        "spec": {
+          "automountServiceAccountToken": false,
           "containers": [
             {
-              "name": "orion-postgres",
-              "image": "postgres:16-alpine",
+              "env": [
+                {
+                  "name": "DB_HOST",
+                  "value": "postgres"
+                },
+                {
+                  "name": "DB_PORT",
+                  "value": "5432"
+                },
+                {
+                  "name": "DB_NAME",
+                  "value": "app"
+                },
+                {
+                  "name": "DB_USER",
+                  "value": "app"
+                },
+                {
+                  "name": "DB_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "password",
+                      "name": "database-auth"
+                    }
+                  }
+                },
+                {
+                  "name": "PROMETHEUS_MULTIPROC_DIR",
+                  "value": "/tmp"
+                }
+              ],
+              "image": "fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f",
+              "imagePullPolicy": "IfNotPresent",
+              "livenessProbe": {
+                "failureThreshold": 3,
+                "periodSeconds": 10,
+                "successThreshold": 1,
+                "tcpSocket": {
+                  "port": "http"
+                },
+                "timeoutSeconds": 1
+              },
+              "name": "orion-web",
               "ports": [
                 {
-                  "containerPort": 5432
+                  "containerPort": 5000,
+                  "name": "http",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/",
+                  "port": "http",
+                  "scheme": "HTTP"
+                },
+                "periodSeconds": 5,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "500m",
+                  "memory": "256Mi"
+                },
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "128Mi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "readOnlyRootFilesystem": true,
+                "runAsGroup": 10001,
+                "runAsNonRoot": true,
+                "runAsUser": 10001
+              },
+              "startupProbe": {
+                "failureThreshold": 60,
+                "periodSeconds": 2,
+                "successThreshold": 1,
+                "tcpSocket": {
+                  "port": "http"
+                },
+                "timeoutSeconds": 1
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/tmp",
+                  "name": "tmp"
                 }
               ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "initContainers": [
+            {
+              "command": [
+                "sh",
+                "-c",
+                "until pg_isready -h postgres -U app -d app; do sleep 2; done"
+              ],
+              "image": "postgres:16.6-alpine",
+              "imagePullPolicy": "IfNotPresent",
+              "name": "aguardar-postgres",
+              "resources": {
+                "limits": {
+                  "cpu": "100m",
+                  "memory": "64Mi"
+                },
+                "requests": {
+                  "cpu": "10m",
+                  "memory": "16Mi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "readOnlyRootFilesystem": true,
+                "runAsGroup": 10001,
+                "runAsNonRoot": true,
+                "runAsUser": 10001
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File"
+            }
+          ],
+          "nodeName": "desafio03-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 10001,
+            "seccompProfile": {
+              "type": "RuntimeDefault"
+            }
+          },
+          "serviceAccount": "orion-web",
+          "serviceAccountName": "orion-web",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "emptyDir": {},
+              "name": "tmp"
             }
           ]
         },
         "status": {
-          "phase": "Running",
           "conditions": [
             {
-              "type": "Ready",
-              "status": "True"
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:20:12Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:20:12Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:20:23Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:20:23Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:20:08Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
             }
           ],
           "containerStatuses": [
             {
-              "name": "orion-postgres",
+              "allocatedResources": {
+                "cpu": "50m",
+                "memory": "128Mi"
+              },
+              "containerID": "containerd://c73e9ae60d8bdd732624955ae1d68ae140e1faa9778202ef11ce203380775f63",
+              "image": "sha256:9c4c205135bba17061af7e43847480e1d3beb9b342cf81a4b0d01a862e7aefc3",
+              "imageID": "docker.io/fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f",
+              "lastState": {},
+              "name": "orion-web",
               "ready": true,
+              "resources": {
+                "limits": {
+                  "cpu": "500m",
+                  "memory": "256Mi"
+                },
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "128Mi"
+                }
+              },
               "restartCount": 0,
+              "started": true,
               "state": {
-                "running": {}
+                "running": {
+                  "startedAt": "2026-11-18T19:20:13Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 10001,
+                  "supplementalGroups": [
+                    10001
+                  ],
+                  "uid": 10001
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/tmp",
+                  "name": "tmp"
+                }
+              ]
+            }
+          ],
+          "hostIP": "172.22.0.2",
+          "hostIPs": [
+            {
+              "ip": "172.22.0.2"
+            }
+          ],
+          "initContainerStatuses": [
+            {
+              "allocatedResources": {
+                "cpu": "10m",
+                "memory": "16Mi"
+              },
+              "containerID": "containerd://413adc617f8018ef6673790e30419b4567293abd931012fa833a35604323e67c",
+              "image": "docker.io/library/postgres:16.6-alpine",
+              "imageID": "docker.io/library/postgres@sha256:1d04b9ba1d4996401f2552b51beda8187f175c0645c091e4781134fc9c9a3eef",
+              "lastState": {},
+              "name": "aguardar-postgres",
+              "ready": true,
+              "resources": {
+                "limits": {
+                  "cpu": "100m",
+                  "memory": "64Mi"
+                },
+                "requests": {
+                  "cpu": "10m",
+                  "memory": "16Mi"
+                }
+              },
+              "restartCount": 0,
+              "started": false,
+              "state": {
+                "terminated": {
+                  "containerID": "containerd://413adc617f8018ef6673790e30419b4567293abd931012fa833a35604323e67c",
+                  "exitCode": 0,
+                  "finishedAt": "2026-11-18T19:20:11Z",
+                  "reason": "Completed",
+                  "startedAt": "2026-11-18T19:20:11Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 10001,
+                  "supplementalGroups": [
+                    10001
+                  ],
+                  "uid": 10001
+                }
               }
             }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "10.244.0.33",
+          "podIPs": [
+            {
+              "ip": "10.244.0.33"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-11-18T19:20:08Z"
+        }
+      },
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:33Z",
+          "generateName": "postgres-6f87559b56-",
+          "generation": 1,
+          "labels": {
+            "app": "postgres",
+            "app.kubernetes.io/instance": "orion-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "postgres",
+            "app.kubernetes.io/part-of": "orion",
+            "pod-template-hash": "6f87559b56"
+          },
+          "name": "postgres-6f87559b56-tj5fb",
+          "namespace": "orion-dev",
+          "ownerReferences": [
+            {
+              "apiVersion": "apps/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "ReplicaSet",
+              "name": "postgres-6f87559b56",
+              "uid": "39f8a8cd-ca83-4637-8f37-d84442083ca0"
+            }
+          ],
+          "resourceVersion": "2077",
+          "uid": "4cccf7ad-79f8-441e-aa32-865629f4101f"
+        },
+        "spec": {
+          "automountServiceAccountToken": false,
+          "containers": [
+            {
+              "env": [
+                {
+                  "name": "POSTGRES_DB",
+                  "value": "app"
+                },
+                {
+                  "name": "POSTGRES_USER",
+                  "value": "app"
+                },
+                {
+                  "name": "PGDATA",
+                  "value": "/var/lib/postgresql/data/pgdata"
+                },
+                {
+                  "name": "POSTGRES_PASSWORD",
+                  "valueFrom": {
+                    "secretKeyRef": {
+                      "key": "password",
+                      "name": "database-auth"
+                    }
+                  }
+                }
+              ],
+              "image": "postgres:16.6-alpine",
+              "imagePullPolicy": "IfNotPresent",
+              "livenessProbe": {
+                "exec": {
+                  "command": [
+                    "pg_isready",
+                    "-U",
+                    "app",
+                    "-d",
+                    "app"
+                  ]
+                },
+                "failureThreshold": 3,
+                "periodSeconds": 3,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "name": "postgres",
+              "ports": [
+                {
+                  "containerPort": 5432,
+                  "name": "db",
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "exec": {
+                  "command": [
+                    "pg_isready",
+                    "-U",
+                    "app",
+                    "-d",
+                    "app"
+                  ]
+                },
+                "failureThreshold": 3,
+                "periodSeconds": 3,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "500m",
+                  "memory": "256Mi"
+                },
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "64Mi"
+                }
+              },
+              "securityContext": {
+                "allowPrivilegeEscalation": false,
+                "capabilities": {
+                  "drop": [
+                    "ALL"
+                  ]
+                },
+                "readOnlyRootFilesystem": true,
+                "runAsGroup": 10001,
+                "runAsNonRoot": true,
+                "runAsUser": 10001
+              },
+              "startupProbe": {
+                "exec": {
+                  "command": [
+                    "pg_isready",
+                    "-U",
+                    "app",
+                    "-d",
+                    "app"
+                  ]
+                },
+                "failureThreshold": 60,
+                "periodSeconds": 2,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/tmp",
+                  "name": "tmp"
+                },
+                {
+                  "mountPath": "/var/lib/postgresql/data",
+                  "name": "data"
+                },
+                {
+                  "mountPath": "/var/run/postgresql",
+                  "name": "run"
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "nodeName": "desafio03-control-plane",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {
+            "fsGroup": 10001,
+            "seccompProfile": {
+              "type": "RuntimeDefault"
+            }
+          },
+          "serviceAccount": "postgres",
+          "serviceAccountName": "postgres",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "emptyDir": {},
+              "name": "tmp"
+            },
+            {
+              "emptyDir": {},
+              "name": "data"
+            },
+            {
+              "emptyDir": {},
+              "name": "run"
+            }
           ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:18:35Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodReadyToStartContainers"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:18:33Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:18:40Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:18:40Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2026-11-18T19:18:33Z",
+              "observedGeneration": 1,
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "allocatedResources": {
+                "cpu": "50m",
+                "memory": "64Mi"
+              },
+              "containerID": "containerd://9cb6059e0d5cd82158da4b9ee6f0e22ad586e067ace30a14e9d79807c96a1dd4",
+              "image": "docker.io/library/postgres:16.6-alpine",
+              "imageID": "docker.io/library/postgres@sha256:1d04b9ba1d4996401f2552b51beda8187f175c0645c091e4781134fc9c9a3eef",
+              "lastState": {},
+              "name": "postgres",
+              "ready": true,
+              "resources": {
+                "limits": {
+                  "cpu": "500m",
+                  "memory": "256Mi"
+                },
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "64Mi"
+                }
+              },
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2026-11-18T19:18:35Z"
+                }
+              },
+              "user": {
+                "linux": {
+                  "gid": 10001,
+                  "supplementalGroups": [
+                    10001
+                  ],
+                  "uid": 10001
+                }
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/tmp",
+                  "name": "tmp"
+                },
+                {
+                  "mountPath": "/var/lib/postgresql/data",
+                  "name": "data"
+                },
+                {
+                  "mountPath": "/var/run/postgresql",
+                  "name": "run"
+                }
+              ]
+            }
+          ],
+          "hostIP": "172.22.0.2",
+          "hostIPs": [
+            {
+              "ip": "172.22.0.2"
+            }
+          ],
+          "observedGeneration": 1,
+          "phase": "Running",
+          "podIP": "10.244.0.32",
+          "podIPs": [
+            {
+              "ip": "10.244.0.32"
+            }
+          ],
+          "qosClass": "Burstable",
+          "startTime": "2026-11-18T19:18:33Z"
         }
       }
     ],
     "deployments": [
       {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
         "metadata": {
+          "annotations": {
+            "deployment.kubernetes.io/revision": "4",
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"orion-web\",\"app.kubernetes.io/instance\":\"orion-dev\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"orion-web\",\"app.kubernetes.io/part-of\":\"orion\"},\"name\":\"orion-web\",\"namespace\":\"orion-dev\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"orion-web\"}},\"strategy\":{\"rollingUpdate\":{\"maxSurge\":1,\"maxUnavailable\":0},\"type\":\"RollingUpdate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"orion-web\",\"app.kubernetes.io/instance\":\"orion-dev\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"orion-web\",\"app.kubernetes.io/part-of\":\"orion\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"env\":[{\"name\":\"DB_HOST\",\"value\":\"postgres\"},{\"name\":\"DB_PORT\",\"value\":\"5432\"},{\"name\":\"DB_NAME\",\"value\":\"app\"},{\"name\":\"DB_USER\",\"value\":\"app\"},{\"name\":\"DB_PASSWORD\",\"valueFrom\":{\"secretKeyRef\":{\"key\":\"password\",\"name\":\"database-auth\"}}},{\"name\":\"PROMETHEUS_MULTIPROC_DIR\",\"value\":\"/tmp\"}],\"image\":\"fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f\",\"imagePullPolicy\":\"IfNotPresent\",\"livenessProbe\":{\"periodSeconds\":10,\"tcpSocket\":{\"port\":\"http\"}},\"name\":\"orion-web\",\"ports\":[{\"containerPort\":5000,\"name\":\"http\"}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/\",\"port\":\"http\"},\"periodSeconds\":5},\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"256Mi\"},\"requests\":{\"cpu\":\"50m\",\"memory\":\"128Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"readOnlyRootFilesystem\":true,\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001},\"startupProbe\":{\"failureThreshold\":60,\"periodSeconds\":2,\"tcpSocket\":{\"port\":\"http\"}},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp\"}]}],\"initContainers\":[{\"command\":[\"sh\",\"-c\",\"until pg_isready -h postgres -U app -d app; do sleep 2; done\"],\"image\":\"postgres:16.6-alpine\",\"name\":\"aguardar-postgres\",\"resources\":{\"limits\":{\"cpu\":\"100m\",\"memory\":\"64Mi\"},\"requests\":{\"cpu\":\"10m\",\"memory\":\"16Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"readOnlyRootFilesystem\":true,\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001}}],\"securityContext\":{\"fsGroup\":10001,\"seccompProfile\":{\"type\":\"RuntimeDefault\"}},\"serviceAccountName\":\"orion-web\",\"terminationGracePeriodSeconds\":30,\"volumes\":[{\"emptyDir\":{},\"name\":\"tmp\"}]}}}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "generation": 4,
+          "labels": {
+            "app": "orion-web",
+            "app.kubernetes.io/instance": "orion-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "orion-web",
+            "app.kubernetes.io/part-of": "orion"
+          },
           "name": "orion-web",
-          "namespace": "orion-dev"
+          "namespace": "orion-dev",
+          "resourceVersion": "2496",
+          "uid": "cc841ef8-4439-456c-82c6-35f52714f5b0"
         },
         "spec": {
-          "replicas": 1
+          "progressDeadlineSeconds": 600,
+          "replicas": 1,
+          "revisionHistoryLimit": 10,
+          "selector": {
+            "matchLabels": {
+              "app": "orion-web"
+            }
+          },
+          "strategy": {
+            "rollingUpdate": {
+              "maxSurge": 1,
+              "maxUnavailable": 0
+            },
+            "type": "RollingUpdate"
+          },
+          "template": {
+            "metadata": {
+              "annotations": {
+                "kubectl.kubernetes.io/restartedAt": "2026-11-18T16:20:08-03:00"
+              },
+              "labels": {
+                "app": "orion-web",
+                "app.kubernetes.io/instance": "orion-dev",
+                "app.kubernetes.io/managed-by": "platform",
+                "app.kubernetes.io/name": "orion-web",
+                "app.kubernetes.io/part-of": "orion"
+              }
+            },
+            "spec": {
+              "automountServiceAccountToken": false,
+              "containers": [
+                {
+                  "env": [
+                    {
+                      "name": "DB_HOST",
+                      "value": "postgres"
+                    },
+                    {
+                      "name": "DB_PORT",
+                      "value": "5432"
+                    },
+                    {
+                      "name": "DB_NAME",
+                      "value": "app"
+                    },
+                    {
+                      "name": "DB_USER",
+                      "value": "app"
+                    },
+                    {
+                      "name": "DB_PASSWORD",
+                      "valueFrom": {
+                        "secretKeyRef": {
+                          "key": "password",
+                          "name": "database-auth"
+                        }
+                      }
+                    },
+                    {
+                      "name": "PROMETHEUS_MULTIPROC_DIR",
+                      "value": "/tmp"
+                    }
+                  ],
+                  "image": "fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f",
+                  "imagePullPolicy": "IfNotPresent",
+                  "livenessProbe": {
+                    "failureThreshold": 3,
+                    "periodSeconds": 10,
+                    "successThreshold": 1,
+                    "tcpSocket": {
+                      "port": "http"
+                    },
+                    "timeoutSeconds": 1
+                  },
+                  "name": "orion-web",
+                  "ports": [
+                    {
+                      "containerPort": 5000,
+                      "name": "http",
+                      "protocol": "TCP"
+                    }
+                  ],
+                  "readinessProbe": {
+                    "failureThreshold": 3,
+                    "httpGet": {
+                      "path": "/",
+                      "port": "http",
+                      "scheme": "HTTP"
+                    },
+                    "periodSeconds": 5,
+                    "successThreshold": 1,
+                    "timeoutSeconds": 1
+                  },
+                  "resources": {
+                    "limits": {
+                      "cpu": "500m",
+                      "memory": "256Mi"
+                    },
+                    "requests": {
+                      "cpu": "50m",
+                      "memory": "128Mi"
+                    }
+                  },
+                  "securityContext": {
+                    "allowPrivilegeEscalation": false,
+                    "capabilities": {
+                      "drop": [
+                        "ALL"
+                      ]
+                    },
+                    "readOnlyRootFilesystem": true,
+                    "runAsGroup": 10001,
+                    "runAsNonRoot": true,
+                    "runAsUser": 10001
+                  },
+                  "startupProbe": {
+                    "failureThreshold": 60,
+                    "periodSeconds": 2,
+                    "successThreshold": 1,
+                    "tcpSocket": {
+                      "port": "http"
+                    },
+                    "timeoutSeconds": 1
+                  },
+                  "terminationMessagePath": "/dev/termination-log",
+                  "terminationMessagePolicy": "File",
+                  "volumeMounts": [
+                    {
+                      "mountPath": "/tmp",
+                      "name": "tmp"
+                    }
+                  ]
+                }
+              ],
+              "dnsPolicy": "ClusterFirst",
+              "initContainers": [
+                {
+                  "command": [
+                    "sh",
+                    "-c",
+                    "until pg_isready -h postgres -U app -d app; do sleep 2; done"
+                  ],
+                  "image": "postgres:16.6-alpine",
+                  "imagePullPolicy": "IfNotPresent",
+                  "name": "aguardar-postgres",
+                  "resources": {
+                    "limits": {
+                      "cpu": "100m",
+                      "memory": "64Mi"
+                    },
+                    "requests": {
+                      "cpu": "10m",
+                      "memory": "16Mi"
+                    }
+                  },
+                  "securityContext": {
+                    "allowPrivilegeEscalation": false,
+                    "capabilities": {
+                      "drop": [
+                        "ALL"
+                      ]
+                    },
+                    "readOnlyRootFilesystem": true,
+                    "runAsGroup": 10001,
+                    "runAsNonRoot": true,
+                    "runAsUser": 10001
+                  },
+                  "terminationMessagePath": "/dev/termination-log",
+                  "terminationMessagePolicy": "File"
+                }
+              ],
+              "restartPolicy": "Always",
+              "schedulerName": "default-scheduler",
+              "securityContext": {
+                "fsGroup": 10001,
+                "seccompProfile": {
+                  "type": "RuntimeDefault"
+                }
+              },
+              "serviceAccount": "orion-web",
+              "serviceAccountName": "orion-web",
+              "terminationGracePeriodSeconds": 30,
+              "volumes": [
+                {
+                  "emptyDir": {},
+                  "name": "tmp"
+                }
+              ]
+            }
+          }
         },
         "status": {
-          "readyReplicas": 1
+          "availableReplicas": 1,
+          "conditions": [
+            {
+              "lastTransitionTime": "2026-11-18T19:20:23Z",
+              "lastUpdateTime": "2026-11-18T19:20:23Z",
+              "message": "Deployment has minimum availability.",
+              "reason": "MinimumReplicasAvailable",
+              "status": "True",
+              "type": "Available"
+            },
+            {
+              "lastTransitionTime": "2026-11-18T19:14:25Z",
+              "lastUpdateTime": "2026-11-18T19:20:24Z",
+              "message": "ReplicaSet \"orion-web-7658c55677\" has successfully progressed.",
+              "reason": "NewReplicaSetAvailable",
+              "status": "True",
+              "type": "Progressing"
+            }
+          ],
+          "observedGeneration": 4,
+          "readyReplicas": 1,
+          "replicas": 1,
+          "terminatingReplicas": 0,
+          "updatedReplicas": 1
         }
       },
       {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
         "metadata": {
-          "name": "orion-postgres",
-          "namespace": "orion-dev"
+          "annotations": {
+            "deployment.kubernetes.io/revision": "2",
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"postgres\",\"app.kubernetes.io/instance\":\"orion-dev\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"postgres\",\"app.kubernetes.io/part-of\":\"orion\"},\"name\":\"postgres\",\"namespace\":\"orion-dev\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"postgres\"}},\"strategy\":{\"rollingUpdate\":{\"maxSurge\":1,\"maxUnavailable\":0},\"type\":\"RollingUpdate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"postgres\",\"app.kubernetes.io/instance\":\"orion-dev\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"postgres\",\"app.kubernetes.io/part-of\":\"orion\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"env\":[{\"name\":\"POSTGRES_DB\",\"value\":\"app\"},{\"name\":\"POSTGRES_USER\",\"value\":\"app\"},{\"name\":\"PGDATA\",\"value\":\"/var/lib/postgresql/data/pgdata\"},{\"name\":\"POSTGRES_PASSWORD\",\"valueFrom\":{\"secretKeyRef\":{\"key\":\"password\",\"name\":\"database-auth\"}}}],\"image\":\"postgres:16.6-alpine\",\"imagePullPolicy\":\"IfNotPresent\",\"livenessProbe\":{\"exec\":{\"command\":[\"pg_isready\",\"-U\",\"app\",\"-d\",\"app\"]},\"periodSeconds\":3},\"name\":\"postgres\",\"ports\":[{\"containerPort\":5432,\"name\":\"db\"}],\"readinessProbe\":{\"exec\":{\"command\":[\"pg_isready\",\"-U\",\"app\",\"-d\",\"app\"]},\"periodSeconds\":3},\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"256Mi\"},\"requests\":{\"cpu\":\"50m\",\"memory\":\"64Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"readOnlyRootFilesystem\":true,\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001},\"startupProbe\":{\"exec\":{\"command\":[\"pg_isready\",\"-U\",\"app\",\"-d\",\"app\"]},\"failureThreshold\":60,\"periodSeconds\":2},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp\"},{\"mountPath\":\"/var/lib/postgresql/data\",\"name\":\"data\"},{\"mountPath\":\"/var/run/postgresql\",\"name\":\"run\"}]}],\"securityContext\":{\"fsGroup\":10001,\"seccompProfile\":{\"type\":\"RuntimeDefault\"}},\"serviceAccountName\":\"postgres\",\"terminationGracePeriodSeconds\":30,\"volumes\":[{\"emptyDir\":{},\"name\":\"tmp\"},{\"emptyDir\":{},\"name\":\"data\"},{\"emptyDir\":{},\"name\":\"run\"}]}}}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "generation": 2,
+          "labels": {
+            "app": "postgres",
+            "app.kubernetes.io/instance": "orion-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "postgres",
+            "app.kubernetes.io/part-of": "orion"
+          },
+          "name": "postgres",
+          "namespace": "orion-dev",
+          "resourceVersion": "2098",
+          "uid": "2534a9e2-9f6d-4bf5-9924-6b194398a816"
         },
         "spec": {
-          "replicas": 1
+          "progressDeadlineSeconds": 600,
+          "replicas": 1,
+          "revisionHistoryLimit": 10,
+          "selector": {
+            "matchLabels": {
+              "app": "postgres"
+            }
+          },
+          "strategy": {
+            "rollingUpdate": {
+              "maxSurge": 1,
+              "maxUnavailable": 0
+            },
+            "type": "RollingUpdate"
+          },
+          "template": {
+            "metadata": {
+              "labels": {
+                "app": "postgres",
+                "app.kubernetes.io/instance": "orion-dev",
+                "app.kubernetes.io/managed-by": "platform",
+                "app.kubernetes.io/name": "postgres",
+                "app.kubernetes.io/part-of": "orion"
+              }
+            },
+            "spec": {
+              "automountServiceAccountToken": false,
+              "containers": [
+                {
+                  "env": [
+                    {
+                      "name": "POSTGRES_DB",
+                      "value": "app"
+                    },
+                    {
+                      "name": "POSTGRES_USER",
+                      "value": "app"
+                    },
+                    {
+                      "name": "PGDATA",
+                      "value": "/var/lib/postgresql/data/pgdata"
+                    },
+                    {
+                      "name": "POSTGRES_PASSWORD",
+                      "valueFrom": {
+                        "secretKeyRef": {
+                          "key": "password",
+                          "name": "database-auth"
+                        }
+                      }
+                    }
+                  ],
+                  "image": "postgres:16.6-alpine",
+                  "imagePullPolicy": "IfNotPresent",
+                  "livenessProbe": {
+                    "exec": {
+                      "command": [
+                        "pg_isready",
+                        "-U",
+                        "app",
+                        "-d",
+                        "app"
+                      ]
+                    },
+                    "failureThreshold": 3,
+                    "periodSeconds": 3,
+                    "successThreshold": 1,
+                    "timeoutSeconds": 1
+                  },
+                  "name": "postgres",
+                  "ports": [
+                    {
+                      "containerPort": 5432,
+                      "name": "db",
+                      "protocol": "TCP"
+                    }
+                  ],
+                  "readinessProbe": {
+                    "exec": {
+                      "command": [
+                        "pg_isready",
+                        "-U",
+                        "app",
+                        "-d",
+                        "app"
+                      ]
+                    },
+                    "failureThreshold": 3,
+                    "periodSeconds": 3,
+                    "successThreshold": 1,
+                    "timeoutSeconds": 1
+                  },
+                  "resources": {
+                    "limits": {
+                      "cpu": "500m",
+                      "memory": "256Mi"
+                    },
+                    "requests": {
+                      "cpu": "50m",
+                      "memory": "64Mi"
+                    }
+                  },
+                  "securityContext": {
+                    "allowPrivilegeEscalation": false,
+                    "capabilities": {
+                      "drop": [
+                        "ALL"
+                      ]
+                    },
+                    "readOnlyRootFilesystem": true,
+                    "runAsGroup": 10001,
+                    "runAsNonRoot": true,
+                    "runAsUser": 10001
+                  },
+                  "startupProbe": {
+                    "exec": {
+                      "command": [
+                        "pg_isready",
+                        "-U",
+                        "app",
+                        "-d",
+                        "app"
+                      ]
+                    },
+                    "failureThreshold": 60,
+                    "periodSeconds": 2,
+                    "successThreshold": 1,
+                    "timeoutSeconds": 1
+                  },
+                  "terminationMessagePath": "/dev/termination-log",
+                  "terminationMessagePolicy": "File",
+                  "volumeMounts": [
+                    {
+                      "mountPath": "/tmp",
+                      "name": "tmp"
+                    },
+                    {
+                      "mountPath": "/var/lib/postgresql/data",
+                      "name": "data"
+                    },
+                    {
+                      "mountPath": "/var/run/postgresql",
+                      "name": "run"
+                    }
+                  ]
+                }
+              ],
+              "dnsPolicy": "ClusterFirst",
+              "restartPolicy": "Always",
+              "schedulerName": "default-scheduler",
+              "securityContext": {
+                "fsGroup": 10001,
+                "seccompProfile": {
+                  "type": "RuntimeDefault"
+                }
+              },
+              "serviceAccount": "postgres",
+              "serviceAccountName": "postgres",
+              "terminationGracePeriodSeconds": 30,
+              "volumes": [
+                {
+                  "emptyDir": {},
+                  "name": "tmp"
+                },
+                {
+                  "emptyDir": {},
+                  "name": "data"
+                },
+                {
+                  "emptyDir": {},
+                  "name": "run"
+                }
+              ]
+            }
+          }
         },
         "status": {
-          "readyReplicas": 1
+          "availableReplicas": 1,
+          "conditions": [
+            {
+              "lastTransitionTime": "2026-11-18T19:15:06Z",
+              "lastUpdateTime": "2026-11-18T19:15:06Z",
+              "message": "Deployment has minimum availability.",
+              "reason": "MinimumReplicasAvailable",
+              "status": "True",
+              "type": "Available"
+            },
+            {
+              "lastTransitionTime": "2026-11-18T19:14:25Z",
+              "lastUpdateTime": "2026-11-18T19:18:40Z",
+              "message": "ReplicaSet \"postgres-6f87559b56\" has successfully progressed.",
+              "reason": "NewReplicaSetAvailable",
+              "status": "True",
+              "type": "Progressing"
+            }
+          ],
+          "observedGeneration": 2,
+          "readyReplicas": 1,
+          "replicas": 1,
+          "terminatingReplicas": 0,
+          "updatedReplicas": 1
         }
       }
     ],
     "services": [
       {
+        "apiVersion": "v1",
+        "kind": "Service",
         "metadata": {
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"orion-web\",\"app.kubernetes.io/instance\":\"orion-dev\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"orion-web\",\"app.kubernetes.io/part-of\":\"orion\"},\"name\":\"orion-web\",\"namespace\":\"orion-dev\"},\"spec\":{\"ports\":[{\"name\":\"http\",\"port\":80,\"targetPort\":\"http\"}],\"selector\":{\"app\":\"orion-web\"}}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "labels": {
+            "app": "orion-web",
+            "app.kubernetes.io/instance": "orion-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "orion-web",
+            "app.kubernetes.io/part-of": "orion"
+          },
           "name": "orion-web",
-          "namespace": "orion-dev"
+          "namespace": "orion-dev",
+          "resourceVersion": "675",
+          "uid": "1f7926bb-e8bd-4fd4-8690-0fec39b55e1a"
         },
         "spec": {
-          "type": "ClusterIP",
+          "clusterIP": "10.96.124.97",
+          "clusterIPs": [
+            "10.96.124.97"
+          ],
+          "internalTrafficPolicy": "Cluster",
+          "ipFamilies": [
+            "IPv4"
+          ],
+          "ipFamilyPolicy": "SingleStack",
+          "ports": [
+            {
+              "name": "http",
+              "port": 80,
+              "protocol": "TCP",
+              "targetPort": "http"
+            }
+          ],
           "selector": {
             "app": "orion-web"
           },
-          "ports": [
-            {
-              "port": 5000,
-              "targetPort": 5000
-            }
-          ]
+          "sessionAffinity": "None",
+          "type": "ClusterIP"
+        },
+        "status": {
+          "loadBalancer": {}
         }
       },
       {
+        "apiVersion": "v1",
+        "kind": "Service",
         "metadata": {
-          "name": "orion-postgres",
-          "namespace": "orion-dev"
+          "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"postgres\",\"app.kubernetes.io/instance\":\"orion-dev\",\"app.kubernetes.io/managed-by\":\"platform\",\"app.kubernetes.io/name\":\"postgres\",\"app.kubernetes.io/part-of\":\"orion\"},\"name\":\"postgres\",\"namespace\":\"orion-dev\"},\"spec\":{\"ports\":[{\"name\":\"db\",\"port\":5432,\"targetPort\":\"db\"}],\"selector\":{\"app\":\"postgres\"}}}\n"
+          },
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "labels": {
+            "app": "postgres",
+            "app.kubernetes.io/instance": "orion-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "postgres",
+            "app.kubernetes.io/part-of": "orion"
+          },
+          "name": "postgres",
+          "namespace": "orion-dev",
+          "resourceVersion": "693",
+          "uid": "5ef03cee-983e-4bb4-8e03-2ed4255dcff9"
         },
         "spec": {
-          "type": "ClusterIP",
-          "selector": {
-            "app": "orion-postgres"
-          },
+          "clusterIP": "10.96.246.94",
+          "clusterIPs": [
+            "10.96.246.94"
+          ],
+          "internalTrafficPolicy": "Cluster",
+          "ipFamilies": [
+            "IPv4"
+          ],
+          "ipFamilyPolicy": "SingleStack",
           "ports": [
             {
+              "name": "db",
               "port": 5432,
-              "targetPort": 5432
+              "protocol": "TCP",
+              "targetPort": "db"
             }
-          ]
+          ],
+          "selector": {
+            "app": "postgres"
+          },
+          "sessionAffinity": "None",
+          "type": "ClusterIP"
+        },
+        "status": {
+          "loadBalancer": {}
         }
       }
     ],
     "endpointslices.discovery.k8s.io": [
       {
-        "metadata": {
-          "name": "orion-web-slice",
-          "namespace": "orion-dev",
-          "labels": {
-            "kubernetes.io/service-name": "orion-web"
-          }
-        },
         "addressType": "IPv4",
+        "apiVersion": "discovery.k8s.io/v1",
         "endpoints": [
           {
             "addresses": [
-              "10.244.0.10"
+              "10.244.0.33"
             ],
             "conditions": {
-              "ready": true
+              "ready": true,
+              "serving": true,
+              "terminating": false
+            },
+            "nodeName": "desafio03-control-plane",
+            "targetRef": {
+              "kind": "Pod",
+              "name": "orion-web-7658c55677-6q8z4",
+              "namespace": "orion-dev",
+              "uid": "6a00022a-ea5d-472c-9eba-656ec721e880"
             }
+          }
+        ],
+        "kind": "EndpointSlice",
+        "metadata": {
+          "annotations": {
+            "endpoints.kubernetes.io/last-change-trigger-time": "2026-11-18T19:20:54Z"
+          },
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "generateName": "orion-web-",
+          "generation": 17,
+          "labels": {
+            "app": "orion-web",
+            "app.kubernetes.io/instance": "orion-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "orion-web",
+            "app.kubernetes.io/part-of": "orion",
+            "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+            "kubernetes.io/service-name": "orion-web"
+          },
+          "name": "orion-web-kmwd8",
+          "namespace": "orion-dev",
+          "ownerReferences": [
+            {
+              "apiVersion": "v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "Service",
+              "name": "orion-web",
+              "uid": "1f7926bb-e8bd-4fd4-8690-0fec39b55e1a"
+            }
+          ],
+          "resourceVersion": "2494",
+          "uid": "a53fafe5-e4ad-4e1f-93b0-dc13567463dc"
+        },
+        "ports": [
+          {
+            "name": "http",
+            "port": 5000,
+            "protocol": "TCP"
           }
         ]
       },
       {
-        "metadata": {
-          "name": "orion-postgres-slice",
-          "namespace": "orion-dev",
-          "labels": {
-            "kubernetes.io/service-name": "orion-postgres"
-          }
-        },
         "addressType": "IPv4",
+        "apiVersion": "discovery.k8s.io/v1",
         "endpoints": [
           {
             "addresses": [
-              "10.244.0.11"
+              "10.244.0.32"
             ],
             "conditions": {
-              "ready": true
+              "ready": true,
+              "serving": true,
+              "terminating": false
+            },
+            "nodeName": "desafio03-control-plane",
+            "targetRef": {
+              "kind": "Pod",
+              "name": "postgres-6f87559b56-tj5fb",
+              "namespace": "orion-dev",
+              "uid": "4cccf7ad-79f8-441e-aa32-865629f4101f"
             }
+          }
+        ],
+        "kind": "EndpointSlice",
+        "metadata": {
+          "annotations": {
+            "endpoints.kubernetes.io/last-change-trigger-time": "2026-11-18T19:18:40Z"
+          },
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "generateName": "postgres-",
+          "generation": 7,
+          "labels": {
+            "app": "postgres",
+            "app.kubernetes.io/instance": "orion-dev",
+            "app.kubernetes.io/managed-by": "platform",
+            "app.kubernetes.io/name": "postgres",
+            "app.kubernetes.io/part-of": "orion",
+            "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+            "kubernetes.io/service-name": "postgres"
+          },
+          "name": "postgres-gx4fm",
+          "namespace": "orion-dev",
+          "ownerReferences": [
+            {
+              "apiVersion": "v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "Service",
+              "name": "postgres",
+              "uid": "5ef03cee-983e-4bb4-8e03-2ed4255dcff9"
+            }
+          ],
+          "resourceVersion": "2096",
+          "uid": "2b34fb4d-77ec-4fa7-8133-525cddf368f5"
+        },
+        "ports": [
+          {
+            "name": "db",
+            "port": 5432,
+            "protocol": "TCP"
           }
         ]
       }
     ],
     "events": [
       {
-        "metadata": {
-          "name": "orion-web.simulado",
-          "namespace": "orion-dev"
-        },
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:15:58Z",
         "involvedObject": {
+          "apiVersion": "v1",
           "kind": "Pod",
-          "name": "orion-web-simulado"
+          "name": "orion-web-5767777f8d-qdsx2",
+          "namespace": "orion-dev",
+          "resourceVersion": "1163",
+          "uid": "c70b9488-9d7c-47af-aa18-8bb291ad354b"
         },
-        "type": "Normal",
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:15:58Z",
+        "message": "Successfully assigned orion-dev/orion-web-5767777f8d-qdsx2 to desafio03-control-plane",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:15:58Z",
+          "name": "orion-web-5767777f8d-qdsx2.18e939b0cf049bfa",
+          "namespace": "orion-dev",
+          "resourceVersion": "1173",
+          "uid": "d47ab125-d022-499b-8fb0-2dadad8c24db"
+        },
+        "reason": "Scheduled",
+        "reportingComponent": "default-scheduler",
+        "reportingInstance": "",
+        "source": {
+          "component": "default-scheduler"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:15:58Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "orion-web-5767777f8d-qdsx2",
+          "namespace": "orion-dev",
+          "resourceVersion": "1170",
+          "uid": "c70b9488-9d7c-47af-aa18-8bb291ad354b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:15:58Z",
+        "message": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:15:58Z",
+          "name": "orion-web-5767777f8d-qdsx2.18e939b0f92fe467",
+          "namespace": "orion-dev",
+          "resourceVersion": "1192",
+          "uid": "ee7f5624-0240-4c34-bf2d-ac80574d28e6"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:15:58Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "orion-web-5767777f8d-qdsx2",
+          "namespace": "orion-dev",
+          "resourceVersion": "1170",
+          "uid": "c70b9488-9d7c-47af-aa18-8bb291ad354b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:15:58Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:15:58Z",
+          "name": "orion-web-5767777f8d-qdsx2.18e939b0fd28d5ac",
+          "namespace": "orion-dev",
+          "resourceVersion": "1194",
+          "uid": "4dc01059-ffdb-4151-8cb7-2e88ae2e8249"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:15:59Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "orion-web-5767777f8d-qdsx2",
+          "namespace": "orion-dev",
+          "resourceVersion": "1170",
+          "uid": "c70b9488-9d7c-47af-aa18-8bb291ad354b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:15:59Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:15:59Z",
+          "name": "orion-web-5767777f8d-qdsx2.18e939b141f8488a",
+          "namespace": "orion-dev",
+          "resourceVersion": "1211",
+          "uid": "6c8bbffa-e9e2-4370-b4da-00d2ae293f05"
+        },
         "reason": "Started",
-        "message": "Evento sintético: fake-shop com aplicação e PostgreSQL prontos",
-        "lastTimestamp": "2026-11-10T12:00:00Z"
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:01Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-5767777f8d-qdsx2",
+          "namespace": "orion-dev",
+          "resourceVersion": "1170",
+          "uid": "c70b9488-9d7c-47af-aa18-8bb291ad354b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:01Z",
+        "message": "Container image \"fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f\" already present on machine and can be accessed by the pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:01Z",
+          "name": "orion-web-5767777f8d-qdsx2.18e939b18d0685d0",
+          "namespace": "orion-dev",
+          "resourceVersion": "1226",
+          "uid": "80bdf89c-ca2c-416f-86fd-64abed2904c9"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:01Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-5767777f8d-qdsx2",
+          "namespace": "orion-dev",
+          "resourceVersion": "1170",
+          "uid": "c70b9488-9d7c-47af-aa18-8bb291ad354b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:01Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:01Z",
+          "name": "orion-web-5767777f8d-qdsx2.18e939b1a38102c8",
+          "namespace": "orion-dev",
+          "resourceVersion": "1228",
+          "uid": "448aea44-be08-4fc7-b059-6dace4f6d6bb"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:02Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-5767777f8d-qdsx2",
+          "namespace": "orion-dev",
+          "resourceVersion": "1170",
+          "uid": "c70b9488-9d7c-47af-aa18-8bb291ad354b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:02Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:02Z",
+          "name": "orion-web-5767777f8d-qdsx2.18e939b1d0113fe7",
+          "namespace": "orion-dev",
+          "resourceVersion": "1231",
+          "uid": "f4141297-ac99-4112-9e8c-be85e879be4f"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 3,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:04Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-5767777f8d-qdsx2",
+          "namespace": "orion-dev",
+          "resourceVersion": "1170",
+          "uid": "c70b9488-9d7c-47af-aa18-8bb291ad354b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:08Z",
+        "message": "Startup probe failed: dial tcp 10.244.0.19:5000: connect: connection refused",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:04Z",
+          "name": "orion-web-5767777f8d-qdsx2.18e939b24a43566e",
+          "namespace": "orion-dev",
+          "resourceVersion": "1345",
+          "uid": "a0155943-2405-4305-adf7-3cd79aa94634"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 21,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:45Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-5767777f8d-qdsx2",
+          "namespace": "orion-dev",
+          "resourceVersion": "1170",
+          "uid": "c70b9488-9d7c-47af-aa18-8bb291ad354b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:18Z",
+        "message": "Readiness probe failed: HTTP probe failed with statuscode: 500",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:45Z",
+          "name": "orion-web-5767777f8d-qdsx2.18e939d7c7e6a23f",
+          "namespace": "orion-dev",
+          "resourceVersion": "2383",
+          "uid": "a94b3fbb-7485-444f-9a88-6e6970d32d50"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:08Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-5767777f8d-qdsx2",
+          "namespace": "orion-dev",
+          "resourceVersion": "1170",
+          "uid": "c70b9488-9d7c-47af-aa18-8bb291ad354b"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:08Z",
+        "message": "Stopping container orion-web",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:08Z",
+          "name": "orion-web-5767777f8d-qdsx2.18e939eb25368375",
+          "namespace": "orion-dev",
+          "resourceVersion": "2310",
+          "uid": "4533d629-971e-427b-9b34-051e0a49ff7d"
+        },
+        "reason": "Killing",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:15:57Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "orion-web-5767777f8d",
+          "namespace": "orion-dev",
+          "resourceVersion": "1159",
+          "uid": "ce83076d-9344-4808-9a3a-cecd3926e029"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:15:57Z",
+        "message": "Created pod: orion-web-5767777f8d-qdsx2",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:15:57Z",
+          "name": "orion-web-5767777f8d.18e939b0cbc9cd55",
+          "namespace": "orion-dev",
+          "resourceVersion": "1168",
+          "uid": "ad86b513-5801-462a-a131-8f697e8d844d"
+        },
+        "reason": "SuccessfulCreate",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:08Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "orion-web-5767777f8d",
+          "namespace": "orion-dev",
+          "resourceVersion": "2304",
+          "uid": "ce83076d-9344-4808-9a3a-cecd3926e029"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:08Z",
+        "message": "Deleted pod: orion-web-5767777f8d-qdsx2",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:08Z",
+          "name": "orion-web-5767777f8d.18e939eb26c159dc",
+          "namespace": "orion-dev",
+          "resourceVersion": "2314",
+          "uid": "915f0720-5888-4388-ab5a-b8fc92d610a8"
+        },
+        "reason": "SuccessfulDelete",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:33Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "name": "orion-web-6f4d65b96-qhplh",
+          "namespace": "orion-dev",
+          "resourceVersion": "1959",
+          "uid": "a5c21d78-673a-41ef-81bf-d2fed84b7eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:33Z",
+        "message": "Successfully assigned orion-dev/orion-web-6f4d65b96-qhplh to desafio03-control-plane",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:33Z",
+          "name": "orion-web-6f4d65b96-qhplh.18e939d50a0619dd",
+          "namespace": "orion-dev",
+          "resourceVersion": "1963",
+          "uid": "109c9ab6-4964-4d05-a43f-ca5bebc06947"
+        },
+        "reason": "Scheduled",
+        "reportingComponent": "default-scheduler",
+        "reportingInstance": "",
+        "source": {
+          "component": "default-scheduler"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:34Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "orion-web-6f4d65b96-qhplh",
+          "namespace": "orion-dev",
+          "resourceVersion": "1961",
+          "uid": "a5c21d78-673a-41ef-81bf-d2fed84b7eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:34Z",
+        "message": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:34Z",
+          "name": "orion-web-6f4d65b96-qhplh.18e939d538d394cf",
+          "namespace": "orion-dev",
+          "resourceVersion": "1991",
+          "uid": "749f28a3-4de2-48dd-a2ed-773935f0f777"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:34Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "orion-web-6f4d65b96-qhplh",
+          "namespace": "orion-dev",
+          "resourceVersion": "1961",
+          "uid": "a5c21d78-673a-41ef-81bf-d2fed84b7eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:34Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:34Z",
+          "name": "orion-web-6f4d65b96-qhplh.18e939d540787203",
+          "namespace": "orion-dev",
+          "resourceVersion": "1993",
+          "uid": "0d9f9bc4-1bdd-4b76-aa0f-f327985e1c04"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:35Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "orion-web-6f4d65b96-qhplh",
+          "namespace": "orion-dev",
+          "resourceVersion": "1961",
+          "uid": "a5c21d78-673a-41ef-81bf-d2fed84b7eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:35Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:35Z",
+          "name": "orion-web-6f4d65b96-qhplh.18e939d578f77f08",
+          "namespace": "orion-dev",
+          "resourceVersion": "2008",
+          "uid": "f9c737a8-6e58-4d0f-abc9-748b359ba1a8"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:36Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-6f4d65b96-qhplh",
+          "namespace": "orion-dev",
+          "resourceVersion": "1961",
+          "uid": "a5c21d78-673a-41ef-81bf-d2fed84b7eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:36Z",
+        "message": "Container image \"fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f\" already present on machine and can be accessed by the pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:36Z",
+          "name": "orion-web-6f4d65b96-qhplh.18e939d5a7811ff8",
+          "namespace": "orion-dev",
+          "resourceVersion": "2013",
+          "uid": "4d18dbbf-b41d-4d5e-ae79-4484a3aa8370"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:36Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-6f4d65b96-qhplh",
+          "namespace": "orion-dev",
+          "resourceVersion": "1961",
+          "uid": "a5c21d78-673a-41ef-81bf-d2fed84b7eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:36Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:36Z",
+          "name": "orion-web-6f4d65b96-qhplh.18e939d5a9ddb991",
+          "namespace": "orion-dev",
+          "resourceVersion": "2016",
+          "uid": "0ff30f66-7b60-42dd-bda7-cbbcc3d8d1c2"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:36Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-6f4d65b96-qhplh",
+          "namespace": "orion-dev",
+          "resourceVersion": "1961",
+          "uid": "a5c21d78-673a-41ef-81bf-d2fed84b7eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:36Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:36Z",
+          "name": "orion-web-6f4d65b96-qhplh.18e939d5b41612c1",
+          "namespace": "orion-dev",
+          "resourceVersion": "2020",
+          "uid": "a2ba718b-f5a3-4b1e-ab95-49069d0e47f8"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 2,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:37Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-6f4d65b96-qhplh",
+          "namespace": "orion-dev",
+          "resourceVersion": "1961",
+          "uid": "a5c21d78-673a-41ef-81bf-d2fed84b7eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:39Z",
+        "message": "Startup probe failed: dial tcp 10.244.0.31:5000: connect: connection refused",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:37Z",
+          "name": "orion-web-6f4d65b96-qhplh.18e939d60c4ac7d3",
+          "namespace": "orion-dev",
+          "resourceVersion": "2071",
+          "uid": "e41e912f-139a-4c74-a964-5cae93152d53"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 21,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:42Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-6f4d65b96-qhplh",
+          "namespace": "orion-dev",
+          "resourceVersion": "1961",
+          "uid": "a5c21d78-673a-41ef-81bf-d2fed84b7eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:19Z",
+        "message": "Readiness probe failed: HTTP probe failed with statuscode: 500",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:42Z",
+          "name": "orion-web-6f4d65b96-qhplh.18e939d7252fe59c",
+          "namespace": "orion-dev",
+          "resourceVersion": "2408",
+          "uid": "22c3684e-82b2-4561-9845-15c752011414"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:23Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-6f4d65b96-qhplh",
+          "namespace": "orion-dev",
+          "resourceVersion": "1961",
+          "uid": "a5c21d78-673a-41ef-81bf-d2fed84b7eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:23Z",
+        "message": "Stopping container orion-web",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:24Z",
+          "name": "orion-web-6f4d65b96-qhplh.18e939eebb911499",
+          "namespace": "orion-dev",
+          "resourceVersion": "2431",
+          "uid": "443b049b-9f23-4134-afdd-4255c78e05d3"
+        },
+        "reason": "Killing",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:33Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "orion-web-6f4d65b96",
+          "namespace": "orion-dev",
+          "resourceVersion": "1957",
+          "uid": "dd1da95a-dead-40d0-92be-71d0abd7640c"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:33Z",
+        "message": "Created pod: orion-web-6f4d65b96-qhplh",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:33Z",
+          "name": "orion-web-6f4d65b96.18e939d508c43155",
+          "namespace": "orion-dev",
+          "resourceVersion": "1962",
+          "uid": "47a06285-be40-4d25-9bd3-86c0a6a89505"
+        },
+        "reason": "SuccessfulCreate",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:24Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "orion-web-6f4d65b96",
+          "namespace": "orion-dev",
+          "resourceVersion": "2427",
+          "uid": "dd1da95a-dead-40d0-92be-71d0abd7640c"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:24Z",
+        "message": "Deleted pod: orion-web-6f4d65b96-qhplh",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:24Z",
+          "name": "orion-web-6f4d65b96.18e939eebbdfe5aa",
+          "namespace": "orion-dev",
+          "resourceVersion": "2433",
+          "uid": "794b7771-1a91-4597-ada8-6df8c401e7ba"
+        },
+        "reason": "SuccessfulDelete",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:08Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "name": "orion-web-7658c55677-6q8z4",
+          "namespace": "orion-dev",
+          "resourceVersion": "2311",
+          "uid": "6a00022a-ea5d-472c-9eba-656ec721e880"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:08Z",
+        "message": "Successfully assigned orion-dev/orion-web-7658c55677-6q8z4 to desafio03-control-plane",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:08Z",
+          "name": "orion-web-7658c55677-6q8z4.18e939eb2b5b5ab3",
+          "namespace": "orion-dev",
+          "resourceVersion": "2322",
+          "uid": "40ec8351-0462-46cb-aa80-adcae7242918"
+        },
+        "reason": "Scheduled",
+        "reportingComponent": "default-scheduler",
+        "reportingInstance": "",
+        "source": {
+          "component": "default-scheduler"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:09Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "orion-web-7658c55677-6q8z4",
+          "namespace": "orion-dev",
+          "resourceVersion": "2317",
+          "uid": "6a00022a-ea5d-472c-9eba-656ec721e880"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:09Z",
+        "message": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:09Z",
+          "name": "orion-web-7658c55677-6q8z4.18e939eb6e9949fb",
+          "namespace": "orion-dev",
+          "resourceVersion": "2344",
+          "uid": "c748f189-dd47-4b97-ae70-c6cb2736de87"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:09Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "orion-web-7658c55677-6q8z4",
+          "namespace": "orion-dev",
+          "resourceVersion": "2317",
+          "uid": "6a00022a-ea5d-472c-9eba-656ec721e880"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:09Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:09Z",
+          "name": "orion-web-7658c55677-6q8z4.18e939eb74238803",
+          "namespace": "orion-dev",
+          "resourceVersion": "2346",
+          "uid": "a628a35c-156f-48c4-8caa-6b373708813a"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:11Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.initContainers{aguardar-postgres}",
+          "kind": "Pod",
+          "name": "orion-web-7658c55677-6q8z4",
+          "namespace": "orion-dev",
+          "resourceVersion": "2317",
+          "uid": "6a00022a-ea5d-472c-9eba-656ec721e880"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:11Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:11Z",
+          "name": "orion-web-7658c55677-6q8z4.18e939ebd1ba1c0c",
+          "namespace": "orion-dev",
+          "resourceVersion": "2351",
+          "uid": "907f915b-30c3-4e60-bc32-7da10b2b295e"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:12Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-7658c55677-6q8z4",
+          "namespace": "orion-dev",
+          "resourceVersion": "2317",
+          "uid": "6a00022a-ea5d-472c-9eba-656ec721e880"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:12Z",
+        "message": "Container image \"fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f\" already present on machine and can be accessed by the pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:12Z",
+          "name": "orion-web-7658c55677-6q8z4.18e939ec013f38e5",
+          "namespace": "orion-dev",
+          "resourceVersion": "2353",
+          "uid": "f0a54a0b-a847-4d99-bff3-ec021b38618c"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:12Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-7658c55677-6q8z4",
+          "namespace": "orion-dev",
+          "resourceVersion": "2317",
+          "uid": "6a00022a-ea5d-472c-9eba-656ec721e880"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:12Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:12Z",
+          "name": "orion-web-7658c55677-6q8z4.18e939ec08f2ad58",
+          "namespace": "orion-dev",
+          "resourceVersion": "2357",
+          "uid": "ecf99dcd-60a4-4144-b9b8-b34a66faf7c1"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:13Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-7658c55677-6q8z4",
+          "namespace": "orion-dev",
+          "resourceVersion": "2317",
+          "uid": "6a00022a-ea5d-472c-9eba-656ec721e880"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:13Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:13Z",
+          "name": "orion-web-7658c55677-6q8z4.18e939ec5433b58e",
+          "namespace": "orion-dev",
+          "resourceVersion": "2367",
+          "uid": "09555dc3-0186-48d0-baa0-0ce3dd861341"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 4,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:15Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-7658c55677-6q8z4",
+          "namespace": "orion-dev",
+          "resourceVersion": "2317",
+          "uid": "6a00022a-ea5d-472c-9eba-656ec721e880"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:21Z",
+        "message": "Startup probe failed: dial tcp 10.244.0.33:5000: connect: connection refused",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:15Z",
+          "name": "orion-web-7658c55677-6q8z4.18e939eca5c1110a",
+          "namespace": "orion-dev",
+          "resourceVersion": "2415",
+          "uid": "4ff78df0-c2b7-40c3-87e7-5b5fe1c73c57"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:08Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "orion-web-7658c55677",
+          "namespace": "orion-dev",
+          "resourceVersion": "2307",
+          "uid": "5287961c-e901-4877-957d-11962df70eb3"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:08Z",
+        "message": "Created pod: orion-web-7658c55677-6q8z4",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:08Z",
+          "name": "orion-web-7658c55677.18e939eb278742c0",
+          "namespace": "orion-dev",
+          "resourceVersion": "2321",
+          "uid": "934bfeed-86d5-47d0-b986-deae8a149721"
+        },
+        "reason": "SuccessfulCreate",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:25Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "name": "orion-web-789bc846bb-sdjsx",
+          "namespace": "orion-dev",
+          "resourceVersion": "676",
+          "uid": "632c791b-7072-4918-b306-9dea40e9dbee"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:25Z",
+        "message": "Successfully assigned orion-dev/orion-web-789bc846bb-sdjsx to desafio03-control-plane",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "name": "orion-web-789bc846bb-sdjsx.18e9399b4cf44794",
+          "namespace": "orion-dev",
+          "resourceVersion": "683",
+          "uid": "3b8d3ab7-c2e9-4ee1-820b-8407d5438b30"
+        },
+        "reason": "Scheduled",
+        "reportingComponent": "default-scheduler",
+        "reportingInstance": "",
+        "source": {
+          "component": "default-scheduler"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:26Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-789bc846bb-sdjsx",
+          "namespace": "orion-dev",
+          "resourceVersion": "677",
+          "uid": "632c791b-7072-4918-b306-9dea40e9dbee"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:26Z",
+        "message": "Pulling image \"fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f\"",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:26Z",
+          "name": "orion-web-789bc846bb-sdjsx.18e9399b705e127d",
+          "namespace": "orion-dev",
+          "resourceVersion": "709",
+          "uid": "5091d621-db30-4825-9582-4a3e50677555"
+        },
+        "reason": "Pulling",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:58Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-789bc846bb-sdjsx",
+          "namespace": "orion-dev",
+          "resourceVersion": "677",
+          "uid": "632c791b-7072-4918-b306-9dea40e9dbee"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:58Z",
+        "message": "Successfully pulled image \"fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f\" in 8.742s (31.795s including waiting). Image size: 59675359 bytes.",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:58Z",
+          "name": "orion-web-789bc846bb-sdjsx.18e939a2d788c145",
+          "namespace": "orion-dev",
+          "resourceVersion": "918",
+          "uid": "88325c8a-b850-4c48-93fe-3dd37582673e"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:58Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-789bc846bb-sdjsx",
+          "namespace": "orion-dev",
+          "resourceVersion": "677",
+          "uid": "632c791b-7072-4918-b306-9dea40e9dbee"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:58Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:58Z",
+          "name": "orion-web-789bc846bb-sdjsx.18e939a2db466cd1",
+          "namespace": "orion-dev",
+          "resourceVersion": "919",
+          "uid": "0ec4ffd1-b53a-496a-8101-0c056b6c412f"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:58Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-789bc846bb-sdjsx",
+          "namespace": "orion-dev",
+          "resourceVersion": "677",
+          "uid": "632c791b-7072-4918-b306-9dea40e9dbee"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:58Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:58Z",
+          "name": "orion-web-789bc846bb-sdjsx.18e939a2e50f2acb",
+          "namespace": "orion-dev",
+          "resourceVersion": "920",
+          "uid": "a7db563a-8637-41b3-87c6-2d6a01927a51"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 3,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:59Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-789bc846bb-sdjsx",
+          "namespace": "orion-dev",
+          "resourceVersion": "677",
+          "uid": "632c791b-7072-4918-b306-9dea40e9dbee"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:15:03Z",
+        "message": "Startup probe failed: dial tcp 10.244.0.12:5000: connect: connection refused",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:59Z",
+          "name": "orion-web-789bc846bb-sdjsx.18e939a34afc0a9e",
+          "namespace": "orion-dev",
+          "resourceVersion": "962",
+          "uid": "924cf8c7-a65d-4853-ad5d-9b16d345233e"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:15:07Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-789bc846bb-sdjsx",
+          "namespace": "orion-dev",
+          "resourceVersion": "677",
+          "uid": "632c791b-7072-4918-b306-9dea40e9dbee"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:15:07Z",
+        "message": "Readiness probe failed: Get \"http://10.244.0.12:5000/\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:15:07Z",
+          "name": "orion-web-789bc846bb-sdjsx.18e939a4eed11370",
+          "namespace": "orion-dev",
+          "resourceVersion": "988",
+          "uid": "d207c5c0-6c23-49a1-b73f-d057e8282d11"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 12,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:15:10Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-789bc846bb-sdjsx",
+          "namespace": "orion-dev",
+          "resourceVersion": "677",
+          "uid": "632c791b-7072-4918-b306-9dea40e9dbee"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:05Z",
+        "message": "Readiness probe failed: HTTP probe failed with statuscode: 500",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:15:10Z",
+          "name": "orion-web-789bc846bb-sdjsx.18e939a5db2d1204",
+          "namespace": "orion-dev",
+          "resourceVersion": "1331",
+          "uid": "6be581ba-3ec4-4299-ae75-85efbbdd2faa"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:11Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{orion-web}",
+          "kind": "Pod",
+          "name": "orion-web-789bc846bb-sdjsx",
+          "namespace": "orion-dev",
+          "resourceVersion": "677",
+          "uid": "632c791b-7072-4918-b306-9dea40e9dbee"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:11Z",
+        "message": "Stopping container orion-web",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:11Z",
+          "name": "orion-web-789bc846bb-sdjsx.18e939b3f7226138",
+          "namespace": "orion-dev",
+          "resourceVersion": "1401",
+          "uid": "e0caf3ba-a901-4d2b-acd6-103347a8eff8"
+        },
+        "reason": "Killing",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:25Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "orion-web-789bc846bb",
+          "namespace": "orion-dev",
+          "resourceVersion": "671",
+          "uid": "9ace8923-35aa-4bbb-bee1-0e1c1138cab2"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:25Z",
+        "message": "Created pod: orion-web-789bc846bb-sdjsx",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "name": "orion-web-789bc846bb.18e9399b4b6c18f9",
+          "namespace": "orion-dev",
+          "resourceVersion": "678",
+          "uid": "c4bd2472-1ef3-4b3c-af87-df5f1775d0ae"
+        },
+        "reason": "SuccessfulCreate",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:11Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "orion-web-789bc846bb",
+          "namespace": "orion-dev",
+          "resourceVersion": "1391",
+          "uid": "9ace8923-35aa-4bbb-bee1-0e1c1138cab2"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:11Z",
+        "message": "Deleted pod: orion-web-789bc846bb-sdjsx",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:11Z",
+          "name": "orion-web-789bc846bb.18e939b3eca425b3",
+          "namespace": "orion-dev",
+          "resourceVersion": "1397",
+          "uid": "481c8944-e7a2-4ebd-9c42-ba5593742af1"
+        },
+        "reason": "SuccessfulDelete",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:25Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "orion-web",
+          "namespace": "orion-dev",
+          "resourceVersion": "670",
+          "uid": "cc841ef8-4439-456c-82c6-35f52714f5b0"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:25Z",
+        "message": "Scaled up replica set orion-web-789bc846bb from 0 to 1",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "name": "orion-web.18e9399b4996e7bb",
+          "namespace": "orion-dev",
+          "resourceVersion": "673",
+          "uid": "6a02ac29-5810-42b0-8b6b-ba8a7e5c9dfc"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:15:57Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "orion-web",
+          "namespace": "orion-dev",
+          "resourceVersion": "1158",
+          "uid": "cc841ef8-4439-456c-82c6-35f52714f5b0"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:15:57Z",
+        "message": "Scaled up replica set orion-web-5767777f8d from 0 to 1",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:15:57Z",
+          "name": "orion-web.18e939b0c9a19759",
+          "namespace": "orion-dev",
+          "resourceVersion": "1160",
+          "uid": "a7fc89b9-96e7-47c7-b6c2-ebf9a6206c8b"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:16:11Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "orion-web",
+          "namespace": "orion-dev",
+          "resourceVersion": "1380",
+          "uid": "cc841ef8-4439-456c-82c6-35f52714f5b0"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:16:11Z",
+        "message": "Scaled down replica set orion-web-789bc846bb from 1 to 0",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:16:11Z",
+          "name": "orion-web.18e939b3ec06be68",
+          "namespace": "orion-dev",
+          "resourceVersion": "1392",
+          "uid": "44637e5b-7c03-46a7-a1ae-34187df5f442"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:33Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "orion-web",
+          "namespace": "orion-dev",
+          "resourceVersion": "1955",
+          "uid": "cc841ef8-4439-456c-82c6-35f52714f5b0"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:33Z",
+        "message": "Scaled up replica set orion-web-6f4d65b96 from 0 to 1",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:33Z",
+          "name": "orion-web.18e939d5075a50c0",
+          "namespace": "orion-dev",
+          "resourceVersion": "1958",
+          "uid": "2912f2b0-c603-4b24-93cc-7e25aa7465cf"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:08Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "orion-web",
+          "namespace": "orion-dev",
+          "resourceVersion": "2300",
+          "uid": "cc841ef8-4439-456c-82c6-35f52714f5b0"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:08Z",
+        "message": "Scaled down replica set orion-web-5767777f8d from 1 to 0",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:08Z",
+          "name": "orion-web.18e939eb21760545",
+          "namespace": "orion-dev",
+          "resourceVersion": "2305",
+          "uid": "9929b0fa-2e39-40ee-9230-385515a39554"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:08Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "orion-web",
+          "namespace": "orion-dev",
+          "resourceVersion": "2303",
+          "uid": "cc841ef8-4439-456c-82c6-35f52714f5b0"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:08Z",
+        "message": "Scaled up replica set orion-web-7658c55677 from 0 to 1",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:08Z",
+          "name": "orion-web.18e939eb2572bbe8",
+          "namespace": "orion-dev",
+          "resourceVersion": "2308",
+          "uid": "181c8301-4856-4974-ace2-c522c94989e9"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:20:23Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "orion-web",
+          "namespace": "orion-dev",
+          "resourceVersion": "2331",
+          "uid": "cc841ef8-4439-456c-82c6-35f52714f5b0"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:20:23Z",
+        "message": "Scaled down replica set orion-web-6f4d65b96 from 1 to 0",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:20:23Z",
+          "name": "orion-web.18e939eebaa47bd5",
+          "namespace": "orion-dev",
+          "resourceVersion": "2428",
+          "uid": "0e198d94-a254-40ca-89ac-8c854907b7f5"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:33Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "name": "postgres-6f87559b56-tj5fb",
+          "namespace": "orion-dev",
+          "resourceVersion": "1975",
+          "uid": "4cccf7ad-79f8-441e-aa32-865629f4101f"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:33Z",
+        "message": "Successfully assigned orion-dev/postgres-6f87559b56-tj5fb to desafio03-control-plane",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:33Z",
+          "name": "postgres-6f87559b56-tj5fb.18e939d519c6e9d3",
+          "namespace": "orion-dev",
+          "resourceVersion": "1983",
+          "uid": "ec04e33c-33ad-4ce9-b1bb-505eaed87061"
+        },
+        "reason": "Scheduled",
+        "reportingComponent": "default-scheduler",
+        "reportingInstance": "",
+        "source": {
+          "component": "default-scheduler"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:34Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-6f87559b56-tj5fb",
+          "namespace": "orion-dev",
+          "resourceVersion": "1978",
+          "uid": "4cccf7ad-79f8-441e-aa32-865629f4101f"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:34Z",
+        "message": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:34Z",
+          "name": "postgres-6f87559b56-tj5fb.18e939d54a368e2e",
+          "namespace": "orion-dev",
+          "resourceVersion": "1996",
+          "uid": "dba8bb19-70bb-4e1b-b7b5-162776d506ba"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:34Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-6f87559b56-tj5fb",
+          "namespace": "orion-dev",
+          "resourceVersion": "1978",
+          "uid": "4cccf7ad-79f8-441e-aa32-865629f4101f"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:34Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:34Z",
+          "name": "postgres-6f87559b56-tj5fb.18e939d54db68606",
+          "namespace": "orion-dev",
+          "resourceVersion": "1997",
+          "uid": "77caf068-eae2-4420-ab92-2565101bd585"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:35Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-6f87559b56-tj5fb",
+          "namespace": "orion-dev",
+          "resourceVersion": "1978",
+          "uid": "4cccf7ad-79f8-441e-aa32-865629f4101f"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:35Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:35Z",
+          "name": "postgres-6f87559b56-tj5fb.18e939d560afbb59",
+          "namespace": "orion-dev",
+          "resourceVersion": "1999",
+          "uid": "d50897ea-4e76-4dbd-a30b-68b924540a4d"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 2,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:36Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-6f87559b56-tj5fb",
+          "namespace": "orion-dev",
+          "resourceVersion": "1978",
+          "uid": "4cccf7ad-79f8-441e-aa32-865629f4101f"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:38Z",
+        "message": "Startup probe failed: /var/run/postgresql:5432 - no response\n",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:36Z",
+          "name": "postgres-6f87559b56-tj5fb.18e939d5add7aeb8",
+          "namespace": "orion-dev",
+          "resourceVersion": "2028",
+          "uid": "87fef2f1-26d6-41d5-92cd-3a777e276434"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:33Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "postgres-6f87559b56",
+          "namespace": "orion-dev",
+          "resourceVersion": "1971",
+          "uid": "39f8a8cd-ca83-4637-8f37-d84442083ca0"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:33Z",
+        "message": "Created pod: postgres-6f87559b56-tj5fb",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:33Z",
+          "name": "postgres-6f87559b56.18e939d5188fda11",
+          "namespace": "orion-dev",
+          "resourceVersion": "1980",
+          "uid": "08b3eee5-aabf-441f-9173-95bc5e9234a7"
+        },
+        "reason": "SuccessfulCreate",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:25Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "name": "postgres-7967b95747-d9p4v",
+          "namespace": "orion-dev",
+          "resourceVersion": "692",
+          "uid": "a42bbfd8-0db0-4d81-b8ff-4b4982f0c091"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:25Z",
+        "message": "Successfully assigned orion-dev/postgres-7967b95747-d9p4v to desafio03-control-plane",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "name": "postgres-7967b95747-d9p4v.18e9399b5126cf5e",
+          "namespace": "orion-dev",
+          "resourceVersion": "700",
+          "uid": "9b52b697-8e76-4513-9fe5-d6ef186650d5"
+        },
+        "reason": "Scheduled",
+        "reportingComponent": "default-scheduler",
+        "reportingInstance": "",
+        "source": {
+          "component": "default-scheduler"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:26Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-7967b95747-d9p4v",
+          "namespace": "orion-dev",
+          "resourceVersion": "695",
+          "uid": "a42bbfd8-0db0-4d81-b8ff-4b4982f0c091"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:26Z",
+        "message": "Pulling image \"postgres:16.6-alpine\"",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:26Z",
+          "name": "postgres-7967b95747-d9p4v.18e9399b79dafad4",
+          "namespace": "orion-dev",
+          "resourceVersion": "710",
+          "uid": "36231214-7e6e-4c10-a90e-5734aa588bb2"
+        },
+        "reason": "Pulling",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:58Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-7967b95747-d9p4v",
+          "namespace": "orion-dev",
+          "resourceVersion": "695",
+          "uid": "a42bbfd8-0db0-4d81-b8ff-4b4982f0c091"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:58Z",
+        "message": "Successfully pulled image \"postgres:16.6-alpine\" in 810ms (32.447s including waiting). Image size: 109505957 bytes.",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:58Z",
+          "name": "postgres-7967b95747-d9p4v.18e939a307dadf4d",
+          "namespace": "orion-dev",
+          "resourceVersion": "926",
+          "uid": "fcc3b58c-d560-40f6-bac9-8fd01b5e1211"
+        },
+        "reason": "Pulled",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:58Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-7967b95747-d9p4v",
+          "namespace": "orion-dev",
+          "resourceVersion": "695",
+          "uid": "a42bbfd8-0db0-4d81-b8ff-4b4982f0c091"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:58Z",
+        "message": "Container created",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:58Z",
+          "name": "postgres-7967b95747-d9p4v.18e939a30a8862d8",
+          "namespace": "orion-dev",
+          "resourceVersion": "927",
+          "uid": "d63c86da-d77e-4d64-8daa-ed03453c6330"
+        },
+        "reason": "Created",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:59Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-7967b95747-d9p4v",
+          "namespace": "orion-dev",
+          "resourceVersion": "695",
+          "uid": "a42bbfd8-0db0-4d81-b8ff-4b4982f0c091"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:59Z",
+        "message": "Container started",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:59Z",
+          "name": "postgres-7967b95747-d9p4v.18e939a31305d692",
+          "namespace": "orion-dev",
+          "resourceVersion": "928",
+          "uid": "af76e189-50e5-4580-81ea-7ef670c1c108"
+        },
+        "reason": "Started",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 3,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:15:00Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-7967b95747-d9p4v",
+          "namespace": "orion-dev",
+          "resourceVersion": "695",
+          "uid": "a42bbfd8-0db0-4d81-b8ff-4b4982f0c091"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:15:04Z",
+        "message": "Startup probe failed: /var/run/postgresql:5432 - no response\n",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:15:00Z",
+          "name": "postgres-7967b95747-d9p4v.18e939a35770c29e",
+          "namespace": "orion-dev",
+          "resourceVersion": "964",
+          "uid": "c7dfb20a-fe64-45af-b458-c953dadb9497"
+        },
+        "reason": "Unhealthy",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Warning"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:40Z",
+        "involvedObject": {
+          "apiVersion": "v1",
+          "fieldPath": "spec.containers{postgres}",
+          "kind": "Pod",
+          "name": "postgres-7967b95747-d9p4v",
+          "namespace": "orion-dev",
+          "resourceVersion": "695",
+          "uid": "a42bbfd8-0db0-4d81-b8ff-4b4982f0c091"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:40Z",
+        "message": "Stopping container postgres",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:40Z",
+          "name": "postgres-7967b95747-d9p4v.18e939d6a415cb2f",
+          "namespace": "orion-dev",
+          "resourceVersion": "2087",
+          "uid": "15e07663-253b-487e-ba14-a6c49137a72b"
+        },
+        "reason": "Killing",
+        "reportingComponent": "kubelet",
+        "reportingInstance": "desafio03-control-plane",
+        "source": {
+          "component": "kubelet",
+          "host": "desafio03-control-plane"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:25Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "postgres-7967b95747",
+          "namespace": "orion-dev",
+          "resourceVersion": "689",
+          "uid": "2dcc12b8-c101-47e1-8a6c-d16fc658d898"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:25Z",
+        "message": "Created pod: postgres-7967b95747-d9p4v",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "name": "postgres-7967b95747.18e9399b508ac8e5",
+          "namespace": "orion-dev",
+          "resourceVersion": "696",
+          "uid": "de5b2727-8cd4-47b4-abd4-906384546502"
+        },
+        "reason": "SuccessfulCreate",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:40Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "ReplicaSet",
+          "name": "postgres-7967b95747",
+          "namespace": "orion-dev",
+          "resourceVersion": "2081",
+          "uid": "2dcc12b8-c101-47e1-8a6c-d16fc658d898"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:40Z",
+        "message": "Deleted pod: postgres-7967b95747-d9p4v",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:40Z",
+          "name": "postgres-7967b95747.18e939d6a4412f22",
+          "namespace": "orion-dev",
+          "resourceVersion": "2088",
+          "uid": "2acb475b-f416-4054-9fc0-2d2a94b2ce1b"
+        },
+        "reason": "SuccessfulDelete",
+        "reportingComponent": "replicaset-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "replicaset-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:14:25Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "postgres",
+          "namespace": "orion-dev",
+          "resourceVersion": "687",
+          "uid": "2534a9e2-9f6d-4bf5-9924-6b194398a816"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:14:25Z",
+        "message": "Scaled up replica set postgres-7967b95747 from 0 to 1",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:14:25Z",
+          "name": "postgres.18e9399b4fd67f05",
+          "namespace": "orion-dev",
+          "resourceVersion": "690",
+          "uid": "41280eef-40a6-45b9-99f4-c1f389ec7564"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:33Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "postgres",
+          "namespace": "orion-dev",
+          "resourceVersion": "1969",
+          "uid": "2534a9e2-9f6d-4bf5-9924-6b194398a816"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:33Z",
+        "message": "Scaled up replica set postgres-6f87559b56 from 0 to 1",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:33Z",
+          "name": "postgres.18e939d516ffa1bb",
+          "namespace": "orion-dev",
+          "resourceVersion": "1974",
+          "uid": "657084d3-c2df-4206-b5fd-80679ce5d5fd"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
+      },
+      {
+        "apiVersion": "v1",
+        "count": 1,
+        "eventTime": null,
+        "firstTimestamp": "2026-11-18T19:18:40Z",
+        "involvedObject": {
+          "apiVersion": "apps/v1",
+          "kind": "Deployment",
+          "name": "postgres",
+          "namespace": "orion-dev",
+          "resourceVersion": "1986",
+          "uid": "2534a9e2-9f6d-4bf5-9924-6b194398a816"
+        },
+        "kind": "Event",
+        "lastTimestamp": "2026-11-18T19:18:40Z",
+        "message": "Scaled down replica set postgres-7967b95747 from 1 to 0",
+        "metadata": {
+          "creationTimestamp": "2026-11-18T19:18:40Z",
+          "name": "postgres.18e939d6a34008c7",
+          "namespace": "orion-dev",
+          "resourceVersion": "2082",
+          "uid": "b30c0aae-ef8b-4dba-af54-f906d7c00e71"
+        },
+        "reason": "ScalingReplicaSet",
+        "reportingComponent": "deployment-controller",
+        "reportingInstance": "",
+        "source": {
+          "component": "deployment-controller"
+        },
+        "type": "Normal"
       }
     ]
   },
@@ -240,15 +3894,17 @@
     }
   ],
   "resposta": {
-    "contexto": "laboratorio-exemplo",
+    "contexto": "kind-desafio03",
     "namespace": "orion-dev",
-    "simulado": true,
-    "coletado_em": "2026-11-10T18:03:45.159353+00:00",
+    "coletado_em": "2026-11-18T19:22:24.107136+00:00",
     "erros": {},
     "namespaces": [
       "acesso-parcial",
-      "cluster-indisponivel",
-      "credencial-expirada",
+      "default",
+      "kube-node-lease",
+      "kube-public",
+      "kube-system",
+      "local-path-storage",
       "nyx-dev",
       "nyx-prod",
       "nyx-stg",
@@ -257,14 +3913,14 @@
     ],
     "pods": [
       {
-        "nome": "orion-web-simulado",
+        "nome": "orion-web-7658c55677-6q8z4",
         "fase": "Running",
         "pronto": true,
         "reinicios": 0,
-        "motivo": "—"
+        "motivo": "Completed"
       },
       {
-        "nome": "orion-postgres-simulado",
+        "nome": "postgres-6f87559b56-tj5fb",
         "fase": "Running",
         "pronto": true,
         "reinicios": 0,
@@ -278,7 +3934,7 @@
         "desejados": 1
       },
       {
-        "nome": "orion-postgres",
+        "nome": "postgres",
         "prontos": 1,
         "desejados": 1
       }
@@ -290,18 +3946,361 @@
         "endpoints": "1 endereço(s) pronto(s)"
       },
       {
-        "nome": "orion-postgres",
+        "nome": "postgres",
         "tipo": "ClusterIP",
         "endpoints": "1 endereço(s) pronto(s)"
       }
     ],
     "events": [
       {
-        "nome": "orion-web-simulado",
+        "nome": "orion-web-6f4d65b96",
+        "tipo": "Normal",
+        "motivo": "SuccessfulDelete",
+        "mensagem": "Deleted pod: orion-web-6f4d65b96-qhplh",
+        "quando": "2026-11-18T19:20:24Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96-qhplh",
+        "tipo": "Normal",
+        "motivo": "Killing",
+        "mensagem": "Stopping container orion-web",
+        "quando": "2026-11-18T19:20:23Z"
+      },
+      {
+        "nome": "orion-web",
+        "tipo": "Normal",
+        "motivo": "ScalingReplicaSet",
+        "mensagem": "Scaled down replica set orion-web-6f4d65b96 from 1 to 0",
+        "quando": "2026-11-18T19:20:23Z"
+      },
+      {
+        "nome": "orion-web-7658c55677-6q8z4",
+        "tipo": "Warning",
+        "motivo": "Unhealthy",
+        "mensagem": "Startup probe failed: dial tcp 10.244.0.33:5000: connect: connection refused",
+        "quando": "2026-11-18T19:20:21Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96-qhplh",
+        "tipo": "Warning",
+        "motivo": "Unhealthy",
+        "mensagem": "Readiness probe failed: HTTP probe failed with statuscode: 500",
+        "quando": "2026-11-18T19:20:19Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d-qdsx2",
+        "tipo": "Warning",
+        "motivo": "Unhealthy",
+        "mensagem": "Readiness probe failed: HTTP probe failed with statuscode: 500",
+        "quando": "2026-11-18T19:20:18Z"
+      },
+      {
+        "nome": "orion-web-7658c55677-6q8z4",
         "tipo": "Normal",
         "motivo": "Started",
-        "mensagem": "Evento sintético: fake-shop com aplicação e PostgreSQL prontos",
-        "quando": "2026-11-10T12:00:00Z"
+        "mensagem": "Container started",
+        "quando": "2026-11-18T19:20:13Z"
+      },
+      {
+        "nome": "orion-web-7658c55677-6q8z4",
+        "tipo": "Normal",
+        "motivo": "Pulled",
+        "mensagem": "Container image \"fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f\" already present on machine and can be accessed by the pod",
+        "quando": "2026-11-18T19:20:12Z"
+      },
+      {
+        "nome": "orion-web-7658c55677-6q8z4",
+        "tipo": "Normal",
+        "motivo": "Created",
+        "mensagem": "Container created",
+        "quando": "2026-11-18T19:20:12Z"
+      },
+      {
+        "nome": "orion-web-7658c55677-6q8z4",
+        "tipo": "Normal",
+        "motivo": "Started",
+        "mensagem": "Container started",
+        "quando": "2026-11-18T19:20:11Z"
+      },
+      {
+        "nome": "orion-web-7658c55677-6q8z4",
+        "tipo": "Normal",
+        "motivo": "Pulled",
+        "mensagem": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "quando": "2026-11-18T19:20:09Z"
+      },
+      {
+        "nome": "orion-web-7658c55677-6q8z4",
+        "tipo": "Normal",
+        "motivo": "Created",
+        "mensagem": "Container created",
+        "quando": "2026-11-18T19:20:09Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d-qdsx2",
+        "tipo": "Normal",
+        "motivo": "Killing",
+        "mensagem": "Stopping container orion-web",
+        "quando": "2026-11-18T19:20:08Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d",
+        "tipo": "Normal",
+        "motivo": "SuccessfulDelete",
+        "mensagem": "Deleted pod: orion-web-5767777f8d-qdsx2",
+        "quando": "2026-11-18T19:20:08Z"
+      },
+      {
+        "nome": "orion-web-7658c55677-6q8z4",
+        "tipo": "Normal",
+        "motivo": "Scheduled",
+        "mensagem": "Successfully assigned orion-dev/orion-web-7658c55677-6q8z4 to desafio03-control-plane",
+        "quando": "2026-11-18T19:20:08Z"
+      },
+      {
+        "nome": "orion-web-7658c55677",
+        "tipo": "Normal",
+        "motivo": "SuccessfulCreate",
+        "mensagem": "Created pod: orion-web-7658c55677-6q8z4",
+        "quando": "2026-11-18T19:20:08Z"
+      },
+      {
+        "nome": "orion-web",
+        "tipo": "Normal",
+        "motivo": "ScalingReplicaSet",
+        "mensagem": "Scaled down replica set orion-web-5767777f8d from 1 to 0",
+        "quando": "2026-11-18T19:20:08Z"
+      },
+      {
+        "nome": "orion-web",
+        "tipo": "Normal",
+        "motivo": "ScalingReplicaSet",
+        "mensagem": "Scaled up replica set orion-web-7658c55677 from 0 to 1",
+        "quando": "2026-11-18T19:20:08Z"
+      },
+      {
+        "nome": "postgres-7967b95747-d9p4v",
+        "tipo": "Normal",
+        "motivo": "Killing",
+        "mensagem": "Stopping container postgres",
+        "quando": "2026-11-18T19:18:40Z"
+      },
+      {
+        "nome": "postgres-7967b95747",
+        "tipo": "Normal",
+        "motivo": "SuccessfulDelete",
+        "mensagem": "Deleted pod: postgres-7967b95747-d9p4v",
+        "quando": "2026-11-18T19:18:40Z"
+      },
+      {
+        "nome": "postgres",
+        "tipo": "Normal",
+        "motivo": "ScalingReplicaSet",
+        "mensagem": "Scaled down replica set postgres-7967b95747 from 1 to 0",
+        "quando": "2026-11-18T19:18:40Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96-qhplh",
+        "tipo": "Warning",
+        "motivo": "Unhealthy",
+        "mensagem": "Startup probe failed: dial tcp 10.244.0.31:5000: connect: connection refused",
+        "quando": "2026-11-18T19:18:39Z"
+      },
+      {
+        "nome": "postgres-6f87559b56-tj5fb",
+        "tipo": "Warning",
+        "motivo": "Unhealthy",
+        "mensagem": "Startup probe failed: /var/run/postgresql:5432 - no response\n",
+        "quando": "2026-11-18T19:18:38Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96-qhplh",
+        "tipo": "Normal",
+        "motivo": "Pulled",
+        "mensagem": "Container image \"fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f\" already present on machine and can be accessed by the pod",
+        "quando": "2026-11-18T19:18:36Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96-qhplh",
+        "tipo": "Normal",
+        "motivo": "Created",
+        "mensagem": "Container created",
+        "quando": "2026-11-18T19:18:36Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96-qhplh",
+        "tipo": "Normal",
+        "motivo": "Started",
+        "mensagem": "Container started",
+        "quando": "2026-11-18T19:18:36Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96-qhplh",
+        "tipo": "Normal",
+        "motivo": "Started",
+        "mensagem": "Container started",
+        "quando": "2026-11-18T19:18:35Z"
+      },
+      {
+        "nome": "postgres-6f87559b56-tj5fb",
+        "tipo": "Normal",
+        "motivo": "Started",
+        "mensagem": "Container started",
+        "quando": "2026-11-18T19:18:35Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96-qhplh",
+        "tipo": "Normal",
+        "motivo": "Pulled",
+        "mensagem": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "quando": "2026-11-18T19:18:34Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96-qhplh",
+        "tipo": "Normal",
+        "motivo": "Created",
+        "mensagem": "Container created",
+        "quando": "2026-11-18T19:18:34Z"
+      },
+      {
+        "nome": "postgres-6f87559b56-tj5fb",
+        "tipo": "Normal",
+        "motivo": "Pulled",
+        "mensagem": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "quando": "2026-11-18T19:18:34Z"
+      },
+      {
+        "nome": "postgres-6f87559b56-tj5fb",
+        "tipo": "Normal",
+        "motivo": "Created",
+        "mensagem": "Container created",
+        "quando": "2026-11-18T19:18:34Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96-qhplh",
+        "tipo": "Normal",
+        "motivo": "Scheduled",
+        "mensagem": "Successfully assigned orion-dev/orion-web-6f4d65b96-qhplh to desafio03-control-plane",
+        "quando": "2026-11-18T19:18:33Z"
+      },
+      {
+        "nome": "orion-web-6f4d65b96",
+        "tipo": "Normal",
+        "motivo": "SuccessfulCreate",
+        "mensagem": "Created pod: orion-web-6f4d65b96-qhplh",
+        "quando": "2026-11-18T19:18:33Z"
+      },
+      {
+        "nome": "orion-web",
+        "tipo": "Normal",
+        "motivo": "ScalingReplicaSet",
+        "mensagem": "Scaled up replica set orion-web-6f4d65b96 from 0 to 1",
+        "quando": "2026-11-18T19:18:33Z"
+      },
+      {
+        "nome": "postgres-6f87559b56-tj5fb",
+        "tipo": "Normal",
+        "motivo": "Scheduled",
+        "mensagem": "Successfully assigned orion-dev/postgres-6f87559b56-tj5fb to desafio03-control-plane",
+        "quando": "2026-11-18T19:18:33Z"
+      },
+      {
+        "nome": "postgres-6f87559b56",
+        "tipo": "Normal",
+        "motivo": "SuccessfulCreate",
+        "mensagem": "Created pod: postgres-6f87559b56-tj5fb",
+        "quando": "2026-11-18T19:18:33Z"
+      },
+      {
+        "nome": "postgres",
+        "tipo": "Normal",
+        "motivo": "ScalingReplicaSet",
+        "mensagem": "Scaled up replica set postgres-6f87559b56 from 0 to 1",
+        "quando": "2026-11-18T19:18:33Z"
+      },
+      {
+        "nome": "orion-web-789bc846bb-sdjsx",
+        "tipo": "Normal",
+        "motivo": "Killing",
+        "mensagem": "Stopping container orion-web",
+        "quando": "2026-11-18T19:16:11Z"
+      },
+      {
+        "nome": "orion-web-789bc846bb",
+        "tipo": "Normal",
+        "motivo": "SuccessfulDelete",
+        "mensagem": "Deleted pod: orion-web-789bc846bb-sdjsx",
+        "quando": "2026-11-18T19:16:11Z"
+      },
+      {
+        "nome": "orion-web",
+        "tipo": "Normal",
+        "motivo": "ScalingReplicaSet",
+        "mensagem": "Scaled down replica set orion-web-789bc846bb from 1 to 0",
+        "quando": "2026-11-18T19:16:11Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d-qdsx2",
+        "tipo": "Warning",
+        "motivo": "Unhealthy",
+        "mensagem": "Startup probe failed: dial tcp 10.244.0.19:5000: connect: connection refused",
+        "quando": "2026-11-18T19:16:08Z"
+      },
+      {
+        "nome": "orion-web-789bc846bb-sdjsx",
+        "tipo": "Warning",
+        "motivo": "Unhealthy",
+        "mensagem": "Readiness probe failed: HTTP probe failed with statuscode: 500",
+        "quando": "2026-11-18T19:16:05Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d-qdsx2",
+        "tipo": "Normal",
+        "motivo": "Started",
+        "mensagem": "Container started",
+        "quando": "2026-11-18T19:16:02Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d-qdsx2",
+        "tipo": "Normal",
+        "motivo": "Pulled",
+        "mensagem": "Container image \"fabricioveronez/fake-shop@sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f\" already present on machine and can be accessed by the pod",
+        "quando": "2026-11-18T19:16:01Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d-qdsx2",
+        "tipo": "Normal",
+        "motivo": "Created",
+        "mensagem": "Container created",
+        "quando": "2026-11-18T19:16:01Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d-qdsx2",
+        "tipo": "Normal",
+        "motivo": "Started",
+        "mensagem": "Container started",
+        "quando": "2026-11-18T19:15:59Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d-qdsx2",
+        "tipo": "Normal",
+        "motivo": "Scheduled",
+        "mensagem": "Successfully assigned orion-dev/orion-web-5767777f8d-qdsx2 to desafio03-control-plane",
+        "quando": "2026-11-18T19:15:58Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d-qdsx2",
+        "tipo": "Normal",
+        "motivo": "Pulled",
+        "mensagem": "Container image \"postgres:16.6-alpine\" already present on machine and can be accessed by the pod",
+        "quando": "2026-11-18T19:15:58Z"
+      },
+      {
+        "nome": "orion-web-5767777f8d-qdsx2",
+        "tipo": "Normal",
+        "motivo": "Created",
+        "mensagem": "Container created",
+        "quando": "2026-11-18T19:15:58Z"
       }
     ]
   }

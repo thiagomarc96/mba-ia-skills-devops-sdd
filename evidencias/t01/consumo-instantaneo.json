@@ -1,0 +1,499 @@
+[
+  {
+    "namespace": "orion-stg",
+    "pod": "orion-web-55c9949759-c52k5",
+    "container": "orion-web",
+    "memory": {
+      "timestamp": "1795029511257180338",
+      "workingSetBytes": {
+        "value": "73404416"
+      },
+      "availableBytes": {
+        "value": "195031040"
+      },
+      "usageBytes": {
+        "value": "73416704"
+      },
+      "rssBytes": {
+        "value": "70766592"
+      },
+      "pageFaults": {
+        "value": "40022"
+      },
+      "majorPageFaults": {
+        "value": "4"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511257180338",
+      "usageCoreNanoSeconds": {
+        "value": "3944540000"
+      },
+      "usageNanoCores": {
+        "value": "971129"
+      }
+    }
+  },
+  {
+    "namespace": "orion-stg",
+    "pod": "orion-web-5c5cc75965-trj68",
+    "container": "aguardar-postgres",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "orion-dev",
+    "pod": "postgres-7967b95747-d9p4v",
+    "container": "postgres",
+    "memory": {
+      "timestamp": "1795029511280982717",
+      "workingSetBytes": {
+        "value": "28262400"
+      },
+      "availableBytes": {
+        "value": "240173056"
+      },
+      "usageBytes": {
+        "value": "71553024"
+      },
+      "rssBytes": {
+        "value": "5496832"
+      },
+      "pageFaults": {
+        "value": "285863"
+      },
+      "majorPageFaults": {
+        "value": "0"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511280982717",
+      "usageCoreNanoSeconds": {
+        "value": "7189963000"
+      },
+      "usageNanoCores": {
+        "value": "14145849"
+      }
+    }
+  },
+  {
+    "namespace": "orion-stg",
+    "pod": "orion-web-55c9949759-dc7fq",
+    "container": "aguardar-postgres",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "nyx-dev",
+    "pod": "nyx-api-68f58d9d99-kcj4x",
+    "container": "nyx-api",
+    "memory": {
+      "timestamp": "1795029511296769363",
+      "workingSetBytes": {
+        "value": "33095680"
+      },
+      "availableBytes": {
+        "value": "235339776"
+      },
+      "usageBytes": {
+        "value": "33112064"
+      },
+      "rssBytes": {
+        "value": "30318592"
+      },
+      "pageFaults": {
+        "value": "25636"
+      },
+      "majorPageFaults": {
+        "value": "0"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511296769363",
+      "usageCoreNanoSeconds": {
+        "value": "2805218000"
+      },
+      "usageNanoCores": {
+        "value": "9236579"
+      }
+    }
+  },
+  {
+    "namespace": "nyx-dev",
+    "pod": "nyx-api-68f58d9d99-kcj4x",
+    "container": "aguardar-postgres",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "nyx-prod",
+    "pod": "nyx-api-765f67f4cf-8gfhc",
+    "container": "nyx-api",
+    "memory": {
+      "timestamp": "1795029511252254922",
+      "workingSetBytes": {
+        "value": "32825344"
+      },
+      "availableBytes": {
+        "value": "235610112"
+      },
+      "usageBytes": {
+        "value": "32837632"
+      },
+      "rssBytes": {
+        "value": "30048256"
+      },
+      "pageFaults": {
+        "value": "25552"
+      },
+      "majorPageFaults": {
+        "value": "0"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511252254922",
+      "usageCoreNanoSeconds": {
+        "value": "2728246000"
+      },
+      "usageNanoCores": {
+        "value": "8765227"
+      }
+    }
+  },
+  {
+    "namespace": "nyx-prod",
+    "pod": "nyx-api-596685445-dqwb5",
+    "container": "aguardar-postgres",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "orion-dev",
+    "pod": "orion-web-5767777f8d-qdsx2",
+    "container": "aguardar-postgres",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "orion-dev",
+    "pod": "orion-web-5767777f8d-qdsx2",
+    "container": "orion-web",
+    "memory": {
+      "timestamp": "1795029511268855501",
+      "workingSetBytes": {
+        "value": "73351168"
+      },
+      "availableBytes": {
+        "value": "195084288"
+      },
+      "usageBytes": {
+        "value": "73363456"
+      },
+      "rssBytes": {
+        "value": "70709248"
+      },
+      "pageFaults": {
+        "value": "39770"
+      },
+      "majorPageFaults": {
+        "value": "4"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511268855501",
+      "usageCoreNanoSeconds": {
+        "value": "4514670000"
+      },
+      "usageNanoCores": {
+        "value": "1364952"
+      }
+    }
+  },
+  {
+    "namespace": "nyx-stg",
+    "pod": "postgres-55bd49c7b8-g58gb",
+    "container": "postgres",
+    "memory": {
+      "timestamp": "1795029511298161719",
+      "workingSetBytes": {
+        "value": "27856896"
+      },
+      "availableBytes": {
+        "value": "240578560"
+      },
+      "usageBytes": {
+        "value": "72830976"
+      },
+      "rssBytes": {
+        "value": "3874816"
+      },
+      "pageFaults": {
+        "value": "318514"
+      },
+      "majorPageFaults": {
+        "value": "0"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511298161719",
+      "usageCoreNanoSeconds": {
+        "value": "7097120000"
+      },
+      "usageNanoCores": {
+        "value": "17865141"
+      }
+    }
+  },
+  {
+    "namespace": "nyx-stg",
+    "pod": "nyx-api-55b7f99dd9-c7st8",
+    "container": "aguardar-postgres",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "nyx-dev",
+    "pod": "postgres-75ff7f7b7-jq8k4",
+    "container": "postgres",
+    "memory": {
+      "timestamp": "1795029511291835616",
+      "workingSetBytes": {
+        "value": "28033024"
+      },
+      "availableBytes": {
+        "value": "240402432"
+      },
+      "usageBytes": {
+        "value": "75730944"
+      },
+      "rssBytes": {
+        "value": "3874816"
+      },
+      "pageFaults": {
+        "value": "320945"
+      },
+      "majorPageFaults": {
+        "value": "0"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511291835616",
+      "usageCoreNanoSeconds": {
+        "value": "6641054000"
+      },
+      "usageNanoCores": {
+        "value": "12673164"
+      }
+    }
+  },
+  {
+    "namespace": "orion-stg",
+    "pod": "orion-web-55c9949759-c52k5",
+    "container": "aguardar-postgres",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "nyx-prod",
+    "pod": "nyx-api-765f67f4cf-8vlc8",
+    "container": "aguardar-postgres",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "nyx-prod",
+    "pod": "nyx-api-596685445-dqwb5",
+    "container": "nyx-api",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "orion-stg",
+    "pod": "orion-web-55c9949759-dc7fq",
+    "container": "orion-web",
+    "memory": {
+      "timestamp": "1795029511284248725",
+      "workingSetBytes": {
+        "value": "73420800"
+      },
+      "availableBytes": {
+        "value": "195014656"
+      },
+      "usageBytes": {
+        "value": "73433088"
+      },
+      "rssBytes": {
+        "value": "70778880"
+      },
+      "pageFaults": {
+        "value": "39939"
+      },
+      "majorPageFaults": {
+        "value": "4"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511284248725",
+      "usageCoreNanoSeconds": {
+        "value": "4324585000"
+      },
+      "usageNanoCores": {
+        "value": "1445523"
+      }
+    }
+  },
+  {
+    "namespace": "nyx-stg",
+    "pod": "nyx-api-55b7f99dd9-c7st8",
+    "container": "nyx-api",
+    "memory": {
+      "timestamp": "1795029511286456977",
+      "workingSetBytes": {
+        "value": "32514048"
+      },
+      "availableBytes": {
+        "value": "235921408"
+      },
+      "usageBytes": {
+        "value": "32522240"
+      },
+      "rssBytes": {
+        "value": "29798400"
+      },
+      "pageFaults": {
+        "value": "25580"
+      },
+      "majorPageFaults": {
+        "value": "0"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511286456977",
+      "usageCoreNanoSeconds": {
+        "value": "2201541000"
+      },
+      "usageNanoCores": {
+        "value": "8138628"
+      }
+    }
+  },
+  {
+    "namespace": "nyx-prod",
+    "pod": "nyx-api-765f67f4cf-8gfhc",
+    "container": "aguardar-postgres",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "nyx-prod",
+    "pod": "nyx-api-765f67f4cf-8vlc8",
+    "container": "nyx-api",
+    "memory": {
+      "timestamp": "1795029511278716144",
+      "workingSetBytes": {
+        "value": "32428032"
+      },
+      "availableBytes": {
+        "value": "236007424"
+      },
+      "usageBytes": {
+        "value": "32436224"
+      },
+      "rssBytes": {
+        "value": "29691904"
+      },
+      "pageFaults": {
+        "value": "30889"
+      },
+      "majorPageFaults": {
+        "value": "0"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511278716144",
+      "usageCoreNanoSeconds": {
+        "value": "2503680000"
+      },
+      "usageNanoCores": {
+        "value": "9815583"
+      }
+    }
+  },
+  {
+    "namespace": "orion-stg",
+    "pod": "orion-web-5c5cc75965-ljcff",
+    "container": "aguardar-postgres",
+    "memory": null,
+    "cpu": null
+  },
+  {
+    "namespace": "orion-stg",
+    "pod": "postgres-66c6c6999b-srrb2",
+    "container": "postgres",
+    "memory": {
+      "timestamp": "1795029511282114223",
+      "workingSetBytes": {
+        "value": "33013760"
+      },
+      "availableBytes": {
+        "value": "235421696"
+      },
+      "usageBytes": {
+        "value": "74166272"
+      },
+      "rssBytes": {
+        "value": "7147520"
+      },
+      "pageFaults": {
+        "value": "291146"
+      },
+      "majorPageFaults": {
+        "value": "0"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511282114223",
+      "usageCoreNanoSeconds": {
+        "value": "7541562000"
+      },
+      "usageNanoCores": {
+        "value": "13222746"
+      }
+    }
+  },
+  {
+    "namespace": "nyx-prod",
+    "pod": "postgres-6858fb5b89-mg6qb",
+    "container": "postgres",
+    "memory": {
+      "timestamp": "1795029511299230535",
+      "workingSetBytes": {
+        "value": "28516352"
+      },
+      "availableBytes": {
+        "value": "239919104"
+      },
+      "usageBytes": {
+        "value": "72880128"
+      },
+      "rssBytes": {
+        "value": "3878912"
+      },
+      "pageFaults": {
+        "value": "327690"
+      },
+      "majorPageFaults": {
+        "value": "0"
+      }
+    },
+    "cpu": {
+      "timestamp": "1795029511299230535",
+      "usageCoreNanoSeconds": {
+        "value": "6884336000"
+      },
+      "usageNanoCores": {
+        "value": "12558354"
+      }
+    }
+  }
+]

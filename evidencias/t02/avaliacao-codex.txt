@@ -1,0 +1,17 @@
+rota-03 concluído
+rota-01 concluído
+rota-02 concluído
+rota-04 concluído
+rota-06 concluído
+rota-05 concluído
+rota-07 concluído
+rota-08 concluído
+rota-09 concluído
+rota-10 concluído
+nyx-prod-com-skill concluído
+nyx-prod-sem-skill concluído
+orion-stg-com-skill concluído
+nyx-stg-com-skill concluído
+nyx-stg-sem-skill concluído
+manifesto-sem-skill concluído
+manifesto-com-skill concluído

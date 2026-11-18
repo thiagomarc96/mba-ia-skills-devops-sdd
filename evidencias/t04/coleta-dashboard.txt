@@ -1,0 +1,8 @@
+nyx-dev passou
+orion-dev passou
+nyx-prod passou
+orion-stg passou
+nyx-stg passou
+acesso-parcial passou
+credencial-expirada passou
+cluster-indisponivel passou

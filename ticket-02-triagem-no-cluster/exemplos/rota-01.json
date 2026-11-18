@@ -1,0 +1,46 @@
+{
+  "entrada": {
+    "frase": "o pod do nyx-prod não sobe",
+    "esperado": "triagem-cluster",
+    "catalogo": "descrições das duas skills"
+  },
+  "resposta": "triagem-cluster",
+  "segundos": 7.035,
+  "usage": {
+    "input_tokens": 24079,
+    "cached_input_tokens": 13696,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 8,
+    "reasoning_output_tokens": 0
+  },
+  "custo_monetario": null,
+  "codigo": 0,
+  "eventos_codex": [
+    {
+      "type": "thread.started",
+      "thread_id": "01a1f017-e9ae-74d3-bd4a-9103bede8d33"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "agent_message",
+        "text": "triagem-cluster"
+      }
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 24079,
+        "cached_input_tokens": 13696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "stderr": ""
+}

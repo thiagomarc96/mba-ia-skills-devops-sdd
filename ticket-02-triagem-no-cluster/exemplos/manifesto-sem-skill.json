@@ -1,0 +1,45 @@
+{
+  "entrada": {
+    "modo": "sem-skill",
+    "arquivo": "manifesto-barrado.yaml"
+  },
+  "resposta": "A revisão estática do YAML aponta um erro que impede a criação do Deployment e um seletor que impede o Service de encaminhar tráfego aos Pods desse Deployment.\n\n| Gravidade | Achado | Impacto |\n|---|---|---|\n| Bloqueante | O nome `NyxAPI` contém maiúsculas. O nome de um Deployment deve seguir o formato DNS subdomain, que exige letras minúsculas. | A API do Kubernetes rejeita o Deployment. O Service pode ser criado separadamente. |\n| Alta | O Service seleciona `app: nyx-api`, mas o template dos Pods define `app: nyxapi`. | Mesmo após corrigir o nome do Deployment, o Service não encaminhará tráfego a esses Pods. Se houver outros Pods com `app: nyx-api` no namespace, o Service poderá encaminhar tráfego a eles. |\n| Operacional | A imagem usa a tag mutável `:latest`. | Pods criados em momentos diferentes podem executar versões diferentes com o mesmo manifesto. Isso dificulta reproduzir e reverter uma versão. |\n| Operacional | O Deployment define apenas uma réplica. | Se o único Pod disponível falhar, a aplicação fica indisponível até que outro esteja pronto. |\n| Operacional | `DATABASE_URL` recebe o literal `VALOR_DE_EXEMPLO`. | Se a aplicação exigir uma URL de banco válida, ela pode falhar na inicialização ou ao acessar o banco. Se o valor for substituído por uma URL com credenciais no próprio YAML, essas credenciais ficarão expostas a quem puder ler o manifesto. |\n\nO seletor do Deployment corresponde aos rótulos do template. O mapeamento da porta `80` do Service para a `8080` dos Pods também é coerente com a porta declarada no contêiner.",
+  "segundos": 12.843,
+  "usage": {
+    "input_tokens": 24082,
+    "cached_input_tokens": 22656,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 382,
+    "reasoning_output_tokens": 0
+  },
+  "custo_monetario": null,
+  "codigo": 0,
+  "eventos_codex": [
+    {
+      "type": "thread.started",
+      "thread_id": "01a1f018-7290-7110-95f7-0747f0074a76"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "agent_message",
+        "text": "A revisão estática do YAML aponta um erro que impede a criação do Deployment e um seletor que impede o Service de encaminhar tráfego aos Pods desse Deployment.\n\n| Gravidade | Achado | Impacto |\n|---|---|---|\n| Bloqueante | O nome `NyxAPI` contém maiúsculas. O nome de um Deployment deve seguir o formato DNS subdomain, que exige letras minúsculas. | A API do Kubernetes rejeita o Deployment. O Service pode ser criado separadamente. |\n| Alta | O Service seleciona `app: nyx-api`, mas o template dos Pods define `app: nyxapi`. | Mesmo após corrigir o nome do Deployment, o Service não encaminhará tráfego a esses Pods. Se houver outros Pods com `app: nyx-api` no namespace, o Service poderá encaminhar tráfego a eles. |\n| Operacional | A imagem usa a tag mutável `:latest`. | Pods criados em momentos diferentes podem executar versões diferentes com o mesmo manifesto. Isso dificulta reproduzir e reverter uma versão. |\n| Operacional | O Deployment define apenas uma réplica. | Se o único Pod disponível falhar, a aplicação fica indisponível até que outro esteja pronto. |\n| Operacional | `DATABASE_URL` recebe o literal `VALOR_DE_EXEMPLO`. | Se a aplicação exigir uma URL de banco válida, ela pode falhar na inicialização ou ao acessar o banco. Se o valor for substituído por uma URL com credenciais no próprio YAML, essas credenciais ficarão expostas a quem puder ler o manifesto. |\n\nO seletor do Deployment corresponde aos rótulos do template. O mapeamento da porta `80` do Service para a `8080` dos Pods também é coerente com a porta declarada no contêiner."
+      }
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 24082,
+        "cached_input_tokens": 22656,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 382,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "stderr": ""
+}

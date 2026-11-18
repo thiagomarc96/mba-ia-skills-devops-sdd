@@ -1,40 +1,35 @@
-# Dashboard do cluster
+# Dashboard do cluster — T04
 
-Dashboard local somente leitura, em Python e HTML/JS sem dependências externas. Exibe namespaces, pods, deployments, services/EndpointSlices e os 50 eventos mais recentes do namespace. Busca por nome e atualização manual.
-
-## Executar
-
-Pré-requisitos: Python 3.10+, kubectl e kubeconfig já configurado. A aplicação consulta o contexto corrente ao iniciar e fixa seu nome até ser encerrada. Não editar a definição desse contexto durante o uso.
+Dashboard local de leitura em Python/HTML/JS, com kubectl no contexto do kubeconfig. Exibe namespaces, pods, deployments, Services/EndpointSlices e os 50 eventos recentes, com busca e atualização manual.
 
 ```sh
-python dashboard.py
-# Abra http://127.0.0.1:8088
+export KUBECONFIG=/caminho/privado/ro.config
+python3 dashboard.py --context kind-desafio03
+# http://127.0.0.1:8088 ; encerrar com Ctrl+C
+python3 -m unittest -v
 ```
 
-Outra porta: `python dashboard.py --porta 8089`. Encerrar com Ctrl+C. Na tela, digite ou escolha o namespace e clique em Atualizar. Os nomes dos namespaces são sugeridos quando a conta permite listá-los; sem essa permissão é possível digitar um namespace conhecido.
+Sem `--context`, fixa o contexto corrente ao iniciar. No laboratório todas as consultas foram explicitamente fixadas em `kind-desafio03`. Namespace validado, lista fechada de recursos e comandos get, timeouts de 10/15 segundos, sem Secrets/exec/shell ou rota de escrita. Servidor somente em loopback, sem CORS. Nome do contexto fixado não impede edição externa do próprio kubeconfig.
 
-A autenticação fica a cargo do kubectl, incluindo plugins exec existentes. O programa não pede, armazena ou imprime credenciais. Credencial expirada, cluster indisponível e permissão parcial aparecem na tela. Falha de leitura de EndpointSlice significa estado desconhecido, não ausência de endpoints.
-
-## Somente leitura
-
-Comandos fixos: `kubectl config current-context` e `kubectl --context CONTEXTO get RECURSO -o json`, com timeout. Os seis recursos permitidos estão em `RESOURCES`; o namespace é validado. Nenhum comando de escrita, shell, exec remoto ou rota de mutação. Servidor apenas em 127.0.0.1 e sem CORS. Estado Ready reportado pela API não equivale a saúde funcional.
-
-## Processo e verificação
-
-- [Brainstorm e alternativas](brainstorm.md), anterior ao código.
-- [Proposta](openspec/changes/dashboard-local/proposal.md), [design](openspec/changes/dashboard-local/design.md), [spec](openspec/changes/dashboard-local/specs/dashboard/spec.md) e [tarefas](openspec/changes/dashboard-local/tasks.md), escritos antes da implementação.
-- [Curadoria e limites](curadoria.md).
+O coletor [coletar.py](coletar.py) usa o mesmo adaptador Kubernetes real e atravessa o backend HTTP. Os oito arquivos em [exemplos/fixtures](exemplos/fixtures/) contêm respostas da API, consultas feitas, resposta do backend e horário de coleta. Esses dados são snapshots para revisão, sem replay de um cluster.
 
 ```sh
-python -m unittest -v
+export KUBECONFIG_RO=/caminho/privado/ro.config
+export KUBECONFIG_REVOGADO=/caminho/privado/revoked.config
+export KUBECONFIG_INDISPONIVEL=/caminho/privado/unavailable.config
+python3 coletar.py
 ```
 
-## Exemplos
+| Cenário real | Verificação |
+|---|---|
+| nyx-dev / orion-dev | Apps e PostgreSQL prontos, nenhum erro de coleta. |
+| nyx-prod | OOMKilled em pod novo, revisões antigas preservadas. |
+| orion-stg | ImagePullBackOff/ErrImagePull na tag nova, pods antigos prontos. |
+| nyx-stg | API Ready, Service sem endpoint pronto por selector. |
+| acesso-parcial | platform-ro lê pods e demais recursos; EndpointSlice retorna 403 e fica desconhecida. |
+| credencial-expirada | Token ligado a Secret revogado, API retorna 401; seis erros de autenticação na tela. |
+| cluster-indisponivel | Porta inválida em cópia privada do kubeconfig, conexão recusada; seis erros de conexão. |
 
-```sh
-python simular.py
-# Abra http://127.0.0.1:8089
-python simular.py --gerar-exemplos
-```
+O cenário de credencial usa revogação real, não espera o relógio de expiração do token. A porta incorreta afeta apenas o kubeconfig isolado; o cluster continuou disponível para as demais consultas. Os códigos HTTP brutos e comportamento das skills estão em [evidencias/t04](../evidencias/t04/).
 
-Os namespaces representam oito cenários: kube-news e fake-shop prontos; CrashLoopBackOff/OOMKilled; ImagePullBackOff; Service sem endpoint; acesso parcial; credencial expirada; cluster indisponível. Entradas e respostas do backend estão em [exemplos/fixtures](exemplos/fixtures/).
+[Brainstorm](brainstorm.md), [proposta](openspec/changes/dashboard-local/proposal.md), [design](openspec/changes/dashboard-local/design.md), [spec](openspec/changes/dashboard-local/specs/dashboard/spec.md), [tarefas](openspec/changes/dashboard-local/tasks.md) e [curadoria](curadoria.md). Os READMEs registram as limitações sem equiparar Ready a saúde funcional ou erro de permissão a conjunto vazio.

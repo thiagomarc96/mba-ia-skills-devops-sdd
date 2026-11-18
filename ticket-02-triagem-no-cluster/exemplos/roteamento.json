@@ -1,0 +1,62 @@
+[
+  {
+    "frase": "o pod do nyx-prod não sobe",
+    "esperado": "triagem-cluster",
+    "obtido": "triagem-cluster",
+    "acerto": true
+  },
+  {
+    "frase": "por que esse deployment está 0/3",
+    "esperado": "triagem-cluster",
+    "obtido": "triagem-cluster",
+    "acerto": true
+  },
+  {
+    "frase": "o service do nyx-stg não tem endpoint",
+    "esperado": "triagem-cluster",
+    "obtido": "triagem-cluster",
+    "acerto": true
+  },
+  {
+    "frase": "revisa esse deployment antes de eu subir",
+    "esperado": "manifests-metacortex",
+    "obtido": "manifests-metacortex",
+    "acerto": true
+  },
+  {
+    "frase": "esse manifesto está no padrão da casa?",
+    "esperado": "manifests-metacortex",
+    "obtido": "manifests-metacortex",
+    "acerto": true
+  },
+  {
+    "frase": "cria um Deployment novo do zero pra mim",
+    "esperado": "manifests-metacortex",
+    "obtido": "manifests-metacortex",
+    "acerto": true
+  },
+  {
+    "frase": "esse manifesto não sobe no cluster",
+    "esperado": "esclarecer",
+    "obtido": "esclarecer",
+    "acerto": true
+  },
+  {
+    "frase": "o Service do nyx não está entregando tráfego",
+    "esperado": "triagem-cluster",
+    "obtido": "triagem-cluster",
+    "acerto": true
+  },
+  {
+    "frase": "o que é um DaemonSet?",
+    "esperado": "nenhuma",
+    "obtido": "nenhuma",
+    "acerto": true
+  },
+  {
+    "frase": "provisiona uma VM nova no Construct pro cliente orion",
+    "esperado": "nenhuma",
+    "obtido": "nenhuma",
+    "acerto": true
+  }
+]

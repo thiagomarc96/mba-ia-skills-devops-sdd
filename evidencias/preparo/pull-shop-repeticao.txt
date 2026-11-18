@@ -1,0 +1,4 @@
+v1: Pulling from fabricioveronez/fake-shop
+Digest: sha256:07db4334f5f2bb330f0f342a81ad203bb21b770b8d7a27c90edb2261fea34e2f
+Status: Image is up to date for fabricioveronez/fake-shop:v1
+docker.io/fabricioveronez/fake-shop:v1

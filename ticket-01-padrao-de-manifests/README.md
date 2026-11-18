@@ -1,47 +1,28 @@
-# Padrão de manifests
+# Padrão de manifests — T01
 
-Skill em `skill/SKILL.md`, verificador em `skill/scripts/conferir.py` e critérios em `skill/references/criterios.md`.
-
-## Uso
+A skill [manifests-metacortex](skill/SKILL.md) foi executada nos modos escrita e conferência em 18/11/2026. O fluxo começou com `trivy config manifests/`, antes de gerar os novos arquivos. A [cobertura medida e curadoria](../evidencias/t01/cobertura.md) inclui achados, divisão de controles e saídas ruins.
 
 ```sh
-python -m pip install -r requirements.txt
-python skill/scripts/conferir.py manifests/nyx-api.yaml
+python3 -m pip install -r requirements.txt
 trivy config manifests/
+python3 gerar_laboratorio.py
+python3 skill/scripts/conferir.py manifests/*.yaml
+python3 skill/scripts/conferir.py exemplos/manifesto-barrado.yaml
+trivy config --skip-version-check --format json manifests/
+python3 gerar_exemplos.py
+python3 -m unittest discover -s tests -v
 ```
 
-O script verifica somente o recorte mecânico descrito nos critérios. Saída 0 significa ausência de achados nesse recorte, não conformidade integral; 1 indica achados; 2 entrada inválida. Não acessa cluster nem executa Trivy automaticamente.
+O verificador retorna 0 sem achados no seu recorte, 1 com achados e 2 para entrada inválida. Ele nunca aplica recursos nem executa o Trivy automaticamente. A aplicação do laboratório foi uma etapa externa à skill, autorizada separadamente.
 
-## Origem e curadoria
+Na escrita foram gerados manifests para nyx-dev, orion-dev, nyx-prod, orion-stg e nyx-stg. Os dois projetos ficaram Running/Ready, com banco em cada namespace: [nyx](../evidencias/t01/kubectl-get-all-nyx-dev.txt) e [orion](../evidencias/t01/kubectl-get-all-orion-dev.txt). O gerador é portátil e produz somente YAML; o Secret é criado pelo preparo do laboratório em memória, via stdin, com valor aleatório fora do Git.
 
-Origem: análise do padrão e do código do kube-news com Codex. O fluxo operacional ainda não foi executado.
+Fontes consultadas: [kube-news aab9356](https://github.com/KubeDev/kube-news/tree/aab93563069d184c66dd1f0359bd131ffbe34433) e [fake-shop a3fa74f](https://github.com/KubeDev/fake-shop/tree/a3fa74fcadea2f163dd785313b119d4c8e03ecea). Portas, variáveis, migração e encerramento foram lidos no código. Os hashes dos arquivos presentes nas imagens estão em [imagens-codigo-hashes.txt](../evidencias/t01/imagens-codigo-hashes.txt). `server.js` da imagem tem hash diferente do checkout; `system-life.js` e `models/post.js` coincidem. As rotas e variáveis usadas foram conferidas nesses arquivos e na execução real. `index.py` e `entrypoint.sh` de fake-shop coincidem com a fonte.
 
-O corpo contém gatilhos, limites e sequência. Regras detalhadas ficam em referência consultada sob demanda. O script concentra identidade, namespace, labels, seletores, política de produção, registry e referências de segredos. O glossário Kubernetes não foi empacotado: não é procedimento operacional. Regras gerais de segurança/resiliência são conferidas com Trivy e revisão explícita; não se afirma qual cobertura o Trivy tem sem executá-lo.
+- kube-news: porta 8080; `/health` e `/ready` existem, mas não validam banco. Usa DB_HOST, DB_DATABASE, DB_USERNAME, DB_PASSWORD e DB_PORT; `DATABASE_URL` do manifesto barrado não é consumida.
+- fake-shop: porta 5000; `/` consulta produtos; não oferece `/health`. O entrypoint migra antes de iniciar gunicorn. `/tmp` é gravável; o rootfs e o código ficam em leitura. A liveness TCP é uma exceção explícita de laboratório, pendente de endpoint funcional distinto antes de produção.
+- Todas as imagens dos apps são públicas e fixadas por digest; PostgreSQL usa a versão 16.6-alpine. Execução confirmou UID/GID 10001, rootfs de leitura, capabilities removidas e RuntimeDefault nos devs finais.
 
-Permissões: leitura dos arquivos do projeto e execução local do verificador/Trivy; no modo escrita, criar arquivos de manifests no workspace autorizado. Sem apply, acesso a Secret, cluster ou produção. A skill não exige rede para conferir YAML já disponível.
+Na conferência, o manifesto original foi preservado e bloqueado: [saída real](../evidencias/t01/skill-conferencia.json), [revisão por regra](../evidencias/t01/cobertura.md). O marcador `VALOR_DE_EXEMPLO` não é uma credencial real. O Trivy identificou 18 ocorrências/17 IDs; a versão final do script tem 19 ocorrências/6 regras, removendo o controle duplicado de latest. Em 14 famílias com achado, Trivy cobre 3 (21,43%) e somente skill cobre 11 (78,57%).
 
-## Projeto escolhido
-
-Fonte: [kube-news, commit aab9356](https://github.com/KubeDev/kube-news/tree/aab93563069d184c66dd1f0359bd131ffbe34433).
-
-- `src/server.js`: porta 8080; inicia sincronização de schema.
-- `src/system-life.js`: `/health` e `/ready` existem, mas não testam banco. Readiness não prova disponibilidade funcional de PostgreSQL.
-- `src/models/post.js`: variáveis `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`, `DB_PORT`. O manifesto barrado usa `DATABASE_URL`, que esse código não consome.
-
-`manifests/nyx-api.yaml` pressupõe namespace `nyx-prod`, PostgreSQL provisionado e Secret `nyx-db` com chaves host, database, username e password. Confirmar a imagem interna e sua imutabilidade, compatibilidade com UID 10001/rootfs somente leitura e sizing conforme consumo. Recursos iniciais: 100m/128Mi de requests e 500m/256Mi de limits.
-
-## Conferência estática do manifesto barrado
-
-Leitura do enunciado, não saída de execução da skill:
-
-- `NyxAPI` viola nomenclatura; quatro labels obrigatórias ausentes.
-- Service seleciona `app: nyx-api`, mas o pod usa `app: nyxapi`.
-- Produção com uma réplica, sem estratégia explícita exigida e sem PDB recomendado.
-- Requests/limits, probes e securityContext exigidos ausentes.
-- Imagem `latest`; credencial em texto puro; token de service account não desabilitado.
-- `DATABASE_URL` não corresponde às variáveis lidas pelo código consultado.
-- Namespace `nyx-prod` e registry interno atendem ao formato. Dono, runbook e service account dedicada não foram informados.
-
-## Exemplos
-
-`python gerar_exemplos.py` produz [conferência](exemplos/conferencia.json) do [manifesto barrado](exemplos/manifesto-barrado.yaml) e [verificação da escrita](exemplos/escrita.json).
+Os manifests de laboratório continuam com 16 achados do script (registry público e PostgreSQL com uma réplica em prod) e 5 KSV-0125 do Trivy. Não estão aprovados como conformes para produção. PDB, owner/runbook, HA, probes funcionais distintas no fake-shop e dimensionamento sob carga requerem decisão adicional. A amostra instantânea de consumo não representa pico. O banco usa emptyDir: substituir seu pod perde o conteúdo de estudo e exige reaplicar schema; isso foi observado e registrado.

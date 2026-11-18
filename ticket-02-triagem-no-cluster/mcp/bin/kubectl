@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# Impede opções que troquem credencial/alvo e permite somente leituras.
+for arg in "$@"; do
+  case "$arg" in
+    --context*|--kubeconfig*|--server*|--token*|--certificate-authority*|--client-*|--as*|--user*|--cluster*|--insecure*)
+      echo 'Opção de alteração do alvo/autenticação recusada.' >&2; exit 64 ;;
+  esac
+done
+case "${1:-}" in
+  get|describe|logs|explain|api-resources) ;;
+  *) echo 'Operação fora da lista de leitura recusada.' >&2; exit 64 ;;
+esac
+exec "$HOME/.local/bin/kubectl" --context kind-desafio03 --request-timeout=5s "$@"

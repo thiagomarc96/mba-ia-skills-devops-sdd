@@ -1,48 +1,45 @@
 {
-  "tipo": "exemplo",
-  "origem": "cenários do dashboard",
-  "comando": "python simular.py --gerar-exemplos",
+  "origem": "execução real",
   "cenarios": [
     {
-      "namespace": "nyx-dev",
+      "cenario": "nyx-dev",
       "verificacao": "passou",
       "http_status": 200
     },
     {
-      "namespace": "orion-dev",
+      "cenario": "orion-dev",
       "verificacao": "passou",
       "http_status": 200
     },
     {
-      "namespace": "nyx-prod",
+      "cenario": "nyx-prod",
       "verificacao": "passou",
       "http_status": 200
     },
     {
-      "namespace": "orion-stg",
+      "cenario": "orion-stg",
       "verificacao": "passou",
       "http_status": 200
     },
     {
-      "namespace": "nyx-stg",
+      "cenario": "nyx-stg",
       "verificacao": "passou",
       "http_status": 200
     },
     {
-      "namespace": "acesso-parcial",
+      "cenario": "acesso-parcial",
       "verificacao": "passou",
       "http_status": 200
     },
     {
-      "namespace": "credencial-expirada",
+      "cenario": "credencial-expirada",
       "verificacao": "passou",
       "http_status": 200
     },
     {
-      "namespace": "cluster-indisponivel",
+      "cenario": "cluster-indisponivel",
       "verificacao": "passou",
       "http_status": 200
     }
-  ],
-  "arquivos_estaticos": "3 rotas HTTP verificadas"
+  ]
 }

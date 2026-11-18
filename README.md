@@ -1,14 +1,12 @@
-# Skills de DevOps e Projetos com SDD
+# Desafio 03 — Skills de DevOps e SDD
 
-Skills e ferramentas para os quatro tickets da Metacortex.
+Estudo pessoal de Thiago, com execução em 18/11/2026 no cluster local `kind-desafio03`. Os tickets T01, T02 e T04 têm evidências coletadas da API Kubernetes. Os dois projetos KubeDev usados são kube-news/nyx e fake-shop/orion, em namespaces separados.
 
-| Ticket | Entrega |
-|---|---|
-| [01 — Padrão de manifests](ticket-01-padrao-de-manifests/README.md) | Skill, verificador e manifests Kubernetes |
-| [02 — Triagem no cluster](ticket-02-triagem-no-cluster/README.md) | Skill, método de triagem e roteamento |
-| [03 — Inventário de VM](ticket-03-inventario-de-vm/README.md) | Coleta SSH, baseline e relatórios JSON/Markdown |
-| [04 — Dashboard do cluster](ticket-04-dashboard-do-cluster/README.md) | Interface local de consulta ao Kubernetes |
+- [T01: escrita, conferência e cobertura Trivy medida](ticket-01-padrao-de-manifests/README.md).
+- [T02: MCP de leitura, três chamados e medições](ticket-02-triagem-no-cluster/README.md).
+- [T03: inventário de VM](ticket-03-inventario-de-vm/README.md).
+- [T04: dashboard e oito cenários coletados](ticket-04-dashboard-do-cluster/README.md).
+- [Reprodução do laboratório e segurança](laboratorio/README.md).
+- [Índice das evidências e validações](evidencias/README.md).
 
-Cada pasta reúne instruções de uso, artefatos e curadoria. Os projetos incluem especificações e testes unitários.
-
-Validação local: 35 testes unitários. Exemplos reproduzíveis nas pastas dos tickets.
+O laboratório utiliza imagens públicas por digest e credenciais efêmeras fora do Git. Exceções ao padrão Metacortex e limitações de produção constam na curadoria de cada ticket. O cluster é removido no fechamento; a confirmação fica em `evidencias/preparo/limpeza.txt`. A entrega permanece em branch local, sem publicação remota.

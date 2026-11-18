@@ -1,0 +1,154 @@
+{
+  "corpus": "exemplos/manifesto-barrado.yaml",
+  "familias_avaliadas": 19,
+  "familias_com_achado_incluindo_recomendacoes": 14,
+  "trivy_familias_do_padrao": 3,
+  "somente_skill_script": 6,
+  "somente_skill_revisao": 5,
+  "somente_skill_total": 11,
+  "trivy_cobertura_percentual": 21.43,
+  "script_apos_remover_duplicacao_latest": {
+    "ocorrencias": 19,
+    "familias": 6
+  },
+  "trivy": {
+    "ocorrencias": 18,
+    "ids_distintos": 17
+  },
+  "metodo": "mapeamento manual por família; KSV-0125 é política genérica de registry, não equivalência à regra 3.7",
+  "regras": [
+    {
+      "regra": "1.1",
+      "criterio": "nome kebab-case",
+      "estado": "falha",
+      "responsavel": "skill/script",
+      "evidencia": "nome NyxAPI"
+    },
+    {
+      "regra": "1.2",
+      "criterio": "namespace cliente-ambiente",
+      "estado": "atende",
+      "responsavel": "skill/script",
+      "evidencia": "nyx-prod"
+    },
+    {
+      "regra": "1.3",
+      "criterio": "quatro labels coerentes",
+      "estado": "falha",
+      "responsavel": "skill/script",
+      "evidencia": "14 ocorrências de labels ausentes/incoerentes"
+    },
+    {
+      "regra": "1.4",
+      "criterio": "seletores entre objetos",
+      "estado": "falha",
+      "responsavel": "skill/script",
+      "evidencia": "nyx-api x nyxapi"
+    },
+    {
+      "regra": "1.5",
+      "criterio": "owner/runbook",
+      "estado": "recomendação ausente",
+      "responsavel": "skill/revisão",
+      "evidencia": "owner ausente; runbook condicionado à existência"
+    },
+    {
+      "regra": "1.6",
+      "criterio": "nome do container",
+      "estado": "depende do projeto",
+      "responsavel": "skill/revisão",
+      "evidencia": "api é genérico; não afirmar violação sem convenção do componente"
+    },
+    {
+      "regra": "2.1",
+      "criterio": "resources",
+      "estado": "falha",
+      "responsavel": "Trivy",
+      "evidencia": "KSV-0011,0015,0016,0018; proporção requer consumo"
+    },
+    {
+      "regra": "2.2",
+      "criterio": "probes e semântica",
+      "estado": "falha",
+      "responsavel": "skill/revisão",
+      "evidencia": "nenhuma probe; Trivy desta rodada não apontou"
+    },
+    {
+      "regra": "2.3",
+      "criterio": "réplicas em prod",
+      "estado": "falha",
+      "responsavel": "skill/script",
+      "evidencia": "1 < 2"
+    },
+    {
+      "regra": "2.4",
+      "criterio": "RollingUpdate 0/1 explícito",
+      "estado": "falha",
+      "responsavel": "skill/script",
+      "evidencia": "estratégia explícita ausente"
+    },
+    {
+      "regra": "2.5",
+      "criterio": "PDB",
+      "estado": "recomendação ausente",
+      "responsavel": "skill/revisão",
+      "evidencia": "PDB não fornecido"
+    },
+    {
+      "regra": "2.6",
+      "criterio": "grace period/SIGTERM",
+      "estado": "depende de observação",
+      "responsavel": "skill/revisão",
+      "evidencia": "default da API não prova encerramento funcional"
+    },
+    {
+      "regra": "3.1",
+      "criterio": "imagem versionada/imutável",
+      "estado": "falha",
+      "responsavel": "Trivy",
+      "evidencia": "KSV-0013 latest; digest ainda exige revisão"
+    },
+    {
+      "regra": "3.2",
+      "criterio": "securityContext",
+      "estado": "falha",
+      "responsavel": "Trivy",
+      "evidencia": "KSV-0001,0003,0004,0012,0014,0020,0021,0030,0104,0106,0118"
+    },
+    {
+      "regra": "3.3",
+      "criterio": "valor sensível por referência",
+      "estado": "falha de padrão",
+      "responsavel": "skill/script",
+      "evidencia": "DATABASE_URL literal é marcador didático; nenhum vazamento real comprovado"
+    },
+    {
+      "regra": "3.4",
+      "criterio": "automount token false",
+      "estado": "falha",
+      "responsavel": "skill/revisão",
+      "evidencia": "omissão permite default habilitado"
+    },
+    {
+      "regra": "3.5",
+      "criterio": "ServiceAccount dedicada",
+      "estado": "recomendação ausente",
+      "responsavel": "skill/revisão",
+      "evidencia": "serviceAccountName ausente"
+    },
+    {
+      "regra": "3.6",
+      "criterio": "hostNetwork/hostPID/privileged",
+      "estado": "atende",
+      "responsavel": "skill/revisão",
+      "evidencia": "ausentes, default desabilitado"
+    },
+    {
+      "regra": "3.7",
+      "criterio": "registry interno",
+      "estado": "atende",
+      "responsavel": "skill/script",
+      "evidencia": "registry.metacortex.io; KSV-0125 não testa esta política específica"
+    }
+  ]
+}

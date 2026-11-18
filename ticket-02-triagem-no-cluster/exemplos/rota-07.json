@@ -1,0 +1,46 @@
+{
+  "entrada": {
+    "frase": "esse manifesto não sobe no cluster",
+    "esperado": "esclarecer",
+    "catalogo": "descrições das duas skills"
+  },
+  "resposta": "esclarecer",
+  "segundos": 4.346,
+  "usage": {
+    "input_tokens": 24085,
+    "cached_input_tokens": 13696,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 7,
+    "reasoning_output_tokens": 0
+  },
+  "custo_monetario": null,
+  "codigo": 0,
+  "eventos_codex": [
+    {
+      "type": "thread.started",
+      "thread_id": "01a1f018-19d9-7433-8dfa-1b04223dbe23"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "agent_message",
+        "text": "esclarecer"
+      }
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 24085,
+        "cached_input_tokens": 13696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "stderr": ""
+}

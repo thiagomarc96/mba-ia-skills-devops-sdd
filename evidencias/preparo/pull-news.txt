@@ -1,0 +1,32 @@
+v1: Pulling from fabricioveronez/kube-news
+8a9ba3353d15: Pulling fs layer
+e2de96513ba9: Pulling fs layer
+c3fb422c2ba3: Pulling fs layer
+2af284e0bab3: Pulling fs layer
+862c5dc468d4: Pulling fs layer
+6b2057a74d68: Pulling fs layer
+f75a03ec0c74: Pulling fs layer
+8b1a461334ee: Pulling fs layer
+c087faf844ce: Pulling fs layer
+e2de96513ba9: Already exists
+862c5dc468d4: Download complete
+8a9ba3353d15: Download complete
+2af284e0bab3: Download complete
+f75a03ec0c74: Download complete
+c087faf844ce: Download complete
+8b1a461334ee: Download complete
+44136fa355b3: Already exists
+6b2057a74d68: Download complete
+c3fb422c2ba3: Download complete
+6ef5cfbdbf7f: Download complete
+c3fb422c2ba3: Pull complete
+2af284e0bab3: Pull complete
+862c5dc468d4: Pull complete
+6b2057a74d68: Pull complete
+f75a03ec0c74: Pull complete
+8b1a461334ee: Pull complete
+c087faf844ce: Pull complete
+8a9ba3353d15: Pull complete
+Digest: sha256:61a97024792d8aa96d97d2618b98924012daeaa6386e2557660cc6ff169d840e
+Status: Downloaded newer image for fabricioveronez/kube-news:v1
+docker.io/fabricioveronez/kube-news:v1

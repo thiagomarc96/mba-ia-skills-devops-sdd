@@ -1,0 +1,19 @@
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/nyx-api-6b6859998d-65f88    1/1     Running   0          16s
+pod/postgres-7594d886fb-zj4hh   1/1     Running   0          111s
+
+NAME               TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+service/nyx-api    ClusterIP   10.96.72.97    <none>        80/TCP     6m1s
+service/postgres   ClusterIP   10.96.51.222   <none>        5432/TCP   6m1s
+
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nyx-api    1/1     1            1           6m1s
+deployment.apps/postgres   1/1     1            1           6m1s
+
+NAME                                  DESIRED   CURRENT   READY   AGE
+replicaset.apps/nyx-api-564dd95f7c    0         0         0       112s
+replicaset.apps/nyx-api-68f58d9d99    0         0         0       4m28s
+replicaset.apps/nyx-api-6b6859998d    1         1         1       16s
+replicaset.apps/nyx-api-879fbdb9      0         0         0       6m1s
+replicaset.apps/postgres-7594d886fb   1         1         1       111s
+replicaset.apps/postgres-75ff7f7b7    0         0         0       6m1s

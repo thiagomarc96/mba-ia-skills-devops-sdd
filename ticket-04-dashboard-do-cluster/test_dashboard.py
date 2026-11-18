@@ -1,4 +1,4 @@
-"""Testes exclusivamente sintéticos. Não acessam Kubernetes ou rede."""
+"""Testes unitários isolados. A coleta de integração fica em coletar.py."""
 import json
 import subprocess
 import unittest
@@ -21,6 +21,17 @@ class DashboardTests(unittest.TestCase):
         with self.assertRaises(ValueError): client.get('secrets', 'default')
         with self.assertRaises(ValueError): client.get('pods', '--all-namespaces')
         self.assertEqual(len(calls), 2)
+
+    def test_explicit_context_avoids_default_and_pins_queries(self):
+        calls = []
+        def run(args, **kwargs):
+            calls.append(args)
+            return SimpleNamespace(returncode=0, stderr='', stdout='{"items":[]}')
+        client = Kubernetes(run, context='kind-desafio03')
+        client.get('pods', 'nyx-dev')
+        self.assertEqual(len(calls), 1)
+        self.assertIn('kind-desafio03', calls[0])
+        self.assertNotIn('config', calls[0])
 
     def test_namespace(self):
         for value in ('default', 'a', 'nyx-stg'): self.assertTrue(valid_namespace(value))

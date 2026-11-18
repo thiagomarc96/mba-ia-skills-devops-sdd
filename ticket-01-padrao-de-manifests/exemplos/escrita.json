@@ -1,8 +1,29 @@
 {
   "arquivo": "manifests/nyx-api.yaml",
-  "codigo": 0,
+  "codigo": 1,
   "resultado": {
     "escopo": "verificação estática parcial; não equivale a conformidade integral",
-    "achados": []
+    "achados": [
+      {
+        "objeto": "nyx-api",
+        "regra": "3.7",
+        "mensagem": "Imagem fora do registry interno"
+      },
+      {
+        "objeto": "nyx-api",
+        "regra": "3.7",
+        "mensagem": "Imagem fora do registry interno"
+      },
+      {
+        "objeto": "postgres",
+        "regra": "2.3",
+        "mensagem": "Produção exige ao menos duas réplicas"
+      },
+      {
+        "objeto": "postgres",
+        "regra": "3.7",
+        "mensagem": "Imagem fora do registry interno"
+      }
+    ]
   }
 }

@@ -1,0 +1,52 @@
+test_doc_invalido (test_conferir.ConferenciaTest.test_doc_invalido) ... ok
+test_latest_registry_e_segredo (test_conferir.ConferenciaTest.test_latest_registry_e_segredo) ... ok
+test_nome_namespace_labels (test_conferir.ConferenciaTest.test_nome_namespace_labels) ... ok
+test_producao (test_conferir.ConferenciaTest.test_producao) ... ok
+test_recorte_mecanico_da_proposta (test_conferir.ConferenciaTest.test_recorte_mecanico_da_proposta) ... ok
+test_selector_incorreto (test_conferir.ConferenciaTest.test_selector_incorreto) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.106s
+
+OK
+test_inacessivel_sem_conformidade (test_exemplos.TestExemplos.test_inacessivel_sem_conformidade) ... ok
+test_relatorios_e_repeticao (test_exemplos.TestExemplos.test_relatorios_e_repeticao) ... ok
+test_arquivo_ausente_nao_e_falha (test_inventario.TestChaves.test_arquivo_ausente_nao_e_falha) ... ok
+test_arquivo_inacessivel (test_inventario.TestChaves.test_arquivo_inacessivel) ... ok
+test_cobertura_completa (test_inventario.TestChaves.test_cobertura_completa) ... ok
+test_configuracao_indisponivel (test_inventario.TestChaves.test_configuracao_indisponivel) ... ok
+test_contagem_explicita (test_inventario.TestChaves.test_contagem_explicita) ... ok
+test_fonte_externa_nao_e_executada (test_inventario.TestChaves.test_fonte_externa_nao_e_executada) ... ok
+test_argumentos_nao_expoem_valores (test_inventario.TestInventario.test_argumentos_nao_expoem_valores) ... ok
+test_comando_somente_leitura (test_inventario.TestInventario.test_comando_somente_leitura) ... ok
+test_conforme (test_inventario.TestInventario.test_conforme) ... ok
+test_desvios_classificados (test_inventario.TestInventario.test_desvios_classificados) ... ok
+test_erro_ssh_nao_reproduz_segredo (test_inventario.TestInventario.test_erro_ssh_nao_reproduz_segredo) ... ok
+test_host_invalido_sem_subprocesso (test_inventario.TestInventario.test_host_invalido_sem_subprocesso) ... ok
+test_parcial_nao_e_conforme (test_inventario.TestInventario.test_parcial_nao_e_conforme) ... ok
+test_redes (test_inventario.TestInventario.test_redes) ... ok
+test_repeticao_e_formatos (test_inventario.TestInventario.test_repeticao_e_formatos) ... ok
+test_socket_proibido (test_inventario.TestInventario.test_socket_proibido) ... ok
+test_versoes (test_inventario.TestInventario.test_versoes) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.029s
+
+OK
+Cinco exemplos gerados: conforme=0, desvio=1, parcial=2, repetição=1, host inacessível=3.
+test_context_pinned_and_only_get (test_dashboard.DashboardTests.test_context_pinned_and_only_get) ... ok
+test_endpoints_missing_unknown_and_external (test_dashboard.DashboardTests.test_endpoints_missing_unknown_and_external) ... ok
+test_explicit_context_avoids_default_and_pins_queries (test_dashboard.DashboardTests.test_explicit_context_avoids_default_and_pins_queries) ... ok
+test_invalid_json (test_dashboard.DashboardTests.test_invalid_json) ... ok
+test_missing_kubectl (test_dashboard.DashboardTests.test_missing_kubectl) ... ok
+test_namespace (test_dashboard.DashboardTests.test_namespace) ... ok
+test_partial_failure_and_zero_ready (test_dashboard.DashboardTests.test_partial_failure_and_zero_ready) ... ok
+test_pod_failure_and_init_restarts (test_dashboard.DashboardTests.test_pod_failure_and_init_restarts) ... ok
+test_pod_missing_optional_fields (test_dashboard.DashboardTests.test_pod_missing_optional_fields) ... ok
+test_slices_aggregate_deduplicate (test_dashboard.DashboardTests.test_slices_aggregate_deduplicate) ... ok
+test_timeout_and_redaction (test_dashboard.DashboardTests.test_timeout_and_redaction) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.001s
+
+OK

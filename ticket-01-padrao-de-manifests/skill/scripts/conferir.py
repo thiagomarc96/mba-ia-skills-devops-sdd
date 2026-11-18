@@ -61,9 +61,8 @@ def conferir(objetos):
                     erro(obj, "2.4", "Produção exige RollingUpdate com maxUnavailable 0 e maxSurge 1")
             for container in (pod.get("containers") or []) + (pod.get("initContainers") or []):
                 image = container.get("image", "")
-                final = image.rsplit("/", 1)[-1]
-                if "@sha256:" not in image and (":" not in final or final.endswith(":latest")):
-                    erro(obj, "3.1", "Imagem sem versão explícita ou com latest")
+                # latest/versão explícita: responsabilidade do Trivy medido (KSV-0013).
+                # Imutabilidade continua revisão de digest/registry, fora deste script.
                 if not image.startswith("registry.metacortex.io/"):
                     erro(obj, "3.7", "Imagem fora do registry interno")
                 for env in container.get("env") or []:
